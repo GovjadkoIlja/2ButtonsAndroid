@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <!--<FrameLayout
+            android:id="@+id/imgContainer1"
+            android:layout_width="@dimen/userPostsPhotoSize"
+            android:layout_height="@dimen/userPostsPhotoSize"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true" >
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/post_photo_border" />
+            <ImageView
+                android:id="@+id/image1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/my_square_photo"
+                />
+
+        </FrameLayout>-->
+
+        <ImageView
+            android:id="@+id/btnPostsPhoto"
+            android:layout_width="@dimen/userPostsPhotoSize"
+            android:layout_height="@dimen/userPostsPhotoSize"
+            android:src="@drawable/my_square_photo"
+            android:layout_marginLeft="@dimen/userPostsMarginLeftPhoto"
+            android:layout_marginTop="@dimen/userPostsMarginAbovePhoto"
+            android:layout_marginRight="@dimen/userPostsMarginRightLogin"/>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tvPostLogin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/userPostsLoginFontSize"
+                    android:textColor="@color/colorBlue"
+                    android:layout_marginRight="@dimen/userPostsMarginRightLogin"/>
+
+                <TextView
+                    android:id="@+id/tvPostAction"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/userPostsActionFontSize"
+                    android:textColor="@color/colorAgeSex"
+                    android:layout_toRightOf="@id/tvPostLogin"
+                    android:layout_alignBaseline="@id/tvPostLogin"/>
+
+                <TextView
+                    android:id="@+id/tvPostDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentTop="true"
+                    android:textColor="@color/colorAgeSex"
+                    android:layout_marginRight="@dimen/userPostsMarginRightPosted"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tvPostCondition"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/userPostsConditionFontSize"/>
+
+                <ImageView
+                    android:id="@+id/ivPostAnswered"
+                    android:layout_width="@dimen/userPostsCheckSize"
+                    android:layout_height="@dimen/userPostsCheckSize"
+                    android:src="@drawable/check"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="@dimen/userPostsMarginRightCheck"/>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        
+    </LinearLayout>
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/userPostsMarginBottomIconsLayout">
+
+        <TextView
+            android:id="@+id/tvPostType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/userPostsMarginRightType"/>
+        
+        <ImageView
+            android:id="@+id/ivPostAnswers"
+            android:layout_width="@dimen/userPostsBadgeSize"
+            android:layout_height="@dimen/userPostsBadgeSize"
+            android:src="@drawable/answers"
+            android:layout_marginRight="@dimen/userPostsMarginAfterIcons"/>
+
+        <TextView
+            android:id="@+id/tvPostAnswers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/userPostsMarginBetweenData"/>
+
+        <ImageView
+            android:id="@+id/ivPostLike"
+            android:layout_width="@dimen/userPostsBadgeSize"
+            android:layout_height="@dimen/userPostsBadgeSize"
+            android:src="@drawable/thumb_up"
+            android:layout_marginRight="@dimen/userPostsMarginAfterIcons"/>
+
+        <TextView
+            android:id="@+id/tvPostRaiting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/userPostsMarginAfterIcons"/>
+
+        <ImageView
+            android:id="@+id/ivPostDislike"
+            android:layout_width="@dimen/userPostsBadgeSize"
+            android:layout_height="@dimen/userPostsBadgeSize"
+            android:src="@drawable/thumb_down"
+            android:layout_marginRight="@dimen/userPostsMarginBetweenData"/>
+
+        <ImageView
+            android:id="@+id/ivPostAskDate"
+            android:layout_width="@dimen/userPostsBadgeSize"
+            android:layout_height="@dimen/userPostsBadgeSize"
+            android:src="@drawable/calendar"
+            android:layout_marginRight="@dimen/userPostsMarginAfterIcons"/>
+
+        <TextView
+            android:id="@+id/tvPostAskDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        
+    </LinearLayout>
+    
+
+</LinearLayout>

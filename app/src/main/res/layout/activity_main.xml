@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorLightBlue">
+
+    <!--<RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorWhite">
+
+        <ImageView
+            android:layout_width="@dimen/logoSize"
+            android:layout_height="@dimen/logoSize"
+            android:src="@drawable/google_logo"
+            android:layout_margin="@dimen/logoMargins"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textColor="@color/colorBlue"
+            android:text="@string/loginPageHeader"
+            android:textSize="@dimen/headerTextSize"
+            />
+
+    </RelativeLayout>-->
+
+    <FrameLayout
+        android:id="@+id/loginFrameHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/marginAfterRegisterHeader"/>
+
+    <!--<fragment
+        android:id="@+id/fragmentHeader"
+        android:nacom.example.ilya.ourfuture.LoginPage.HeaderFragmentment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/marginAfterRegisterHeader">
+    </fragment>-->
+
+    <LinearLayout
+        android:id="@+id/loginLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="@dimen/paddingForCredentialsFragments"
+        android:background="@color/colorLightBlue">
+
+        <fragment
+            android:name="com.example.ilya.ourfuture.LoginPage.CredentialsFragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/marginBeforeNetworks">
+        </fragment>
+        
+        <fragment
+            android:name="com.example.ilya.ourfuture.LoginPage.NetworksFragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        </fragment>
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorLightBlue"
+    android:padding="@dimen/registerPadding">
+
+    <EditText
+        android:id="@+id/etRegisterLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/credentials_border"
+        android:textSize="@dimen/credentialsFontSize"
+        android:hint="@string/registerLogin"
+        android:padding="@dimen/credentialsPaddings"
+        android:paddingStart="@dimen/credentialsPaddingLeft"
+        android:inputType="textVisiblePassword"/>
+
+    <TextView
+        android:id="@+id/tvRegisterLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/loginAlreadyExists"
+        android:textSize="@dimen/registerErrorFont"
+        android:visibility="invisible"/>
+
+    <EditText
+        android:id="@+id/etRegisterPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/credentials_border"
+        android:textSize="@dimen/credentialsFontSize"
+        android:hint="@string/registerPassword"
+        android:padding="@dimen/credentialsPaddings"
+        android:paddingStart="@dimen/credentialsPaddingLeft"
+        android:inputType="textPassword"
+        android:layout_marginTop="@dimen/registerMarginBetweenRows"/>
+
+    <TextView
+        android:id="@+id/tvRegisterPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/passwordShort"
+        android:textSize="@dimen/registerErrorFont"
+        android:visibility="invisible"/>
+
+    <EditText
+        android:id="@+id/etRegisterPasswordRepeat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/credentials_border"
+        android:textSize="@dimen/credentialsFontSize"
+        android:hint="@string/registerPasswordRepeat"
+        android:padding="@dimen/credentialsPaddings"
+        android:paddingStart="@dimen/credentialsPaddingLeft"
+        android:layout_marginTop="@dimen/registerMarginBetweenRows"
+        android:inputType="textPassword"/>
+
+    <TextView
+        android:id="@+id/tvRegisterPasswordRepeat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/passwordsDontMatch"
+        android:textSize="@dimen/registerErrorFont"
+        android:visibility="invisible"/>
+
+    <EditText
+        android:id="@+id/etRegisterPhone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/credentials_border"
+        android:textSize="@dimen/credentialsFontSize"
+        android:hint="@string/registerPhone"
+        android:padding="@dimen/credentialsPaddings"
+        android:paddingStart="@dimen/credentialsPaddingLeft"
+        android:layout_marginTop="@dimen/registerMarginBetweenRows"
+        android:inputType="phone"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/phoneAlreadyExists"
+        android:textSize="@dimen/registerErrorFont"
+        android:visibility="invisible"/>
+
+    <EditText
+        android:id="@+id/etRegisterDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/credentials_border"
+        android:textSize="@dimen/credentialsFontSize"
+        android:hint="@string/registerDescription"
+        android:padding="@dimen/credentialsPaddings"
+        android:paddingStart="@dimen/credentialsPaddingLeft"
+        android:layout_marginTop="@dimen/registerMarginBetweenRows"
+        android:inputType="textEmailAddress"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/descriptionLong"
+        android:textSize="@dimen/registerErrorFont"
+        android:visibility="invisible"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/registerMarginBetweenRows">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="@dimen/registerMarginBetweenRows">
+
+            <EditText
+                android:id="@+id/etRegisterAge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/credentials_border"
+                android:textSize="@dimen/credentialsFontSize"
+                android:hint="@string/registerAge"
+                android:padding="@dimen/credentialsPaddings"
+                android:paddingStart="@dimen/credentialsPaddingLeft"
+                android:paddingEnd="@dimen/registerPaddingAge"
+                android:inputType="number"/>
+
+            <TextView
+                android:id="@+id/tvRegisterWrongAge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/wrongAge"
+                android:textSize="@dimen/registerErrorFont"
+                android:visibility="invisible"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="@dimen/registerMarginBetweenRows">
+
+            <RadioGroup
+                android:id="@+id/radioGroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_horizontal"
+                android:layout_gravity="center_vertical">
+
+                <!--<TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/registerSex"
+                    android:textSize="@dimen/propertiesHeadersSize"
+                    android:layout_marginRight="@dimen/registerMarginBeforeSexes"/> -->
+
+                <RadioButton
+                    android:id="@+id/radioButtonMale"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/male"
+                    android:layout_marginRight="@dimen/registerMarginBetweenSexes"
+                    android:buttonTint="@color/colorBlue"/>
+
+                <RadioButton
+                    android:id="@+id/radioButtonFemale"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/female"
+                    android:buttonTint="@color/colorBlue"/>
+            </RadioGroup>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnRegisterDone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/registerDone"
+        android:background="@color/colorBlue"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/credentialsFontSize"
+        android:padding="@dimen/loginButtonsPadding"
+        android:layout_marginTop="@dimen/registerMarginBeforeButtonDone"/>
+
+    <!--<TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TableRow>
+
+            <TextView
+                android:text="@string/registerLogin"
+                android:textSize="@dimen/propertiesHeadersSize"
+                android:layout_marginRight="@dimen/registerPropertiesMargin"
+                android:layout_marginBottom="@dimen/registerMarginBetweenRows"/>
+
+
+
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:text="@string/registerPassword"
+                android:textSize="@dimen/propertiesHeadersSize"
+                android:layout_marginRight="@dimen/registerPropertiesMargin" />
+
+
+
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:text="@string/registerPassword"
+                android:textSize="@dimen/propertiesHeadersSize"
+                android:layout_marginRight="@dimen/registerPropertiesMargin"
+                android:layout_marginBottom="@dimen/registerMarginBetweenRows"/>
+
+
+
+        </TableRow>
+    </TableLayout>-->
+
+</LinearLayout>

@@ -1,0 +1,115 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/condition_background"
+        android:layout_weight="1">
+
+        <TextView
+            android:id="@+id/tvQuestionCondition"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textSize="@dimen/questionMainConditionFontSize"
+            android:textColor="@color/colorCondition"
+            android:paddingLeft="@dimen/questionMainConditionPadding"
+            android:paddingRight="@dimen/questionMainConditionPadding"
+            />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:layout_weight="2">
+
+        <RelativeLayout
+            android:id="@+id/rlFirstOption"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/colorFirstOption">
+
+            <TextView
+                android:id="@+id/tvFirstOption"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:textColor="@color/colorOptionText"
+                android:layout_marginLeft="@dimen/questionMainOptionTextMargin"
+                android:layout_marginRight="@dimen/questionMainOptionTextMargin"/>
+
+            <TextView
+                android:id="@+id/tvFirstAnswers"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="@dimen/questionMainAnsweredDetailsMarginSides"
+                android:layout_marginTop="@dimen/questionMainAnsweredDetailsMarginTop"
+                android:textSize="@dimen/questionMainAnsweredDataFontSize"/>
+
+            <TextView
+                android:id="@+id/tvFirstPercent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginRight="@dimen/questionMainAnsweredDetailsMarginSides"
+                android:layout_marginTop="@dimen/questionMainAnsweredDetailsMarginTop"
+                android:textSize="@dimen/questionMainAnsweredDataFontSize"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rlSecondOption"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/colorSecondOption">
+
+            <TextView
+                android:id="@+id/tvSecondOption"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:textColor="@color/colorOptionText"
+                android:layout_marginLeft="@dimen/questionMainOptionTextMargin"
+                android:layout_marginRight="@dimen/questionMainOptionTextMargin"/>
+            
+            <TextView
+                android:id="@+id/tvSecondPercent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="@dimen/questionMainAnsweredDetailsMarginSides"
+                android:layout_marginTop="@dimen/questionMainAnsweredDetailsMarginTop"
+                android:textSize="@dimen/questionMainAnsweredDataFontSize"/>
+
+            <TextView
+                android:id="@+id/tvSecondAnswers"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginRight="@dimen/questionMainAnsweredDetailsMarginSides"
+                android:layout_marginTop="@dimen/questionMainAnsweredDetailsMarginTop"
+                android:textSize="@dimen/questionMainAnsweredDataFontSize"/>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+
+
+
+
+</LinearLayout>

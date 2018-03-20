@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorWhite">
+
+    <ImageButton
+        android:id="@+id/btnBack"
+        android:layout_width="@dimen/logoSize"
+        android:layout_height="@dimen/logoSize"
+        android:src="@drawable/arrow_back"
+        android:layout_margin="@dimen/logoMargins"
+        android:scaleType="fitXY"
+        android:padding="0dp"
+        />
+
+    <TextView
+        android:id="@+id/tvHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:textColor="@color/colorBlue"
+        android:textSize="@dimen/headerTextSize"
+        />
+
+    <TextView
+        android:id="@+id/tvHeaderHelp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorBlue"
+        android:textSize="@dimen/headerTextSize"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="@dimen/headerHelpMarginRight"
+        android:layout_centerVertical="true"
+        />
+
+
+</RelativeLayout>

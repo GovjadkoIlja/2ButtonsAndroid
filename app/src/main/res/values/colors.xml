@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="colorPrimary">#3F51B5</color>
+    <!--<color name="colorPrimaryDark">#303F9F</color>-->
+    <color name="colorPrimaryDark">#E2E2E2</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <!--<color name="colorLoginPageHeader">#FFFFFF</color>
+    <color name="colorCredentialsBackground">#FFFFFF</color>
+    <color name="colorBackground">#F0F9FF</color>
+    <color name="colorBorder">#5FA2CF</color>
+    <color name="colorLoginButton">#5FA2CF</color>
+    <color name="colorLoginButtonText">#FFFFFF</color>
+    <color name="colorBlueText">#5FA2CF</color> -->
+
+    <color name="colorBlue">#5FA2CF</color>
+    <color name="colorLightBlue">#F0F9FF</color>
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="colorWrongField">#FFDBDC</color>
+    <color name="colorWrongBoarder">#ef4e52</color>
+    <color name="colorAgeSex">#AAAAAA</color>
+    <color name="colorCondition">#BBBBBB</color>
+    <color name="colorFirstOption">#AAA8FA</color>
+    <color name="colorSecondOption">#FFF5CC</color>
+    <color name="colorOptionText">#4E4E4E</color>
+    <color name="colorAnsweredOptionText">#222222</color>
+    <color name="colorNotAnsweredOptionText">#666666</color>
+    <color name="colorLightGrey">#DDDDDD</color>
+    <!--<color name="colorDeepBlue">#3692CF</color> -->
+</resources>

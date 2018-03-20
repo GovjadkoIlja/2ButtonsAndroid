@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorLightBlue">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_height="@dimen/userPhotoHeight"
+            android:layout_width="@dimen/userPhotoWidth"
+            android:src="@drawable/my_photo"
+            android:scaleType="fitXY"
+            android:padding="0dp"
+            android:layout_marginRight="@dimen/userPhotoMargin"
+            android:layout_marginTop="8dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    
+                    <TextView
+                        android:id="@+id/tvUserLogin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/userLoginFontSize"
+                        android:layout_marginBottom="0dp"
+                        android:textColor="@color/colorBlue"/>
+
+                    <TextView
+                        android:id="@+id/tvUserAgeSex"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorAgeSex"
+                        android:textSize="@dimen/userAgeSexFontSize"/>
+                    
+                </LinearLayout>
+                
+                <ImageView
+                    android:id="@+id/ivUserHeFollowed"
+                    android:layout_width="@dimen/userAddUserSize"
+                    android:layout_height="@dimen/userAddUserSize"
+                    android:scaleType="fitCenter"
+                    android:padding="0dp"
+                    android:layout_marginRight="@dimen/userMarginBetweenButtons"
+                    android:layout_toLeftOf="@id/btnUserFollow"
+                    android:layout_centerVertical="true"/>
+
+                <ImageButton
+                    android:id="@+id/btnUserFollow"
+                    android:layout_width="@dimen/userAddUserSize"
+                    android:layout_height="@dimen/userAddUserSize"
+                    android:scaleType="fitCenter"
+                    android:padding="0dp"
+                    android:background="@color/colorLightBlue"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"/>
+                
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/tvUserDescription"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

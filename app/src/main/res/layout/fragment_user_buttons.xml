@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:background="@color/colorLightBlue"
+    android:gravity="center">
+
+    <LinearLayout
+        android:id="@+id/llUserFollowers"
+        android:layout_width="@dimen/userButtonsWidth"
+        android:layout_height="@dimen/userButtonsHeight"
+        android:background="@drawable/buttons_border"
+        android:gravity="center_horizontal"
+        android:layout_marginRight="@dimen/buttonsMarginBetweenButtons">
+
+        <TextView
+            android:id="@+id/tvFollowersDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/followers"
+            android:textSize="@dimen/buttonsDescriptionFont"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llUserFollowTo"
+        android:layout_width="@dimen/userButtonsWidth"
+        android:layout_height="@dimen/userButtonsHeight"
+        android:background="@drawable/buttons_border"
+        android:gravity="center_horizontal"
+        android:layout_marginRight="@dimen/buttonsMarginBetweenButtons">
+
+        <TextView
+            android:id="@+id/tvFollowsToDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/followsTo"
+            android:textSize="@dimen/buttonsDescriptionFont"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="@dimen/userButtonsWidth"
+        android:layout_height="@dimen/userButtonsHeight"
+        android:background="@drawable/buttons_border"
+        android:gravity="center_horizontal"
+        android:layout_marginRight="@dimen/buttonsMarginBetweenButtons">
+
+        <TextView
+            android:id="@+id/tvAchieventsDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/achievements"
+            android:textSize="@dimen/buttonsDescriptionFont"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="@dimen/userButtonsWidth"
+        android:layout_height="@dimen/userButtonsHeight"
+        android:background="@drawable/buttons_border"
+        android:gravity="center_horizontal"
+        android:layout_marginRight="@dimen/buttonsMarginBetweenButtons">
+
+        <TextView
+            android:id="@+id/tvStatisticsDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/statistics"
+            android:textSize="@dimen/buttonsDescriptionFont"/>
+
+    </LinearLayout>
+
+</LinearLayout>

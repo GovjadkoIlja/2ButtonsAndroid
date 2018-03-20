@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorWhite">
+
+    <Button
+        android:id="@+id/btnMarkersHeaderMine"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="@string/markersMy"
+        android:textColor="@color/colorBlue"
+        android:background="@color/colorWhite"
+        android:textSize="@dimen/questionPeopleListOptionFontSize"
+        android:textAllCaps="false"/>
+
+    <Button
+        android:id="@+id/btnMarkersHeaderFavorites"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="@string/markersFavorites"
+        android:textColor="@color/colorBlue"
+        android:background="@color/colorWhite"
+        android:textSize="@dimen/questionPeopleListOptionFontSize"
+        android:textAllCaps="false"/>
+
+    <Button
+        android:id="@+id/btnMarkersHeaderHistory"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="@string/markersHistory"
+        android:textColor="@color/colorBlue"
+        android:background="@color/colorWhite"
+        android:textSize="@dimen/questionPeopleListOptionFontSize"
+        android:textAllCaps="false"/>
+
+    <Button
+        android:id="@+id/btnMarkersHeaderBest"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="@string/markersBest"
+        android:textColor="@color/colorBlue"
+        android:background="@color/colorWhite"
+        android:textSize="@dimen/questionPeopleListOptionFontSize"
+        android:textAllCaps="false"/>
+
+
+</LinearLayout>
+

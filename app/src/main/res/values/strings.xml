@@ -1,0 +1,50 @@
+<resources>
+    <string name="app_name">Our Future</string>
+
+    <!-- Login Activity -->
+    <string name="loginPageHeader">Вход в OurFuture</string>
+    <string name="loginHint">Логин, телефон или почта</string>
+    <string name="passwordHint">Пароль</string>
+    <string name="logInButtonText">Войти</string>
+    <string name="registerButtonText">Зарегистрироваться</string>
+    <string name="networksIconsHeader">Выполнить вход с помощью:</string>
+
+    <!-- Register Activity -->
+    <string name="registerHeader">Регистрация</string>
+    <string name="registerLogin">Логин</string>
+    <string name="registerPassword">Пароль</string>
+    <string name="registerPasswordRepeat">Повторите пароль</string>
+    <string name="registerPhone">Телефон</string>
+    <string name="registerDescription">Опишите себя</string>
+    <string name="registerAge">Возраст</string>
+    <string name="registerSex">Пол</string>
+    <string name="male">Муж.</string>
+    <string name="female">Жен.</string>
+    <string name="registerDone">Готово!</string>
+    <string name="loginAlreadyExists">Этот логин уже зарегистрирован</string>
+    <string name="passwordShort">Пароль должен быть не короче 8 символов</string>
+    <string name="passwordsDontMatch">Пароли не совпадают</string>
+    <string name="phoneAlreadyExists">Этот телефон уже зарегистрирован</string>
+    <string name="descriptionLong">Описание должно содержать не более 60 символов</string>
+    <string name="wrongAge">Введите число 1-99</string>
+    <string name="сhooseSex">Выберите ваш пол</string>
+
+    <!-- User Activity -->
+    <string name="followers">Подписчики</string>
+    <string name="followsTo">Подписки</string>
+    <string name="achievements">Достижения</string>
+    <string name="statistics">Статистика</string>
+
+    <!-- Markers Activity -->
+    <string name="newQuestionsButton">Новые</string>
+    <string name="allQuestionsButton">Все</string>
+    <string name="markersMy">Мои</string>
+    <string name="markersFavorites">Избранные</string>
+    <string name="markersHistory">История</string>
+    <string name="markersBest">Лучшие</string>
+
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+</resources>

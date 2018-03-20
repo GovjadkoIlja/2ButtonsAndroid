@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Constants for entire app -->
+    <dimen name="logoSize">40dp</dimen>
+    <dimen name="headerTextSize">25sp</dimen>
+    <dimen name="logoMargins">5dp</dimen>
+    <dimen name="headerHelpMarginRight">15dp</dimen>
+
+    <!-- Login Activity -->
+    <dimen name="credentialsFontSize">22sp</dimen>
+    <dimen name="credentialsPaddings">4dp</dimen>
+    <dimen name="credentialsPaddingLeft">7dp</dimen>
+    <dimen name="marginBetweenCredentials">10dp</dimen>
+    <dimen name="marginBeforeCredentials">10dp</dimen>
+    <dimen name="marginAfterCredentials">30dp</dimen>
+    <dimen name="loginButtonsPadding">8dp</dimen>
+    <dimen name="marginBetweenLoginButtons">20dp</dimen>
+    <dimen name="paddingForCredentialsFragments">15dp</dimen>
+    <dimen name="marginBeforeNetworks">30dp</dimen>
+    <dimen name="networkIconsSize">40dp</dimen>
+    <dimen name="marginBetweenNetworks">35dp</dimen>
+    <dimen name="networksHeaderSize">20sp</dimen>
+    <dimen name="marginAfterNetworksHeader">8dp</dimen>
+
+    <!-- Register Activity -->
+    <dimen name="marginAfterRegisterHeader">10dp</dimen>
+    <dimen name="propertiesHeadersSize">20sp</dimen>
+    <dimen name="registerPadding">18dp</dimen>
+    <dimen name="registerPropertiesMargin">15dp</dimen>
+    <dimen name="propertiesWidth">240dp</dimen>
+    <dimen name="registerMarginBetweenRows">5dp</dimen>
+    <dimen name="registerMarginBeforeSexes">45dp</dimen>
+    <dimen name="registerMarginBetweenSexes">23dp</dimen>
+    <dimen name="registerPaddingAge">20dp</dimen>
+    <dimen name="registerMarginBeforeButtonDone">15dp</dimen>
+    <dimen name="registerErrorFont">11sp</dimen>
+
+    <!-- User Activity -->
+    <dimen name="userPhotoHeight">110dp</dimen>
+    <dimen name="userPhotoWidth">85dp</dimen>
+    <dimen name="userPhotoMargin">15dp</dimen>
+    <dimen name="userAddUserSize">32dp</dimen>
+    <dimen name="userUserInfoMargin">10dp</dimen>
+    <dimen name="userLoginFontSize">22sp</dimen>
+    <dimen name="userAgeSexFontSize">15sp</dimen>
+    <dimen name="userDescriptionFontSize">16sp</dimen>
+    <dimen name="userMarginBetweenButtons">5dp</dimen>
+    <dimen name="buttonsMarginBeforeButtons">12dp</dimen>
+    <dimen name="userButtonsHeight">55dp</dimen>
+    <dimen name="userButtonsWidth">75dp</dimen>
+    <dimen name="buttonsCornersRadius">5dp</dimen>
+    <dimen name="buttonsMarginBetweenButtons">10dp</dimen>
+    <dimen name="buttonsDescriptionFont">10sp</dimen>
+    <dimen name="text_margin">16dp</dimen>
+
+    <!-- User Activity Posts -->
+    <dimen name="userPostsPhotoSize">50dp</dimen>
+    <dimen name="userPostsPhotoRadius">25dp</dimen>
+    <dimen name="userPostsCheckSize">30dp</dimen>
+    <dimen name="userPostsBadgeSize">20dp</dimen>
+    <dimen name="userPostsLoginFontSize">18sp</dimen>
+    <dimen name="userPostsActionFontSize">16sp</dimen>
+    <dimen name="userPostsConditionFontSize">15sp</dimen>
+    <dimen name="userPostsMarginAbovePhoto">10dp</dimen>
+    <dimen name="userPostsMarginLeftPhoto">10dp</dimen>
+    <dimen name="userPostsMarginRightPhoto">5dp</dimen>
+    <dimen name="userPostsMarginRightLogin">5dp</dimen>
+    <dimen name="userPostsMarginRightCheck">12dp</dimen>
+    <dimen name="userPostsMarginRightPosted">5dp</dimen>
+    <dimen name="userPostsMarginRightType">8dp</dimen>
+    <dimen name="userPostsMarginAfterIcons">2dp</dimen>
+    <dimen name="userPostsMarginBetweenData">20dp</dimen>
+    <dimen name="userPostsMarginBottomIconsLayout">3dp</dimen>
+
+    <!-- PeopleList Activity -->
+    <dimen name="peopleListButtonEraseSize">29dp</dimen>
+    <dimen name="peopleListButtonEraseMarginRight">7dp</dimen>
+    <dimen name="peopleListLoginFontSize">20sp</dimen>
+    <dimen name="peopleListAgeSexFontSize">17sp</dimen>
+    <dimen name="peopleListPhotoSize">50dp</dimen>
+    <dimen name="peopleListButtonsSize">32dp</dimen>
+    <dimen name="peopleListPhotoMarginRight">10dp</dimen>
+    <dimen name="peopleListLoginMarginBottom">3dp</dimen>
+    <dimen name="peopleListButtonAddMarginRight">12dp</dimen>
+    <dimen name="peopleListMarginBetweenButtons">5dp</dimen>
+    <dimen name="peopleListMarginAfterSearchString">5dp</dimen>
+
+    <!-- Question Activity -->
+    <dimen name="questionHeaderPhotoMarginTop">5dp</dimen>
+    <dimen name="questionHeaderPaddingLeft">7dp</dimen>
+    <dimen name="questionHeaderPaddingRight">10dp</dimen>
+    <dimen name="questionHeaderPhotoSize">45dp</dimen>
+    <dimen name="questionHeaderMarginAfterPhoto">4dp</dimen>
+    <dimen name="questionAskerLoginFontSize">20sp</dimen>
+    <dimen name="questionQuestionTypeFontSize">15sp</dimen>
+    <dimen name="questionQuestionRaitingFontSize">18sp</dimen>
+    <dimen name="questionHeaderIconsSize">27dp</dimen>
+    <dimen name="questionHeaderRaitingMargins">5dp</dimen>
+    <dimen name="questionHeaderMarginBetweenIcons">12dp</dimen>
+    <dimen name="questionHeaderMarginAfterRaitingSection">18dp</dimen>
+
+    <!-- Question Main -->
+    <dimen name="questionMainConditionFontSize">20sp</dimen>
+    <dimen name="questionMainConditionPadding">50dp</dimen>
+    <dimen name="questionMainOptionTextMargin">20dp</dimen>
+    <dimen name="questionMainAnsweredDataFontSize">18sp</dimen>
+    <dimen name="questionMainAnsweredDetailsMarginTop">5dp</dimen>
+    <dimen name="questionMainAnsweredDetailsMarginSides">10dp</dimen>
+
+    <!-- Question People List -->
+    <dimen name="questionPeopleListOptionFontSize">16sp</dimen>
+
+    <!-- Footer -->
+    <dimen name="footerPaddings">8dp</dimen>
+    <dimen name="footerButtonsSize">24dp</dimen>
+    <dimen name="footerMarginBetweenIcons">47dp</dimen>
+
+    <!-- Markers Page -->
+    <dimen name="markersButtonsHeight">34dp</dimen>
+    <dimen name="markersButtonsFontSize">12sp</dimen>
+    <dimen name="markersMarginBeforeButtons">1dp</dimen>
+    <dimen name="markersMarginBeforeSearchAndButtons">5dp</dimen>
+    <dimen name="markersMarginBetweenSearchAndButtons">3dp</dimen>
+    <dimen name="markersMarginRightButtons">5dp</dimen>
+
+    <!-- Create Question Page -->
+    <dimen name="createQuestionConditionHeight">90dp</dimen>
+    <dimen name="createQuestionOptionHeight">70dp</dimen>
+    <dimen name="createQuestionMarginBetweenBoxes">40dp</dimen>
+
+</resources>

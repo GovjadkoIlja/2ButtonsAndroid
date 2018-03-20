@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:background="@color/colorWhite"
+    android:paddingTop="@dimen/footerPaddings"
+    android:paddingBottom="@dimen/footerPaddings">
+
+    <ImageButton
+        android:id="@+id/ibFooterUser"
+        android:layout_width="@dimen/footerButtonsSize"
+        android:layout_height="@dimen/footerButtonsSize"
+        android:src="@drawable/userpage_disabled"
+        android:layout_toLeftOf="@id/ibFooterNews"
+        android:scaleType="fitXY"
+        android:background="@color/colorWhite"/>
+
+    <ImageButton
+        android:id="@+id/ibFooterNews"
+        android:layout_width="@dimen/footerButtonsSize"
+        android:layout_height="@dimen/footerButtonsSize"
+        android:src="@drawable/news_disabled"
+        android:layout_toLeftOf="@id/ibFooterAsk"
+        android:layout_marginLeft="@dimen/footerMarginBetweenIcons"
+        android:scaleType="fitXY"
+        android:background="@color/colorWhite"/>
+
+    <ImageButton
+        android:id="@+id/ibFooterAsk"
+        android:layout_width="@dimen/footerButtonsSize"
+        android:layout_height="@dimen/footerButtonsSize"
+        android:src="@drawable/ask_question_disabled"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="@dimen/footerMarginBetweenIcons"
+        android:layout_marginRight="@dimen/footerMarginBetweenIcons"
+        android:scaleType="fitXY"
+        android:background="@color/colorWhite"/>
+
+    <ImageButton
+        android:id="@+id/ibFooterQuestions"
+        android:layout_width="@dimen/footerButtonsSize"
+        android:layout_height="@dimen/footerButtonsSize"
+        android:src="@drawable/questions_list_disabled"
+        android:layout_toRightOf="@id/ibFooterAsk"
+        android:layout_marginRight="@dimen/footerMarginBetweenIcons"
+        android:scaleType="fitXY"
+        android:background="@color/colorWhite"/>
+
+    <ImageButton
+        android:id="@+id/ibFooterBest"
+        android:layout_width="@dimen/footerButtonsSize"
+        android:layout_height="@dimen/footerButtonsSize"
+        android:src="@drawable/best_disabled"
+        android:layout_toRightOf="@id/ibFooterQuestions"
+        android:scaleType="fitXY"
+        android:background="@color/colorWhite"/>
+
+</RelativeLayout>

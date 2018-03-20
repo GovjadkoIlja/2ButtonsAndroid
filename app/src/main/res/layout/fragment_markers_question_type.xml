@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:background="@color/colorLightBlue">
+
+    <Button
+        android:id="@+id/btnMarkersAll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="@string/allQuestionsButton"
+        android:layout_weight="1"
+        android:background="@color/colorBlue"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/markersButtonsFontSize"
+        android:textAllCaps="false"/>
+
+    <Button
+        android:id="@+id/btnMarkersNew"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="@string/newQuestionsButton"
+        android:layout_weight="1"
+        android:background="@color/colorLightGrey"
+        android:textColor="@color/colorAnsweredOptionText"
+        android:textSize="@dimen/markersButtonsFontSize"
+        android:textAllCaps="false"/>
+</LinearLayout>

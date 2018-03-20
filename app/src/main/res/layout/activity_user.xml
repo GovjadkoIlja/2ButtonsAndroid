@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorLightBlue"
+    android:id="@+id/activityUserLayout">
+
+    <FrameLayout
+        android:id="@+id/userFrameHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/marginAfterRegisterHeader"/>
+
+    <FrameLayout
+        android:id="@+id/userFrameUserInfo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/userUserInfoMargin"
+        android:layout_marginRight="@dimen/userUserInfoMargin" />
+
+    <FrameLayout
+        android:id="@+id/userFrameUserButtons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/buttonsMarginBeforeButtons"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <FrameLayout
+            android:id="@+id/userFramePosts"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/buttonsMarginBeforeButtons"
+            android:layout_above="@+id/userFrameFooter"/>
+
+        <FrameLayout
+            android:id="@+id/userFrameFooter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"/>
+
+    </RelativeLayout>
+
+</LinearLayout>
