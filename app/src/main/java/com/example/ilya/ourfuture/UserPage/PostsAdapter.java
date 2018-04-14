@@ -77,7 +77,7 @@ public class PostsAdapter extends ArrayAdapter<Post> implements View.OnClickList
         else
             tvAction.setText("поделился:");
 
-        tvDate.setText(post.posted.substring(0, 10));
+        //tvDate.setText(post.posted.substring(0, 10));
         tvCondition.setText(post.condition);
 
         if (post.questionType == 0)
@@ -87,7 +87,7 @@ public class PostsAdapter extends ArrayAdapter<Post> implements View.OnClickList
 
         tvAnswers.setText(post.anwsers + "");
         tvRaiting.setText(post.raiting + "");
-        tvAskDate.setText(post.asked.substring(0, 10));
+        tvAskDate.setText(post.questionAddDate.substring(0, 10));
 
         if (post.anwsered == 1)
             ivAnswered.setImageResource(R.drawable.answered);

@@ -18,7 +18,8 @@ public class CredentialsPresenter implements ICredentialsPresenter {
 
     @Override
     public void getId(String login, String password) {
-        credentialsModel.checkLogin(login, Integer.parseInt(password)).subscribe(n -> makeDecision(((int)Math.round((double)n))));
+        credentialsModel.checkLogin(login, Integer.parseInt(password));//.subscribe(n -> makeDecision(((int)Math.round((double)n))));
+        makeDecision(1); //ПРОСТО ЗАГЛУШКА, РАСКОММЕНТИТЬ СТРОКУ ВЫШЕ
     }
 
     private void makeDecision(int n) { //Обработать недоступность сервера

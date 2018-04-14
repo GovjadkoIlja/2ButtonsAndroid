@@ -28,7 +28,7 @@ public class Question {
         firstOption = post.firstOption;
         secondOption = post.secondOption;
         questionType = post.questionType;
-        asked = post.asked;
+        asked = post.questionAddDate;
         askerId = post.avatarUserID;
         login = post.login;
         avatarLink = post.avatarLink;

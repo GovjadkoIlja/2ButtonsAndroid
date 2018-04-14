@@ -11,6 +11,6 @@ import retrofit2.http.Query;
  */
 
 public interface IPostsRequest {
-    @GET("/getPosts")
+    @GET("/getUserAskedQuestions")
     Observable<JsonElement> getPosts(@Query("id") int id, @Query("userId") int userId);
 }

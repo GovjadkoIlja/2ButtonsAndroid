@@ -18,6 +18,6 @@ public class Post {
     public String condition;
     public String firstOption;
     public String secondOption;
-    public String asked;
+    public String questionAddDate;
     public String posted;
 }
