@@ -1,6 +1,7 @@
 package com.example.ilya.ourfuture.UserPage;
 
 import com.example.ilya.ourfuture.Shared.Id;
+import com.example.ilya.ourfuture.Shared.Question;
 import com.example.ilya.ourfuture.Shared.ServerConnection;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -8,6 +9,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
+import java.util.ArrayList;
 import java.util.List;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -25,7 +27,7 @@ public class PostsModel implements IPostsModel {
     IPostsPresenter postsPresenter;
 
     int userId;
-    List<Post> posts;
+    ArrayList<Question> questions;
 
     public PostsModel(int _userId, IPostsPresenter _postsPresenter) {
         postsPresenter = _postsPresenter;
@@ -42,9 +44,16 @@ public class PostsModel implements IPostsModel {
                 .baseUrl(ServerConnection.URL)
                 .build();
 
-        IPostsRequest postsIntf = searchRetrofit.create(IPostsRequest.class);
+        /*IPostsRequest postsIntf = searchRetrofit.create(IPostsRequest.class);
 
-        postsIntf.getPosts(Id.getId(), userId)
+        postsIntf.getQuestions(Id.getId(), userId)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
+                .subscribe(n -> parseResponse(n));*/
+
+        IUserQuestionsListRequest questionsListIntf = searchRetrofit.create(IUserQuestionsListRequest.class);
+
+        questionsListIntf.getUserAskedQuestions(new UserInfoRequest(Id.getId(), userId))
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(n -> parseResponse(n));
@@ -61,21 +70,19 @@ public class PostsModel implements IPostsModel {
     }
 
     @Override
-    public List<Post> getPosts() {
-        return posts;
+    public ArrayList<Question> getQuestions() {
+        return questions;
     }
 
     private void parseResponse(JsonElement s) {
-        System.out.println(Id.getId());
-
         System.out.println(s);
 
-        Type postsListType = new TypeToken<List<Post>>() {}.getType();
+        Type postsListType = new TypeToken<List<Question>>() {}.getType();
 
         Gson gson = new Gson();
 
-        posts = gson.fromJson(s, postsListType);
+        questions = gson.fromJson(s, postsListType);
 
-        postsPresenter.postsGot(posts);
+        postsPresenter.postsGot(questions);
     }
 }

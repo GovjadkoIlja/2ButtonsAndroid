@@ -1,5 +1,8 @@
 package com.example.ilya.ourfuture.UserPage;
 
+import com.example.ilya.ourfuture.Shared.Question;
+
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -10,5 +13,5 @@ public interface IPostsModel {
     void receivePosts(int userId);
     int getPageOwnerId();
     int getId();
-    List<Post> getPosts();
+    ArrayList<Question> getQuestions();
 }

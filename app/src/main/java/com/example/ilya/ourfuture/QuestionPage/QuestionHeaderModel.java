@@ -1,9 +1,13 @@
 package com.example.ilya.ourfuture.QuestionPage;
 
+import com.example.ilya.ourfuture.Shared.Id;
+import com.example.ilya.ourfuture.Shared.Question;
 import com.example.ilya.ourfuture.Shared.QuestionsList;
 import com.example.ilya.ourfuture.Shared.ServerConnection;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+
+import java.util.ArrayList;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
@@ -22,11 +26,14 @@ public class QuestionHeaderModel implements IQuestionHeaderModel {
     final String URL = IP_ADDRESS + ":" + PORT;*/
 
     IQuestionHeaderPresenter questionHeaderPresenter;
-    int id;
+    int position;
+    ArrayList<Question> questions;
 
-    QuestionHeaderModel(int _id, IQuestionHeaderPresenter _questionHeaderPresenter) {
+    QuestionHeaderModel(int position, ArrayList<Question> questions, IQuestionHeaderPresenter _questionHeaderPresenter) {
         questionHeaderPresenter = _questionHeaderPresenter;
-        id = _id;
+
+        this.position = position;
+        this.questions = questions;
     }
 
     @Override
@@ -51,7 +58,7 @@ public class QuestionHeaderModel implements IQuestionHeaderModel {
 
         ISaveFeedback saveFeedbackIntf = searchRetrofit.create(ISaveFeedback.class);
 
-        saveFeedbackIntf.saveFeedback(id, question.questionId, newFeedback)
+        saveFeedbackIntf.saveFeedback(Id.getId(), question.questionId, newFeedback)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(n -> System.out.println(n));
@@ -74,7 +81,7 @@ public class QuestionHeaderModel implements IQuestionHeaderModel {
 
         ISaveFavorites saveFavoritesIntf = searchRetrofit.create(ISaveFavorites.class);
 
-        saveFavoritesIntf.saveFavorites(id, question.questionId, question.inFavorites)
+        saveFavoritesIntf.saveFavorites(Id.getId(), question.questionId, question.inFavorites)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(n -> System.out.println(n));

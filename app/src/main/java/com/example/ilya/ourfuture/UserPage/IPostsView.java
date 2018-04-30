@@ -1,5 +1,8 @@
 package com.example.ilya.ourfuture.UserPage;
 
+import com.example.ilya.ourfuture.Shared.Question;
+
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -7,6 +10,6 @@ import java.util.List;
  */
 
 public interface IPostsView {
-    void representPosts(List<Post> posts);
-    void openQuestion(int id);
+    void representPosts(ArrayList<Question> questions);
+    void openQuestion(int id, int position, ArrayList<Question> questions);
 }

@@ -12,7 +12,11 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.ilya.ourfuture.R;
+import com.example.ilya.ourfuture.Shared.Id;
+import com.example.ilya.ourfuture.Shared.Question;
 import com.example.ilya.ourfuture.Shared.QuestionsList;
+
+import java.util.ArrayList;
 
 
 public class QuestionMainFragment extends Fragment implements IQuestionMainView, View.OnClickListener {
@@ -37,17 +41,18 @@ public class QuestionMainFragment extends Fragment implements IQuestionMainView,
 
         Bundle args = getArguments();
 
-        int id = args.getInt("id");
+        int position = args.getInt("position");
+        ArrayList<Question> questions = (ArrayList<Question>) args.getSerializable("questions");
 
-        questionMainPresenter = new QuestionMainPresenter(id, this);
+        questionMainPresenter = new QuestionMainPresenter(Id.getId(), this);
 
         tvCondition = view.findViewById(R.id.tvQuestionCondition);
         tvFirstOption = view.findViewById(R.id.tvFirstOption);
         tvSecondOption = view.findViewById(R.id.tvSecondOption);
 
-        tvCondition.setText(QuestionsList.getNextQuestion().condition);
+        /*tvCondition.setText(QuestionsList.getNextQuestion().condition);
         tvFirstOption.setText(QuestionsList.getNextQuestion().firstOption);
-        tvSecondOption.setText(QuestionsList.getNextQuestion().secondOption);
+        tvSecondOption.setText(QuestionsList.getNextQuestion().secondOption);*/
 
         tvFirstAnswers = view.findViewById(R.id.tvFirstAnswers);
         tvSecondAnswers = view.findViewById(R.id.tvSecondAnswers);

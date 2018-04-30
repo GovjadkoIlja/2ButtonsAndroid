@@ -1,15 +1,17 @@
 package com.example.ilya.ourfuture.UserPage;
 
-import com.example.ilya.ourfuture.QuestionPage.Question;
+import com.example.ilya.ourfuture.Shared.Question;
 import com.example.ilya.ourfuture.Shared.QuestionsList;
+import com.example.ilya.ourfuture.Shared.QuestionsListPresenter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by Ilya on 14.01.2018.
  */
 
-public class PostsPresenter implements IPostsPresenter {
+public class PostsPresenter extends QuestionsListPresenter implements IPostsPresenter  {
 
     IPostsModel postsModel;
     IPostsView postsView;
@@ -25,8 +27,8 @@ public class PostsPresenter implements IPostsPresenter {
     }
 
     @Override
-    public void postsGot(List<Post> posts) {
-        postsView.representPosts(posts);
+    public void postsGot(ArrayList<Question> questions) {
+        postsView.representPosts(questions);
     }
 
     @Override
@@ -35,33 +37,33 @@ public class PostsPresenter implements IPostsPresenter {
     }
 
     @Override
-    public void questionClicked(int position, List<Post> posts) {
+    public void questionClicked(int position, ArrayList<Question> questions) {
         QuestionsList.questions.clear();
-        QuestionsList.getQuestions(posts, position);
-        postsView.openQuestion(postsModel.getId());
+        QuestionsList.getQuestions(questions, position);
+        postsView.openQuestion(postsModel.getId(), position, questions);
     }
 
-    @Override
+    /*@Override
     public void sinchronizeWithQuestions() {
 
-        List<Post> posts = postsModel.getPosts();
+        List<Question> questions = postsModel.getQuestions();
 
-        if (posts == null)
+        if (questions == null)
             return;
 
-        for (Question question: QuestionsList.questions) {
-            for (Post post: posts) {
+        for (com.example.ilya.ourfuture.QuestionPage.Question question: QuestionsList.questions) {
+            for (Question post: questions) {
                 if (question.questionId == post.questionID) {
-                    post.anwsered = question.answered;
-                    post.raiting = question.raiting;
+                    post.yourAnswer = question.answered;
+                    post.questionLikesAmount = question.raiting;
                     post.yourFeedback = question.yourFeedback;
                     post.inFavorites = question.inFavorites;
                 }
             }
         }
 
-        postsView.representPosts(posts);
-    }
+        postsView.representPosts(questions);
+    }*/
 
 
 }

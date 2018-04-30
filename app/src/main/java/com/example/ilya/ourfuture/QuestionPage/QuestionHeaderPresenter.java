@@ -1,5 +1,9 @@
 package com.example.ilya.ourfuture.QuestionPage;
 
+import com.example.ilya.ourfuture.Shared.Question;
+
+import java.util.ArrayList;
+
 /**
  * Created by Ilya on 10.02.2018.
  */
@@ -9,9 +13,9 @@ public class QuestionHeaderPresenter implements IQuestionHeaderPresenter {
     IQuestionHeaderModel questionHeaderModel;
     IQuestionHeaderView questionHeaderView;
 
-    QuestionHeaderPresenter(int id, IQuestionHeaderView _questionHeaderView) {
+    QuestionHeaderPresenter(int position, ArrayList<Question> questions, IQuestionHeaderView _questionHeaderView) {
         questionHeaderView = _questionHeaderView;
-        questionHeaderModel = new QuestionHeaderModel(id, this);
+        questionHeaderModel = new QuestionHeaderModel(position, questions, this);
     }
 
     @Override
@@ -21,7 +25,7 @@ public class QuestionHeaderPresenter implements IQuestionHeaderPresenter {
     }
 
     @Override
-    public void feedbackChanged(boolean likeButtonPressed) {
+    public void feedbackChanged(boolean likeButtonPressed) { //Doesn't work correctly
         Question question = questionHeaderModel.getNextQuestion();
 
         int newFeedback;
@@ -31,8 +35,8 @@ public class QuestionHeaderPresenter implements IQuestionHeaderPresenter {
         else
             newFeedback = question.yourFeedback == -1 ? 0 : -1;
 
-        question.raiting += newFeedback - question.yourFeedback;
-        setRaiting(question.raiting);
+        /*question.raiting += newFeedback - question.yourFeedback;
+        setRaiting(question.raiting);*/
 
         question.yourFeedback = newFeedback;
 
@@ -62,7 +66,7 @@ public class QuestionHeaderPresenter implements IQuestionHeaderPresenter {
 
         questionHeaderView.fillQuestionType(type);
 
-        setRaiting(question.raiting);
+        setRaiting(question.questionLikesAmount - question.questionDislikesAmount);
 
         questionHeaderView.setFeedback(question.yourFeedback == 1, question.yourFeedback == -1);
         questionHeaderView.setFavorites(question.inFavorites == 1);

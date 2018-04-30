@@ -1,8 +1,8 @@
 package com.example.ilya.ourfuture.QuestionPage;
 
+import com.example.ilya.ourfuture.PeopleList.QuestionPeopleListModel;
 import com.example.ilya.ourfuture.PeopleList.ShortUser;
-import com.example.ilya.ourfuture.QuestionPage.Question;
-import com.example.ilya.ourfuture.UserPage.Post;
+import com.example.ilya.ourfuture.Shared.Question;
 
 import java.util.ArrayList;
 
@@ -18,12 +18,7 @@ public class AnsweredQuestion extends Question {
     ArrayList<ShortUser> firstVoters;
     ArrayList<ShortUser> secondVoters;
 
-    public AnsweredQuestion(Post post) {
-        super(post);
-    }
-
     public AnsweredQuestion(Question question, int _yourAnswer, int _firstAnswers, int _secondAnswers, ArrayList<ShortUser> _firstVoters, ArrayList<ShortUser> _secondVoters) {
-        super(question);
 
         yourAnswer = _yourAnswer;
         firstAnswers = _firstAnswers;

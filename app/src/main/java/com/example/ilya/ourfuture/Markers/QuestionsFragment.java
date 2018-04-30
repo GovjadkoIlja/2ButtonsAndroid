@@ -4,9 +4,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.app.ListFragment;
 
-import com.example.ilya.ourfuture.QuestionPage.Question;
 import com.example.ilya.ourfuture.QuestionPage.QuestionActivity;
 import com.example.ilya.ourfuture.R;
+import com.example.ilya.ourfuture.Shared.Question;
+import com.example.ilya.ourfuture.Shared.QuestionsAdapter;
 
 import java.util.ArrayList;
 
@@ -31,8 +32,8 @@ public class QuestionsFragment extends ListFragment implements IQuestionsView {
 
     @Override
     public void representQuestions(ArrayList<Question> questions) {
-        QuestionsAdapter adapter = new QuestionsAdapter(getActivity(), R.layout.fragment_post, R.layout.fragment_post, questions, questionsPresenter);
-        setListAdapter(adapter);
+        /*QuestionsAdapter adapter = new QuestionsAdapter(getActivity(), R.layout.fragment_post, R.layout.fragment_post, questions);
+        setListAdapter(adapter);*/
     }
 
     public void questionsTypeChanged(int type) { //as well will be executed authomatically from the header

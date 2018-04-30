@@ -10,6 +10,10 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.example.ilya.ourfuture.R;
+import com.example.ilya.ourfuture.Shared.Id;
+import com.example.ilya.ourfuture.Shared.Question;
+
+import java.util.ArrayList;
 
 
 /**
@@ -33,7 +37,8 @@ public class QuestionHeaderFragment extends Fragment implements IQuestionHeaderV
 
         Bundle args = getArguments();
 
-        int id = args.getInt("id");
+        int position = args.getInt("position");
+        ArrayList<Question> questions = (ArrayList<Question>) args.getSerializable("questions");
 
         tvLogin = view.findViewById(R.id.tvQuestionAsker);
         tvType = view.findViewById(R.id.tvQuestionType);
@@ -46,9 +51,11 @@ public class QuestionHeaderFragment extends Fragment implements IQuestionHeaderV
         ibDislike.setOnClickListener(this);
         ibFavorites.setOnClickListener(this);
 
-        questionHeaderPresenter = new QuestionHeaderPresenter(id, this);
+        questionHeaderPresenter = new QuestionHeaderPresenter(position, questions, this);
 
-        questionHeaderPresenter.getQuestion();
+        System.out.println(questions.get(position).condition);;
+
+        //questionHeaderPresenter.getQuestion();
 
         return view;
     }

@@ -3,7 +3,9 @@ package com.example.ilya.ourfuture.UserPage;
 import com.google.gson.JsonElement;
 
 import io.reactivex.Observable;
+import retrofit2.http.Body;
 import retrofit2.http.GET;
+import retrofit2.http.POST;
 import retrofit2.http.Query;
 
 /**
@@ -13,4 +15,7 @@ import retrofit2.http.Query;
 public interface IPostsRequest {
     @GET("/getUserAskedQuestions")
     Observable<JsonElement> getPosts(@Query("id") int id, @Query("userId") int userId);
+
+    /*@POST("/getUserAskedQuestions")
+    Observable<JsonElement> getUserAskedQuestions(@Body );*/
 }

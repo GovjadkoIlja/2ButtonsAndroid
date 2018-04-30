@@ -1,7 +1,7 @@
 package com.example.ilya.ourfuture.Markers;
 
-import com.example.ilya.ourfuture.QuestionPage.Question;
 import com.example.ilya.ourfuture.Shared.Id;
+import com.example.ilya.ourfuture.Shared.Question;
 
 import java.util.ArrayList;
 

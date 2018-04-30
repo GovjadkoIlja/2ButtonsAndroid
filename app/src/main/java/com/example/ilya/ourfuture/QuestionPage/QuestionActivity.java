@@ -9,6 +9,9 @@ import android.os.Bundle;
 import com.example.ilya.ourfuture.R;
 import com.example.ilya.ourfuture.Shared.FooterFragment;
 import com.example.ilya.ourfuture.Shared.HeaderFragment;
+import com.example.ilya.ourfuture.Shared.Question;
+
+import java.util.ArrayList;
 
 public class QuestionActivity extends AppCompatActivity {
 
@@ -22,6 +25,8 @@ public class QuestionActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         int id = intent.getIntExtra("id", 0);
+        int position = intent.getIntExtra("position", 0);
+        ArrayList<Question> questions = (ArrayList<Question>) intent.getSerializableExtra("questions");
 
         Bundle headerArgs = new Bundle();
         headerArgs.putString("headerText", header);
@@ -34,7 +39,6 @@ public class QuestionActivity extends AppCompatActivity {
         ft.commit();
 
         Bundle questionHeaderArgs = new Bundle();
-        questionHeaderArgs.putInt("id", id);
 
         Fragment questionHeaderFragment = new QuestionHeaderFragment();
         questionHeaderFragment.setArguments(questionHeaderArgs);
@@ -43,7 +47,8 @@ public class QuestionActivity extends AppCompatActivity {
         questionHeaderFt.commit();
 
         Bundle questionMainArgs = new Bundle();
-        questionMainArgs.putInt("id", id);
+        questionHeaderArgs.putInt("position", position);
+        questionHeaderArgs.putSerializable("questions", questions);
 
         Fragment questionMainFragment = new QuestionMainFragment();
         questionMainFragment.setArguments(questionMainArgs);
@@ -53,13 +58,10 @@ public class QuestionActivity extends AppCompatActivity {
 
         Bundle footerArgs = new Bundle();
 
-        footerArgs.putInt("id", id);
-
         Fragment questionFooterFragment = new FooterFragment();
         questionFooterFragment.setArguments(footerArgs);
         FragmentTransaction questionFooterFt = getFragmentManager().beginTransaction();
         questionFooterFt.add(R.id.questionFrameFooter, questionFooterFragment);
         questionFooterFt.commit();
-
     }
 }

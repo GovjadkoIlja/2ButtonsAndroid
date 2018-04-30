@@ -45,7 +45,7 @@ public class UserInfoModel implements IUserInfoModel {
 
         IUserInfoRequest userInfoIntf = searchRetrofit.create(IUserInfoRequest.class);
 
-        userInfoIntf.getUserInfo(id, userId)
+        userInfoIntf.getUserInfo(new UserInfoRequest(id, userId))
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(n -> parseResponse(n));

@@ -1,5 +1,8 @@
 package com.example.ilya.ourfuture.UserPage;
 
+import com.example.ilya.ourfuture.Shared.Question;
+
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -8,8 +11,8 @@ import java.util.List;
 
 public interface IPostsPresenter {
     void receivePosts(int userId);
-    void postsGot(List<Post> posts);
+    void postsGot(ArrayList<Question> questions);
     int getPageOwnerId();
-    void questionClicked(int position, List<Post> posts);
-    void sinchronizeWithQuestions();
+    void questionClicked(int position, ArrayList<Question> questions);
+    //void sinchronizeWithQuestions();
 }

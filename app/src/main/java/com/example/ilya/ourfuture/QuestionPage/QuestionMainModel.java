@@ -1,5 +1,6 @@
 package com.example.ilya.ourfuture.QuestionPage;
 
+import com.example.ilya.ourfuture.Shared.Question;
 import com.example.ilya.ourfuture.Shared.QuestionsList;
 import com.example.ilya.ourfuture.Shared.ServerConnection;
 import com.google.gson.Gson;
@@ -36,8 +37,6 @@ public class QuestionMainModel implements IQuestionMainModel {
     public void saveAnswer(int answer) {
         Question question = QuestionsList.getNextQuestion();
 
-        question.answered = 1;
-
         this.answer = answer;
 
         Gson gson = new GsonBuilder().create();
@@ -58,8 +57,8 @@ public class QuestionMainModel implements IQuestionMainModel {
 
     @Override
     public boolean isAnswered() {
-        int answered = QuestionsList.getNextQuestion().answered;
-        return answered == 1;
+        boolean answered = QuestionsList.getNextQuestion().yourAnswer != 0;
+        return answered;
     }
 
     @Override

@@ -1,5 +1,8 @@
 package com.example.ilya.ourfuture.LoginPage;
 
+import android.net.*;
+import android.net.Credentials;
+
 import com.example.ilya.ourfuture.Shared.ServerConnection;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -22,7 +25,7 @@ public class CredentialsModel implements ICredentialsModel {
     final String URL = IP_ADDRESS + ":" + PORT;*/
 
     @Override
-    public Observable checkLogin(String login, int password) {
+    public Observable checkLogin(String login, String password) {
         Gson gson = new GsonBuilder().create();
 
         Retrofit searchRetrofit = new Retrofit.Builder()
@@ -33,7 +36,7 @@ public class CredentialsModel implements ICredentialsModel {
 
         loginRequest loginIntf = searchRetrofit.create(loginRequest.class);
 
-        return loginIntf.login(login, password)
+        return loginIntf.login(/*login, password*/  new Credential(login, password))
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io());
                 //.subscribe(n -> System.out.println(n.toString()));

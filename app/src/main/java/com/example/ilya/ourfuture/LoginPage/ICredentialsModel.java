@@ -8,5 +8,5 @@ import io.reactivex.disposables.Disposable;
  */
 
 public interface ICredentialsModel {
-    Observable checkLogin(String login, int password);
+    Observable checkLogin(String login, String password);
 }
