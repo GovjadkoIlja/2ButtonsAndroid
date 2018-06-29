@@ -17,7 +17,28 @@ public class UserButtonsPresenter implements IUserButtonsPresenter {
     @Override
     public void layoutClicked(int layoutNumber) {
         if ((layoutNumber == 1) || (layoutNumber == 2)) {
-            userButtonsView.getPeopleList(userButtonsModel.getUserId(), layoutNumber == 1, layoutNumber == 2);
+            userButtonsView.getPeopleList(userButtonsModel.getUserId(), layoutNumber);
         }
+    }
+
+    @Override
+    public int getUserId() {
+        return userButtonsModel.getUserId();
+    }
+
+    @Override
+    public void saveUserInfo(UserInfo userInfo) {
+        userButtonsModel.saveUserInfo(userInfo);
+    }
+
+    @Override
+    public void updateFollow() {
+        boolean isYouFollowed = userButtonsModel.getUserInfo().isYouFollowed;
+        userButtonsView.setButtonFollow(false, !isYouFollowed);
+
+        if (isYouFollowed)
+            userButtonsModel.unsubscribe();
+        else
+            userButtonsModel.subscribe();
     }
 }

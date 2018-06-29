@@ -5,11 +5,13 @@ package com.example.ilya.ourfuture.LoginPage;
  */
 
 public class Credential {
-    String login;
+    String phone;
     String password;
+    int grantType;
 
-    public Credential(String login, String password) {
-        this.login = login;
+    public Credential(String phone, String password, int grantType) {
+        this.phone = phone;
         this.password = password;
+        this.grantType = grantType;
     }
 }

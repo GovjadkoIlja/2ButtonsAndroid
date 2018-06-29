@@ -6,4 +6,7 @@ package com.example.ilya.ourfuture.UserPage;
 
 public interface IUserButtonsPresenter {
     void layoutClicked(int layoutNumber);
+    int getUserId();
+    void saveUserInfo(UserInfo userInfo);
+    void updateFollow();
 }

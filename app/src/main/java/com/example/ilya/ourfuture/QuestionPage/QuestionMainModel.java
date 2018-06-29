@@ -1,7 +1,7 @@
 package com.example.ilya.ourfuture.QuestionPage;
 
-import com.example.ilya.ourfuture.Shared.Question;
-import com.example.ilya.ourfuture.Shared.QuestionsList;
+import com.example.ilya.ourfuture.Question.Question;
+import com.example.ilya.ourfuture.Question.QuestionsList;
 import com.example.ilya.ourfuture.Shared.ServerConnection;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -57,7 +57,7 @@ public class QuestionMainModel implements IQuestionMainModel {
 
     @Override
     public boolean isAnswered() {
-        boolean answered = QuestionsList.getNextQuestion().yourAnswer != 0;
+        boolean answered = QuestionsList.getNextQuestion().yourAnswerType != 0;
         return answered;
     }
 
@@ -91,7 +91,7 @@ public class QuestionMainModel implements IQuestionMainModel {
 
         int firstOption = object.get("firstOption").getAsInt();
         int secondOption = object.get("secondOption").getAsInt();
-        int yourAnswer = object.get("yourAnswer").getAsInt();
+        int yourAnswer = object.get("yourAnswerType").getAsInt();
 
         if ((answer != -1) && (yourAnswer != answer)) { //If we have answered now
             if ((yourAnswer == 1) && (answer == 2)) {

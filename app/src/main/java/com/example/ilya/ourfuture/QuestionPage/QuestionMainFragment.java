@@ -13,8 +13,7 @@ import android.widget.TextView;
 
 import com.example.ilya.ourfuture.R;
 import com.example.ilya.ourfuture.Shared.Id;
-import com.example.ilya.ourfuture.Shared.Question;
-import com.example.ilya.ourfuture.Shared.QuestionsList;
+import com.example.ilya.ourfuture.Question.Question;
 
 import java.util.ArrayList;
 

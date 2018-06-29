@@ -35,7 +35,7 @@
     </LinearLayout>
 
     <EditText
-        android:id="@+id/etCreateQuestionText"
+        android:id="@+id/etCreateQuestionTextOld"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/createQuestionMarginBetweenBoxes"

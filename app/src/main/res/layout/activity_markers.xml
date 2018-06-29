@@ -12,13 +12,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-    <FrameLayout
+    <!--<FrameLayout
         android:id="@+id/markersFrameOwnHeader"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/markersMarginBeforeSearchAndButtons"/>
+        android:layout_marginBottom="@dimen/markersMarginBeforeSearchAndButtons"/>-->
 
-    <LinearLayout
+    <FrameLayout
+        android:id="@+id/markersFrameMenuFour"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <!--<LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
@@ -38,7 +43,7 @@
             android:layout_marginTop="@dimen/markersMarginBeforeButtons"
             android:layout_marginRight="@dimen/markersMarginRightButtons"/>
 
-    </LinearLayout>
+    </LinearLayout>-->
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -47,7 +52,8 @@
         <FrameLayout
             android:id="@+id/markersFrameQuestionList"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="match_parent"
+            android:layout_above="@+id/markersFrameFooter"/>
 
         <FrameLayout
             android:id="@+id/markersFrameFooter"

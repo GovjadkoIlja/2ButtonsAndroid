@@ -13,16 +13,17 @@ public class CredentialsPresenter implements ICredentialsPresenter {
 
     public CredentialsPresenter(ICredentialsView view) {
         credentialsView = view;
-        credentialsModel = new CredentialsModel();
+        credentialsModel = new CredentialsModel(this);
     }
 
     @Override
     public void getId(String login, String password) {
-        credentialsModel.checkLogin(login, password).subscribe(n -> makeDecision(((int)Math.round((double)n))));
+        credentialsModel.checkLogin(login, password);//.subscribe(n -> makeDecision(((int)Math.round((double)n))));
         //makeDecision(1); //ПРОСТО ЗАГЛУШКА, РАСКОММЕНТИТЬ СТРОКУ ВЫШЕ
     }
 
-    private void makeDecision(int n) { //Обработать недоступность сервера
+    @Override
+    public void isHasAccess(int n) { //Обработать недоступность сервера
 
         if (n > 0) {
             Id.setId(n);

@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="10dp">
+
+        <!-- Background -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/questionBackgroundHeight"
+            android:orientation="vertical"
+            android:id="@+id/llClosedQuestionBackground"
+            android:background="@drawable/background_image">
+
+            <!-- Header -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/questionHeaderMarginTop">
+
+                <ImageButton
+                    android:layout_width="@dimen/questionPhotoSize"
+                    android:layout_height="@dimen/questionPhotoSize"
+                    android:layout_alignParentLeft="true"
+                    android:id="@+id/ibClosedQuestionPhoto"
+                    android:layout_marginLeft="@dimen/questionPhotoMarginLeft"/>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/questionPhotoSize"
+                    android:orientation="vertical"
+                    android:layout_toRightOf="@id/ibClosedQuestionPhoto">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:id="@+id/tvClosedQuestionLogin"
+                        android:textColor="@color/colorWhite"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:id="@+id/tvClosedQuestionAskDate"
+                        android:textColor="@color/colorQuestionDateTime"/>
+
+                </RelativeLayout>
+
+                <ImageButton
+                    android:layout_width="@dimen/questionDotsSize"
+                    android:layout_height="@dimen/questionDotsSize"
+                    android:src="@drawable/dots"
+                    android:background="@null"
+                    android:scaleType="fitXY"
+                    android:layout_marginTop="@dimen/questionDotsMarginTop"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="@dimen/questionDotsMarginRight"/>
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxWidth="@dimen/questionConditionMaxWidth"
+                android:id="@+id/tvClosedQuestionCondition"
+                android:textColor="@color/colorWhite"
+                android:textStyle="bold"
+                android:layout_centerInParent="true"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/questionResultsHeight"
+                android:id="@+id/llClosedQuestionResults"
+                android:orientation="horizontal"
+                android:layout_alignParentBottom="true"
+                android:visibility="invisible"
+                android:background="@android:color/transparent"
+                android:layout_marginBottom="@dimen/questionResultsMarginBottom">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/rlClosedQuestionFirstOptionLine">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/tvClosedQuestionFirstOptionLinePrecent"
+                        android:layout_centerInParent="true"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/tvClosedQuestionFirstOptionLineVoters"
+                        android:layout_centerInParent="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="@dimen/questionResultsMarginVotersAmount"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/rlClosedQuestionMiddleLine"/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/rlClosedQuestionSecondOptionLine">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/tvClosedQuestionSecondOptionLinePrecent"
+                        android:layout_centerInParent="true"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/tvClosedQuestionSecondOptionLineVoters"
+                        android:layout_centerInParent="true"
+                        android:layout_alignParentLeft="true"
+                        android:layout_marginLeft="@dimen/questionResultsMarginVotersAmount"/>
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <!-- Options-->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/questionOptionButtonHeight">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:paddingHorizontal="@dimen/questionOptionButtonPaddingHorizontal"
+                android:id="@+id/rlClosedQuestionFirstOption"
+                android:background="@drawable/option_border">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:id="@+id/tvClosedQuestionFirstOptionText"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:paddingHorizontal="@dimen/questionOptionButtonPaddingHorizontal"
+                android:id="@+id/rlClosedQuestionSecondOption"
+                android:background="@drawable/option_border">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:id="@+id/tvClosedQuestionSecondOptionText"/>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+
+        <!--Footer -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@drawable/option_border"
+            android:paddingHorizontal="@dimen/questionFooterPaddingHorizontal"
+            android:paddingVertical="@dimen/questionFooterPaddingVertical">
+
+            <ImageView
+                android:layout_width="@dimen/questionFooterIconsSize"
+                android:layout_height="@dimen/questionFooterIconsSize"
+                android:id="@+id/ivClosedQuestionShows"
+                android:src="@drawable/shows"
+                android:scaleType="fitXY"
+                android:background="@null"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvClosedQuestionShows"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/questionFooterMarginNumbers"
+                android:layout_marginRight="@dimen/questionFooterMarginBetweenIcons"/>
+
+            <ImageButton
+                android:layout_width="@dimen/questionFooterIconsSize"
+                android:layout_height="@dimen/questionFooterIconsSize"
+                android:id="@+id/ibClosedQuestionLike"
+                android:src="@drawable/thumb_up"
+                android:scaleType="fitXY"
+                android:background="@null"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvClosedQuestionRaiting"
+                android:layout_gravity="center_vertical"
+                android:layout_marginHorizontal="@dimen/questionFooterMarginNumbers"/>
+
+            <ImageButton
+                android:layout_width="@dimen/questionFooterIconsSize"
+                android:layout_height="@dimen/questionFooterIconsSize"
+                android:id="@+id/ibClosedQuestionDislike"
+                android:src="@drawable/thumb_down"
+                android:scaleType="fitXY"
+                android:background="@null"
+                android:layout_marginRight="@dimen/questionFooterMarginBetweenIcons"/>
+
+            <ImageButton
+                android:layout_width="@dimen/questionFooterIconsSize"
+                android:layout_height="@dimen/questionFooterIconsSize"
+                android:id="@+id/ibClosedQuestionComments"
+                android:src="@drawable/comments"
+                android:scaleType="fitXY"
+                android:background="@null" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right">
+
+                <ImageButton
+                    android:layout_width="@dimen/questionFooterIconsSize"
+                    android:layout_height="@dimen/questionFooterIconsSize"
+                    android:id="@+id/ibClosedQuestionFavorite"
+                    android:src="@drawable/favorite"
+                    android:scaleType="fitXY"
+                    android:background="@null"
+                    android:layout_toLeftOf="@+id/ibClosedQuestionShare"/>
+
+                <ImageButton
+                    android:layout_width="@dimen/questionFooterIconsSize"
+                    android:layout_height="@dimen/questionFooterIconsSize"
+                    android:id="@+id/ibClosedQuestionShare"
+                    android:src="@drawable/share"
+                    android:scaleType="fitXY"
+                    android:background="@null"
+                    android:layout_marginLeft="@dimen/questionFooterMarginBetweenIcons"
+                    android:layout_alignParentRight="true"/>
+
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</merge>

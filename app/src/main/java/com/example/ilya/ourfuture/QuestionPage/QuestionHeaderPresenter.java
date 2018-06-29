@@ -1,6 +1,6 @@
 package com.example.ilya.ourfuture.QuestionPage;
 
-import com.example.ilya.ourfuture.Shared.Question;
+import com.example.ilya.ourfuture.Question.Question;
 
 import java.util.ArrayList;
 
@@ -31,14 +31,14 @@ public class QuestionHeaderPresenter implements IQuestionHeaderPresenter {
         int newFeedback;
 
         if (likeButtonPressed)
-            newFeedback = question.yourFeedback == 1 ? 0 : 1;
+            newFeedback = question.yourFeedbackType == 1 ? 0 : 1;
         else
-            newFeedback = question.yourFeedback == -1 ? 0 : -1;
+            newFeedback = question.yourFeedbackType == -1 ? 0 : -1;
 
-        /*question.raiting += newFeedback - question.yourFeedback;
+        /*question.raiting += newFeedback - question.yourFeedbackType;
         setRaiting(question.raiting);*/
 
-        question.yourFeedback = newFeedback;
+        question.yourFeedbackType = newFeedback;
 
         questionHeaderModel.feedbackChanged(newFeedback);
         questionHeaderView.setFeedback(newFeedback == 1, newFeedback == -1);
@@ -47,10 +47,10 @@ public class QuestionHeaderPresenter implements IQuestionHeaderPresenter {
     @Override
     public void favoritesChanged() {
         Question question = questionHeaderModel.getNextQuestion();
-        //question.inFavorites = 1 - question.inFavorites;
+        //question.isInFavorites = 1 - question.isInFavorites;
 
         questionHeaderModel.favoritesChanged();
-        questionHeaderView.setFavorites(question.inFavorites == 1);
+        questionHeaderView.setFavorites(question.isInFavorites);
     }
 
     private void representQuestion(Question question) {
@@ -66,10 +66,10 @@ public class QuestionHeaderPresenter implements IQuestionHeaderPresenter {
 
         questionHeaderView.fillQuestionType(type);
 
-        setRaiting(question.questionLikesAmount - question.questionDislikesAmount);
+        setRaiting(question.likesAmount - question.dislikesAmount);
 
-        questionHeaderView.setFeedback(question.yourFeedback == 1, question.yourFeedback == -1);
-        questionHeaderView.setFavorites(question.inFavorites == 1);
+        questionHeaderView.setFeedback(question.yourFeedbackType == 1, question.yourFeedbackType == -1);
+        questionHeaderView.setFavorites(question.isInFavorites);
     }
 
     private void setRaiting(int raiting) {

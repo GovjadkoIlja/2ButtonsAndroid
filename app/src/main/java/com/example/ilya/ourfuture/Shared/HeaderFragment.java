@@ -2,6 +2,7 @@ package com.example.ilya.ourfuture.Shared;
 
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.view.LayoutInflater;
@@ -12,6 +13,7 @@ import android.widget.TextView;
 
 import com.example.ilya.ourfuture.LoginPage.MainActivity;
 import com.example.ilya.ourfuture.R;
+import com.example.ilya.ourfuture.UserPage.UserActivity;
 
 import org.w3c.dom.Text;
 
@@ -23,7 +25,8 @@ public class HeaderFragment extends Fragment implements View.OnClickListener {
 
     ImageButton btnBack;
     TextView tvHeader;
-    TextView tvHelp;
+    //TextView tvHelp;
+    ImageButton ibMyPage;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -32,18 +35,21 @@ public class HeaderFragment extends Fragment implements View.OnClickListener {
 
         btnBack = view.findViewById(R.id.btnBack);
         tvHeader = view.findViewById(R.id.tvHeader);
-        tvHelp = view.findViewById(R.id.tvHeaderHelp);
+        ibMyPage = view.findViewById(R.id.ibHeaderMyPage);
+        //tvHelp = view.findViewById(R.id.tvHeaderHelp);
+
+        ibMyPage.setOnClickListener(this);
 
         Bundle args = getArguments();
 
         tvHeader.setText(args.getString("headerText", ""));
 
-        String helpText = args.getString("headerHelpText", "");
+        //String helpText = args.getString("headerHelpText", "");
 
-        if (helpText.equals(""))
+        /*if (helpText.equals(""))
             tvHelp.setVisibility(View.GONE);
         else
-            tvHelp.setText(helpText);
+            tvHelp.setText(helpText);*/
 
         if (args.getBoolean("showBack", true)) {
             btnBack.setOnClickListener(this);
@@ -79,6 +85,11 @@ public class HeaderFragment extends Fragment implements View.OnClickListener {
         switch (view.getId()) {
             case (R.id.btnBack):
                 this.getActivity().onBackPressed();
+                break;
+            case (R.id.ibHeaderMyPage):
+                Intent intent = new Intent(this.getActivity(), UserActivity.class);
+                intent.putExtra("userId", Id.getId());
+                startActivity(intent);
                 break;
         }
     }

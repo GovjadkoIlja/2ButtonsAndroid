@@ -1,5 +1,6 @@
 package com.example.ilya.ourfuture.UserPage;
 
+import com.example.ilya.ourfuture.Shared.ServerConnection;
 import com.google.gson.JsonElement;
 
 import io.reactivex.Observable;
@@ -14,6 +15,6 @@ public interface IUserInfoRequest {
     /*@GET("/getUserInfo")
     Observable<JsonElement> getUserInfo(@Query("id") int id, @Query("userId") int userId);*/
 
-    @POST("/getUserInfo")
-    Observable<JsonElement> getUserInfo(@Body UserInfoRequest userInfoRequest);
+    @POST(ServerConnection.version + "/account/get")
+    Observable<UserInfoResponse> getUserInfo(@Body UserInfoRequest userInfoRequest);
 }

@@ -24,7 +24,12 @@
         <activity android:name=".QuestionPage.QuestionActivity" />
         <activity android:name=".QuestionPage.QuestionPeopleListActivity" />
         <activity android:name=".Markers.MarkersActivity" />
-        <activity android:name=".CreateQuestionActivity"></activity>
+        <activity android:name=".CreateQuestion.CreateQuestionConditionsActivity" />
+        <activity android:name=".Tops.TopActivity" />
+        <activity android:name=".Selection.SelectionActivity" />
+        <activity android:name=".Followers.FollowersActivity" />
+        <activity android:name=".CreateQuestion.CreateQuestionSettingsActivity" />
+        <activity android:name=".VotersActivity"></activity>
     </application>
 
 </manifest>

@@ -11,8 +11,8 @@
 
         <ImageView
             android:id="@+id/ivPeopleListPhoto"
-            android:layout_width="@dimen/peopleListPhotoSize"
-            android:layout_height="@dimen/peopleListPhotoSize"
+            android:layout_width="@dimen/userItemPhotoSize"
+            android:layout_height="@dimen/userItemPhotoSize"
             android:layout_marginRight="@dimen/peopleListPhotoMarginRight"
             android:src="@drawable/my_square_photo"/>
 

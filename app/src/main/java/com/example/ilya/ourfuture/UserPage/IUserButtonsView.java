@@ -5,5 +5,6 @@ package com.example.ilya.ourfuture.UserPage;
  */
 
 public interface IUserButtonsView {
-    void getPeopleList(int userId, boolean isFollowers, boolean isFollowTo);
+    void getPeopleList(int userId, int listType);
+    void setButtonFollow(boolean isYoursPage, boolean isFollowed);
 }

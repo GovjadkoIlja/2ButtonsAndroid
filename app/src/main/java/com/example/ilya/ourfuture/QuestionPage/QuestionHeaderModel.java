@@ -1,8 +1,8 @@
 package com.example.ilya.ourfuture.QuestionPage;
 
 import com.example.ilya.ourfuture.Shared.Id;
-import com.example.ilya.ourfuture.Shared.Question;
-import com.example.ilya.ourfuture.Shared.QuestionsList;
+import com.example.ilya.ourfuture.Question.Question;
+import com.example.ilya.ourfuture.Question.QuestionsList;
 import com.example.ilya.ourfuture.Shared.ServerConnection;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -46,7 +46,7 @@ public class QuestionHeaderModel implements IQuestionHeaderModel {
 
         Question question = getNextQuestion();
 
-        question.yourFeedback = newFeedback;
+        question.yourFeedbackType = newFeedback;
 
         Gson gson = new GsonBuilder().create();
 
@@ -67,9 +67,9 @@ public class QuestionHeaderModel implements IQuestionHeaderModel {
     @Override
     public void favoritesChanged() {
         Question question = getNextQuestion();
-        question.inFavorites = 1 - question.inFavorites;
+        question.isInFavorites = !question.isInFavorites;
 
-        System.out.println(question.inFavorites);
+        System.out.println(question.isInFavorites);
 
         Gson gson = new GsonBuilder().create();
 
@@ -81,7 +81,7 @@ public class QuestionHeaderModel implements IQuestionHeaderModel {
 
         ISaveFavorites saveFavoritesIntf = searchRetrofit.create(ISaveFavorites.class);
 
-        saveFavoritesIntf.saveFavorites(Id.getId(), question.questionId, question.inFavorites)
+        saveFavoritesIntf.saveFavorites(Id.getId(), question.questionId, question.isInFavorites)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(n -> System.out.println(n));

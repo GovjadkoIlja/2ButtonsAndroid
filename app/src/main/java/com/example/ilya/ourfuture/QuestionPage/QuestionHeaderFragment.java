@@ -10,8 +10,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.example.ilya.ourfuture.R;
-import com.example.ilya.ourfuture.Shared.Id;
-import com.example.ilya.ourfuture.Shared.Question;
+import com.example.ilya.ourfuture.Question.Question;
 
 import java.util.ArrayList;
 
@@ -52,8 +51,6 @@ public class QuestionHeaderFragment extends Fragment implements IQuestionHeaderV
         ibFavorites.setOnClickListener(this);
 
         questionHeaderPresenter = new QuestionHeaderPresenter(position, questions, this);
-
-        System.out.println(questions.get(position).condition);;
 
         //questionHeaderPresenter.getQuestion();
 

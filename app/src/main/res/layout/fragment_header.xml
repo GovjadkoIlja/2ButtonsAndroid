@@ -1,39 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/colorWhite">
-
-    <ImageButton
-        android:id="@+id/btnBack"
-        android:layout_width="@dimen/logoSize"
-        android:layout_height="@dimen/logoSize"
-        android:src="@drawable/arrow_back"
-        android:layout_margin="@dimen/logoMargins"
-        android:scaleType="fitXY"
-        android:padding="0dp"
-        />
-
-    <TextView
-        android:id="@+id/tvHeader"
-        android:layout_width="wrap_content"
+    android:orientation="vertical">
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:textColor="@color/colorBlue"
-        android:textSize="@dimen/headerTextSize"
-        />
+        android:background="@color/colorWhite">
 
-    <TextView
-        android:id="@+id/tvHeaderHelp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/colorBlue"
-        android:textSize="@dimen/headerTextSize"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="@dimen/headerHelpMarginRight"
-        android:layout_centerVertical="true"
-        />
+        <ImageButton
+            android:id="@+id/btnBack"
+            android:layout_width="@dimen/logoSize"
+            android:layout_height="@dimen/logoSize"
+            android:src="@drawable/arrow_back"
+            android:layout_margin="@dimen/logoMargins"
+            android:scaleType="fitXY"
+            android:padding="0dp"
+            />
 
+        <TextView
+            android:id="@+id/tvHeader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textColor="@color/colorBlue"
+            android:textSize="@dimen/headerTextSize"
+            />
 
-</RelativeLayout>
+       <!-- <TextView
+            android:id="@+id/tvHeaderHelp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorBlue"
+            android:textSize="@dimen/headerTextSize"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/headerHelpMarginRight"
+            android:layout_centerVertical="true"
+            /> -->
+
+        <ImageButton
+            android:id="@+id/ibHeaderMyPage"
+            android:layout_width="@dimen/logoSize"
+            android:layout_height="@dimen/logoSize"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/headerHelpMarginRight"
+            android:src="@drawable/my_square_photo"
+            android:layout_margin="@dimen/logoMargins"
+            android:scaleType="fitXY"
+            android:padding="0dp"
+            />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/colorDarkGrey"/>
+</LinearLayout>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/llUserFollowers"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal"
+    android:layout_marginHorizontal="@dimen/buttonsMarginBetweenButtons"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tvUserButtonValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/buttonsValueFont"/>
+
+    <TextView
+        android:id="@+id/tvUserButtonDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/buttonsDescriptionFont"/>
+</LinearLayout>

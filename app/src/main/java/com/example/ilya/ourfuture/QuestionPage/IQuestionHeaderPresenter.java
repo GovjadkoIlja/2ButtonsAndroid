@@ -1,9 +1,5 @@
 package com.example.ilya.ourfuture.QuestionPage;
 
-import com.example.ilya.ourfuture.Shared.Question;
-
-import java.util.ArrayList;
-
 /**
  * Created by Ilya on 10.02.2018.
  */

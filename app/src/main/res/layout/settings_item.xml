@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/createQuestionSettingsItemHeight"
+    android:id="@+id/rlCreateQuestionSettingsItem"
+    android:background="@color/colorWhite">
+    
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvCreateQuestionSettingsDescription"
+        android:layout_marginLeft="@dimen/createQuestionSettingsDescriptionMarginLeft"
+        android:layout_centerVertical="true"
+        android:textColor="@color/colorBlue"/>
+    
+    <ImageView
+        android:layout_width="@dimen/createQuestionSettingsCheckSize"
+        android:layout_height="@dimen/createQuestionSettingsCheckSize"
+        android:id="@+id/ivCreateQuestionSettingsCheck"
+        android:scaleType="fitXY"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="@dimen/createQuestionSettingsItemCheckMarginRight"
+        android:src="@drawable/setting_check"/>
+    
+</RelativeLayout>

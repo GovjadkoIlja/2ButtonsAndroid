@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/colorLightBlue"
+    android:background="@color/colorWhite"
     android:id="@+id/activityUserLayout">
 
     <FrameLayout
@@ -12,6 +12,24 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/marginAfterRegisterHeader"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/userPhotoSize"
+        android:orientation="horizontal">
+
+        <FrameLayout
+            android:id="@+id/userFrameUserPhoto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/userUserInfoMargin"/>
+
+        <FrameLayout
+            android:id="@+id/userFrameUserButtons"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
 
     <FrameLayout
         android:id="@+id/userFrameUserInfo"
@@ -21,10 +39,11 @@
         android:layout_marginRight="@dimen/userUserInfoMargin" />
 
     <FrameLayout
-        android:id="@+id/userFrameUserButtons"
+        android:id="@+id/userFrameMenuFour"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/buttonsMarginBeforeButtons"/>
+        android:layout_height="wrap_content">
+
+    </FrameLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -34,8 +53,8 @@
             android:id="@+id/userFramePosts"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="@dimen/buttonsMarginBeforeButtons"
-            android:layout_above="@+id/userFrameFooter"/>
+            android:layout_above="@+id/userFrameFooter"
+            android:background="@color/backgroundColor"/>
 
         <FrameLayout
             android:id="@+id/userFrameFooter"

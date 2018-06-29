@@ -14,7 +14,7 @@
     <color name="colorLoginButtonText">#FFFFFF</color>
     <color name="colorBlueText">#5FA2CF</color> -->
 
-    <color name="colorBlue">#5FA2CF</color>
+    <color name="colorBlue">#52adf3</color>
     <color name="colorLightBlue">#F0F9FF</color>
     <color name="colorWhite">#FFFFFF</color>
     <color name="colorWrongField">#FFDBDC</color>
@@ -23,9 +23,15 @@
     <color name="colorCondition">#BBBBBB</color>
     <color name="colorFirstOption">#AAA8FA</color>
     <color name="colorSecondOption">#FFF5CC</color>
-    <color name="colorOptionText">#4E4E4E</color>
+    <color name="colorDarkGrey">#4E4E4E</color>
     <color name="colorAnsweredOptionText">#222222</color>
     <color name="colorNotAnsweredOptionText">#666666</color>
-    <color name="colorLightGrey">#DDDDDD</color>
+    <color name="colorLightGrey">#D9D9D9</color>
+    <color name="colorQuestionDateTime">#B4B4B4</color>
+    <color name="backgroundColor">#F7F7F7</color>
+    <color name="colorSelectedOption">#D3E3F0</color>
+    <color name="colorBlack">#000000</color>
+    <color name="colorQuestionResultsSelected">#C8D3E3F0</color>
+    <color name="colorQuestionResultsNotSelected">#C8FFFFFF</color>
     <!--<color name="colorDeepBlue">#3692CF</color> -->
 </resources>

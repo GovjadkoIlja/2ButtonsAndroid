@@ -9,8 +9,8 @@
 
     <ImageButton
         android:id="@+id/ibQuestionPhoto"
-        android:layout_width="@dimen/questionHeaderPhotoSize"
-        android:layout_height="@dimen/questionHeaderPhotoSize"
+        android:layout_width="@dimen/questionPhotoSize"
+        android:layout_height="@dimen/questionPhotoSize"
         android:src="@drawable/my_square_photo"
         android:scaleType="fitCenter"
         android:padding="0dp"

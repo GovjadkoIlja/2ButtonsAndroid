@@ -9,9 +9,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 
-import com.example.ilya.ourfuture.CreateQuestionActivity;
+import com.example.ilya.ourfuture.CreateQuestion.CreateQuestionConditionsActivity;
 import com.example.ilya.ourfuture.Markers.MarkersActivity;
 import com.example.ilya.ourfuture.R;
+import com.example.ilya.ourfuture.Selection.SelectionActivity;
+import com.example.ilya.ourfuture.Tops.TopActivity;
 import com.example.ilya.ourfuture.UserPage.UserActivity;
 
 public class FooterFragment extends Fragment implements View.OnClickListener {
@@ -63,17 +65,24 @@ public class FooterFragment extends Fragment implements View.OnClickListener {
 
             case R.id.ibFooterBest:
                 newSelectedOption = 5;
-                intent = new Intent(this.getActivity(), MarkersActivity.class);
+                intent = new Intent(this.getActivity(), TopActivity.class);
                 break;
 
             case R.id.ibFooterAsk:
                 newSelectedOption = 3;
-                intent = new Intent(this.getActivity(), CreateQuestionActivity.class);
+                intent = new Intent(this.getActivity(), CreateQuestionConditionsActivity.class);
                 break;
 
             case R.id.ibFooterNews:
+                newSelectedOption = 2;
+                intent = new Intent(this.getActivity(), MarkersActivity.class);
+                break;
+
             case R.id.ibFooterQuestions:
-                return;
+                newSelectedOption = 4;
+                intent = new Intent(this.getActivity(), SelectionActivity.class);
+                break;
+
         }
 
         setSelectedOption(newSelectedOption);
@@ -84,37 +93,37 @@ public class FooterFragment extends Fragment implements View.OnClickListener {
     private void setSelectedOption(int newOption) {
         switch (selectedOption) {
             case 1:
-                ibUser.setImageResource(R.drawable.userpage_disabled);
+                ibUser.setImageResource(R.drawable.news_disabled);
                 break;
             case 2:
-                ibNews.setImageResource(R.drawable.news_disabled);
+                ibNews.setImageResource(R.drawable.markers_disabled);
                 break;
             case 3:
-                ibAsk.setImageResource(R.drawable.ask_question_disabled);
+                ibAsk.setImageResource(R.drawable.ask_disabled);
                 break;
             case 4:
                 ibQuestions.setImageResource(R.drawable.questions_list_disabled);
                 break;
             case 5:
-                ibBest.setImageResource(R.drawable.best_disabled);
+                ibBest.setImageResource(R.drawable.tops_disabled);
                 break;
         }
 
         switch (newOption) {
             case 1:
-                ibUser.setImageResource(R.drawable.userpage_enabled);
+                ibUser.setImageResource(R.drawable.news_enabled);
                 break;
             case 2:
-                ibNews.setImageResource(R.drawable.news_enabled);
+                ibNews.setImageResource(R.drawable.markers_enabled);
                 break;
             case 3:
-                ibAsk.setImageResource(R.drawable.ask_question_enabled);
+                ibAsk.setImageResource(R.drawable.ask_enabled);
                 break;
             case 4:
                 ibQuestions.setImageResource(R.drawable.questions_list_enabled);
                 break;
             case 5:
-                ibBest.setImageResource(R.drawable.best_enabled);
+                ibBest.setImageResource(R.drawable.tops_enabled);
                 break;
         }
 

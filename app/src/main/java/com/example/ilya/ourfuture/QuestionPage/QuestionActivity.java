@@ -9,7 +9,7 @@ import android.os.Bundle;
 import com.example.ilya.ourfuture.R;
 import com.example.ilya.ourfuture.Shared.FooterFragment;
 import com.example.ilya.ourfuture.Shared.HeaderFragment;
-import com.example.ilya.ourfuture.Shared.Question;
+import com.example.ilya.ourfuture.Question.Question;
 
 import java.util.ArrayList;
 

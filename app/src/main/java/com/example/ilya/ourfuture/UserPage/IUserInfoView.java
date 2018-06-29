@@ -5,6 +5,7 @@ package com.example.ilya.ourfuture.UserPage;
  */
 
 public interface IUserInfoView {
+    void userInfoGot(UserInfo userInfo);
     void setLogin(String login);
     void setAgeSex(int age, String sex);
     void setDescription(String description);

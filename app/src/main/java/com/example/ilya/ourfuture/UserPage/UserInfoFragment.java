@@ -20,22 +20,22 @@ public class UserInfoFragment extends Fragment implements IUserInfoView {
 
     IUserInfoPresenter userInfoPresenter;
 
-    TextView tvLogin;
+    //TextView tvLogin;
     TextView tvAgeSex;
     TextView tvDescription;
-    ImageView ivHeFollowed;
-    ImageButton btnFollow;
+    //ImageView ivHeFollowed;
+    //ImageButton btnFollow;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_user_info, null);
 
-        tvLogin = (TextView) view.findViewById(R.id.tvUserLogin);
+        //tvLogin = (TextView) view.findViewById(R.id.tvUserLogin);
         tvAgeSex = (TextView) view.findViewById(R.id.tvUserAgeSex);
         tvDescription = (TextView) view.findViewById(R.id.tvUserDescription);
-        ivHeFollowed = (ImageView) view.findViewById(R.id.ivUserHeFollowed);
-        btnFollow = (ImageButton) view.findViewById(R.id.btnUserFollow);
+        //ivHeFollowed = (ImageView) view.findViewById(R.id.ivUserHeFollowed);
+        //btnFollow = (ImageButton) view.findViewById(R.id.btnUserFollow);
 
         Bundle args = getArguments();
 
@@ -51,9 +51,17 @@ public class UserInfoFragment extends Fragment implements IUserInfoView {
     }
 
     @Override
-    public void setLogin(String login) {
-        tvLogin.setText(login);
+    public void userInfoGot(UserInfo user) {
+        UserInfoGot userInfo = (UserInfoGot) this.getActivity();
+        userInfo.userInfoGot(user);
     }
+
+    @Override
+    public void setLogin(String login) {
+        //tvLogin.setText(login);
+    }
+
+
 
     @Override
     public void setAgeSex(int age, String sex) {
@@ -69,17 +77,23 @@ public class UserInfoFragment extends Fragment implements IUserInfoView {
     @Override
     public void setButtons(boolean isMine, boolean heFollowed, boolean youFollowed) {
         if (isMine) {
-            btnFollow.setImageResource(R.drawable.settings);
-            ivHeFollowed.setVisibility(View.GONE);
+            //btnFollow.setImageResource(R.drawable.settings);
+            //ivHeFollowed.setVisibility(View.GONE);
         } else {
             if (heFollowed) {
-                ivHeFollowed.setVisibility(View.VISIBLE);
-                ivHeFollowed.setImageResource(R.drawable.he_followed);
+                //ivHeFollowed.setVisibility(View.VISIBLE);
+                //ivHeFollowed.setImageResource(R.drawable.he_followed);
             }
-            if (youFollowed)
+            /*if (youFollowed)
                 btnFollow.setImageResource(R.drawable.you_followed);
             else
-                btnFollow.setImageResource(R.drawable.add);
+                btnFollow.setImageResource(R.drawable.add);*/
         }
+    }
+
+    public interface UserInfoGot {
+        /*String getCondition();
+        ArrayList<String> getOptions();*/
+        void userInfoGot(UserInfo user);
     }
 }

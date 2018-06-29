@@ -3,11 +3,40 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    android:background="@color/colorLightBlue"
-    android:gravity="center">
+    android:orientation="vertical">
 
     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+        <com.example.ilya.ourfuture.UserPage.UserButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/ubFollowers"/>
+
+        <com.example.ilya.ourfuture.UserPage.UserButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/ubFollowTo"/>
+
+        <com.example.ilya.ourfuture.UserPage.UserButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/ubStatistics"/>
+    </LinearLayout>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/btnUserButtonsFollow"
+        android:background="@drawable/button_subscribe"
+        android:textColor="@color/colorWhite"
+        android:visibility="invisible"
+        android:textAllCaps="false"
+        android:layout_marginHorizontal="@dimen/buttonFollowMarginHorizontal"
+        android:layout_marginTop="@dimen/buttonFollowMarginTop"/>
+
+    <!--<LinearLayout
         android:id="@+id/llUserFollowers"
         android:layout_width="@dimen/userButtonsWidth"
         android:layout_height="@dimen/userButtonsHeight"
@@ -41,21 +70,7 @@
 
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="@dimen/userButtonsWidth"
-        android:layout_height="@dimen/userButtonsHeight"
-        android:background="@drawable/buttons_border"
-        android:gravity="center_horizontal"
-        android:layout_marginRight="@dimen/buttonsMarginBetweenButtons">
 
-        <TextView
-            android:id="@+id/tvAchieventsDescription"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/achievements"
-            android:textSize="@dimen/buttonsDescriptionFont"/>
-
-    </LinearLayout>
 
     <LinearLayout
         android:layout_width="@dimen/userButtonsWidth"
@@ -71,6 +86,22 @@
             android:text="@string/statistics"
             android:textSize="@dimen/buttonsDescriptionFont"/>
 
-    </LinearLayout>
+    </LinearLayout> -->
+
+    <!--<LinearLayout
+        android:layout_width="@dimen/userButtonsWidth"
+        android:layout_height="@dimen/userButtonsHeight"
+        android:background="@drawable/buttons_border"
+        android:gravity="center_horizontal"
+        android:layout_marginRight="@dimen/buttonsMarginBetweenButtons">
+
+        <TextView
+            android:id="@+id/tvAchieventsDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/achievements"
+            android:textSize="@dimen/buttonsDescriptionFont"/>
+
+    </LinearLayout>-->
 
 </LinearLayout>

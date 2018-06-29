@@ -21,10 +21,10 @@ public class UserInfoPresenter implements IUserInfoPresenter {
 
     @Override
     public void userInfoGot(UserInfo user) {
+        System.out.println(user.login);
+        userInfoView.userInfoGot(user);
         representUserInfo(user);
     }
-
-
 
     private void representUserInfo(UserInfo user) {
         userInfoView.setLogin(user.login);
@@ -37,7 +37,7 @@ public class UserInfoPresenter implements IUserInfoPresenter {
 
         userInfoView.setAgeSex(user.age, sex);
 
-        userInfoView.setButtons(user.userId == userInfoModel.id, user.heFollowed == 1, user.youFollowed == 1);
+        userInfoView.setButtons(user.userId == userInfoModel.id, user.isHeFollowed, user.isYouFollowed);
 
         userInfoView.setDescription(user.description);
     }

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/etCreateQuestionText"
+        android:background="@color/colorWhite"
+        android:paddingVertical="@dimen/createQuestionTextPaddingVertical"
+        android:paddingLeft="@dimen/createQuestionTextPaddingLeft" />
+</merge>

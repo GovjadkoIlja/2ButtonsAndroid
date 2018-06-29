@@ -8,4 +8,6 @@ import io.reactivex.*;
 
 public interface ICredentialsPresenter {
     void getId(String login, String password);
+
+    void isHasAccess(int n);
 }

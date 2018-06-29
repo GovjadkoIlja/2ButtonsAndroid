@@ -1,8 +1,7 @@
 package com.example.ilya.ourfuture.QuestionPage;
 
-import com.example.ilya.ourfuture.PeopleList.QuestionPeopleListModel;
 import com.example.ilya.ourfuture.PeopleList.ShortUser;
-import com.example.ilya.ourfuture.Shared.Question;
+import com.example.ilya.ourfuture.Question.Question;
 
 import java.util.ArrayList;
 
@@ -10,7 +9,7 @@ import java.util.ArrayList;
  * Created by Ilya on 13.02.2018.
  */
 
-public class AnsweredQuestion extends Question {
+public class AnsweredQuestion {
 
     int yourAnswer;
     int firstAnswers;
@@ -18,12 +17,12 @@ public class AnsweredQuestion extends Question {
     ArrayList<ShortUser> firstVoters;
     ArrayList<ShortUser> secondVoters;
 
-    public AnsweredQuestion(Question question, int _yourAnswer, int _firstAnswers, int _secondAnswers, ArrayList<ShortUser> _firstVoters, ArrayList<ShortUser> _secondVoters) {
+    /*public AnsweredQuestion(Question question, int _yourAnswer, int _firstAnswers, int _secondAnswers, ArrayList<ShortUser> _firstVoters, ArrayList<ShortUser> _secondVoters) {
 
         yourAnswer = _yourAnswer;
         firstAnswers = _firstAnswers;
         secondAnswers = _secondAnswers;
         firstVoters = _firstVoters;
         secondVoters = _secondVoters;
-    }
+    }*/
 }

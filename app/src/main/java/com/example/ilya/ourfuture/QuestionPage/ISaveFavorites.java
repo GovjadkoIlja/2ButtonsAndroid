@@ -10,5 +10,5 @@ import retrofit2.http.Query;
 
 public interface ISaveFavorites {
     @GET("/saveFavorites")
-    Observable<Integer> saveFavorites(@Query("id") int id, @Query("questionId") int questionId, @Query("inFavorites") int inFavorites);
+    Observable<Integer> saveFavorites(@Query("id") int id, @Query("questionId") int questionId, @Query("isInFavorites") boolean inFavorites);
 }

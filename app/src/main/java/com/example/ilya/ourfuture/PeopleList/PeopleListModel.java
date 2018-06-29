@@ -2,6 +2,8 @@ package com.example.ilya.ourfuture.PeopleList;
 
 import com.example.ilya.ourfuture.Shared.Id;
 import com.example.ilya.ourfuture.Shared.ServerConnection;
+import com.example.ilya.ourfuture.Followers.IFollowersRequest;
+import com.example.ilya.ourfuture.Followers.FollowersRequest;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
@@ -47,19 +49,19 @@ public class PeopleListModel implements IPeopleListModel {
                 .baseUrl(ServerConnection.URL)
                 .build();
 
-        IPeopleListRequest postsIntf = searchRetrofit.create(IPeopleListRequest.class);
+        IFollowersRequest postsIntf = searchRetrofit.create(IFollowersRequest.class);
 
-        if (isFollowers) {
-            postsIntf.getFollowers(Id.getId(), userId)
+        /*if (isFollowers) {
+            postsIntf.getFollowers(new FollowersRequest(Id.getId(), userId, ""))
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribeOn(Schedulers.io())
-                    .subscribe(n -> parseResponse(n));
+                    .subscribe(peopleListPresenter::peopleGot);
         } else if (isFollowTo) {
             postsIntf.getFollowTo(Id.getId(), userId)
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribeOn(Schedulers.io())
                     .subscribe(n -> parseResponse(n));
-        }
+        }*/
     }
 
     private void parseResponse(JsonElement s) {

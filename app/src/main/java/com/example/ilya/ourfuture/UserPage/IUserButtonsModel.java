@@ -5,7 +5,11 @@ package com.example.ilya.ourfuture.UserPage;
  */
 
 public interface IUserButtonsModel {
-    //void setData(int id, int userId);
+    //void setDescription(int id, int userId);
     //int getId();
     int getUserId();
+    void saveUserInfo(UserInfo userInfo);
+    UserInfo getUserInfo();
+    void subscribe();
+    void unsubscribe();
 }

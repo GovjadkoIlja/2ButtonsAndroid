@@ -14,4 +14,8 @@ public class Id {
     public static void setId(int _id) {
         id = _id;
     }
+
+    public static String getLogin(){
+        return "govjad";
+    }
 }

@@ -3,7 +3,6 @@ package com.example.ilya.ourfuture.UserPage;
 import com.example.ilya.ourfuture.Shared.ServerConnection;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.google.gson.JsonElement;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
@@ -31,8 +30,6 @@ public class UserInfoModel implements IUserInfoModel {
         id = _id;
     }
 
-
-
     @Override
     public void getUserInfo(int id, int userId) {
         Gson gson = new GsonBuilder().create();
@@ -48,7 +45,7 @@ public class UserInfoModel implements IUserInfoModel {
         userInfoIntf.getUserInfo(new UserInfoRequest(id, userId))
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
-                .subscribe(n -> parseResponse(n));
+                .subscribe(userInfo -> userInfoPresenter.userInfoGot(userInfo.data));
     }
 
     @Override
@@ -61,10 +58,8 @@ public class UserInfoModel implements IUserInfoModel {
         return user.userId;
     }
 
-    private void parseResponse(JsonElement s) {
-        Gson gson = new Gson();
-
-        user = gson.fromJson(s, UserInfo.class);
+    private void parseResponse(UserInfo userInfo) {
+        System.out.println(userInfo.login);
 
         userInfoPresenter.userInfoGot(user);
     }

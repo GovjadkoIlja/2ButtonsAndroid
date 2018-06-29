@@ -8,7 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.example.ilya.ourfuture.PeopleList.PeopleListFragment;
-import com.example.ilya.ourfuture.PeopleList.PeopleSearchFragment;
+import com.example.ilya.ourfuture.UsersList.UserListSearchFragment;
 import com.example.ilya.ourfuture.R;
 import com.example.ilya.ourfuture.Shared.FooterFragment;
 import com.example.ilya.ourfuture.Shared.HeaderFragment;
@@ -51,7 +51,7 @@ public class QuestionPeopleListActivity extends Activity implements QuestionPeop
         peopleListHeaderTransaction.add(R.id.questionPeopleListFrameOwnHeader, peopleListHeaderFragment);
         peopleListHeaderTransaction.commit();
 
-        Fragment searchFragment = new PeopleSearchFragment();
+        Fragment searchFragment = new UserListSearchFragment();
         FragmentTransaction searchTransaction = getFragmentManager().beginTransaction();
         searchTransaction.add(R.id.peopleListFrameSearch, searchFragment);
         searchTransaction.commit();

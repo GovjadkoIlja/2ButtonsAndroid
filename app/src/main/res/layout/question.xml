@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <!-- Background -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/questionBackgroundHeight"
+        android:orientation="vertical"
+        android:id="@+id/llQuestionBackground"
+        android:background="@drawable/background_image">
+
+        <!-- Header -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/questionHeaderMarginTop">
+
+            <ImageButton
+                android:layout_width="@dimen/questionPhotoSize"
+                android:layout_height="@dimen/questionPhotoSize"
+                android:layout_alignParentLeft="true"
+                android:id="@+id/ibQuestionPhoto"
+                android:layout_marginLeft="@dimen/questionPhotoMarginLeft"/>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/questionPhotoSize"
+                android:orientation="vertical"
+                android:layout_toRightOf="@id/ibQuestionPhoto">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:id="@+id/tvQuestionLogin"
+                    android:textColor="@color/colorWhite"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:id="@+id/tvQuestionAskDate"
+                    android:textColor="@color/colorQuestionDateTime"/>
+
+            </RelativeLayout>
+
+            <ImageButton
+                android:layout_width="@dimen/questionDotsSize"
+                android:layout_height="@dimen/questionDotsSize"
+                android:src="@drawable/dots"
+                android:background="@null"
+                android:scaleType="fitXY"
+                android:layout_marginTop="@dimen/questionDotsMarginTop"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="@dimen/questionDotsMarginRight"/>
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxWidth="@dimen/questionConditionMaxWidth"
+            android:id="@+id/tvQuestionCondition"
+            android:textColor="@color/colorWhite"
+            android:textStyle="bold"
+            android:layout_centerInParent="true"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/questionResultsHeight"
+            android:id="@+id/llQuestionResults"
+            android:orientation="horizontal"
+            android:layout_alignParentBottom="true"
+            android:visibility="invisible"
+            android:background="@android:color/transparent"
+            android:layout_marginBottom="@dimen/questionResultsMarginBottom">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/rlQuestionFirstOptionLine">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tvQuestionFirstOptionLinePrecent"
+                    android:layout_centerInParent="true"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tvQuestionFirstOptionLineVoters"
+                    android:layout_centerInParent="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="@dimen/questionResultsMarginVotersAmount"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/rlQuestionMiddleLine"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/rlQuestionSecondOptionLine">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tvQuestionSecondOptionLinePrecent"
+                    android:layout_centerInParent="true"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tvQuestionSecondOptionLineVoters"
+                    android:layout_centerInParent="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginLeft="@dimen/questionResultsMarginVotersAmount"/>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <!-- Options-->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/questionOptionButtonHeight">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:paddingHorizontal="@dimen/questionOptionButtonPaddingHorizontal"
+            android:id="@+id/rlQuestionFirstOption"
+            android:background="@drawable/option_border">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:id="@+id/tvQuestionFirstOptionText"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:paddingHorizontal="@dimen/questionOptionButtonPaddingHorizontal"
+            android:id="@+id/rlQuestionSecondOption"
+            android:background="@drawable/option_border">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:id="@+id/tvQuestionSecondOptionText"/>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+    <!--Footer -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@drawable/option_border"
+        android:paddingHorizontal="@dimen/questionFooterPaddingHorizontal"
+        android:paddingVertical="@dimen/questionFooterPaddingVertical">
+
+        <ImageView
+            android:layout_width="@dimen/questionFooterIconsSize"
+            android:layout_height="@dimen/questionFooterIconsSize"
+            android:id="@+id/ivQuestionShows"
+            android:src="@drawable/shows"
+            android:scaleType="fitXY"
+            android:background="@null"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvQuestionShows"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/questionFooterMarginNumbers"
+            android:layout_marginRight="@dimen/questionFooterMarginBetweenIcons"/>
+
+        <ImageButton
+            android:layout_width="@dimen/questionFooterIconsSize"
+            android:layout_height="@dimen/questionFooterIconsSize"
+            android:id="@+id/ibQuestionLike"
+            android:src="@drawable/thumb_up"
+            android:scaleType="fitXY"
+            android:background="@null"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvQuestionRaiting"
+            android:layout_gravity="center_vertical"
+            android:layout_marginHorizontal="@dimen/questionFooterMarginNumbers"/>
+
+        <ImageButton
+            android:layout_width="@dimen/questionFooterIconsSize"
+            android:layout_height="@dimen/questionFooterIconsSize"
+            android:id="@+id/ibQuestionDislike"
+            android:src="@drawable/thumb_down"
+            android:scaleType="fitXY"
+            android:background="@null"
+            android:layout_marginRight="@dimen/questionFooterMarginBetweenIcons"/>
+
+        <ImageButton
+            android:layout_width="@dimen/questionFooterIconsSize"
+            android:layout_height="@dimen/questionFooterIconsSize"
+            android:id="@+id/ibQuestionComments"
+            android:src="@drawable/comments"
+            android:scaleType="fitXY"
+            android:background="@null" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right">
+
+            <ImageButton
+                android:layout_width="@dimen/questionFooterIconsSize"
+                android:layout_height="@dimen/questionFooterIconsSize"
+                android:id="@+id/ibQuestionFavorite"
+                android:src="@drawable/favorite"
+                android:scaleType="fitXY"
+                android:background="@null"
+                android:layout_toLeftOf="@+id/ibClosedQuestionShare"/>
+
+            <ImageButton
+                android:layout_width="@dimen/questionFooterIconsSize"
+                android:layout_height="@dimen/questionFooterIconsSize"
+                android:id="@+id/ibQuestionShare"
+                android:src="@drawable/share"
+                android:scaleType="fitXY"
+                android:background="@null"
+                android:layout_marginLeft="@dimen/questionFooterMarginBetweenIcons"
+                android:layout_alignParentRight="true"/>
+
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

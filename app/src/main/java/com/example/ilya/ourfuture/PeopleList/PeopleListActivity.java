@@ -9,6 +9,7 @@ import android.os.Bundle;
 import com.example.ilya.ourfuture.R;
 import com.example.ilya.ourfuture.Shared.FooterFragment;
 import com.example.ilya.ourfuture.Shared.HeaderFragment;
+import com.example.ilya.ourfuture.UsersList.UserListSearchFragment;
 
 public class PeopleListActivity extends Activity {
 
@@ -19,6 +20,8 @@ public class PeopleListActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_people_list);
+
+        System.out.println("AAAA");
 
         Intent intent = getIntent();
         //int id = intent.getIntExtra("id", 0);
@@ -40,7 +43,7 @@ public class PeopleListActivity extends Activity {
         ft.add(R.id.peopleListFrameHeader, headerFragment);
         ft.commit();
 
-        Fragment searchFragment = new PeopleSearchFragment();
+        Fragment searchFragment = new UserListSearchFragment();
         FragmentTransaction searchTransaction = getFragmentManager().beginTransaction();
         searchTransaction.add(R.id.peopleListFrameSearch, searchFragment);
         searchTransaction.commit();

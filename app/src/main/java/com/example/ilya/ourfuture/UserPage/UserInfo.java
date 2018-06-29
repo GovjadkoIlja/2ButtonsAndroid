@@ -10,7 +10,14 @@ public class UserInfo {
     int age;
     int sex;
     String description;
-    int heFollowed;
-    int youFollowed;
-    String avatarLink;
+    String largeAvatarLink;
+    String smallAvatarLink;
+    boolean isYouFollowed;
+    boolean isHeFollowed;
+    int askedQuestionsAmount;
+    int answersAmount;
+    int favoritesAmount;
+    int commentsAmount;
+    int followersAmount;
+    int followedAmount;
 }

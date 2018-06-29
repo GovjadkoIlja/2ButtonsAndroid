@@ -6,18 +6,32 @@ import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
+import android.widget.Button;
 
-import com.example.ilya.ourfuture.PeopleList.PeopleListActivity;
+import com.example.ilya.ourfuture.Followers.FollowersActivity;
 import com.example.ilya.ourfuture.R;
 import com.example.ilya.ourfuture.Shared.Id;
 
 public class UserButtonsFragment extends Fragment implements IUserButtonsView, View.OnClickListener {
 
     IUserButtonsPresenter userButtonsPresenter;
+    boolean isYoursPage;
 
-    LinearLayout llFollowers;
-    LinearLayout llFollowTo;
+    Button btnFollow;
+    UserButton ubFollowers;
+    UserButton ubFollowTo;
+    UserButton ubStatistics;
+
+    final String followersDescription = "Подписчики";
+    final String followToDescription = "Подписки";
+    final String statisticsDescription = "Статистика";
+    final String follow = "Подписаться";
+    final String followed = "Вы подписаны";
+    final String edit = "Редактировать";
+
+
+    //LinearLayout llFollowers;
+    //LinearLayout llFollowTo;
 
 
     @Override
@@ -33,21 +47,72 @@ public class UserButtonsFragment extends Fragment implements IUserButtonsView, V
 
         userButtonsPresenter = new UserButtonsPresenter(userId, this);
 
-        llFollowers = view.findViewById(R.id.llUserFollowers);
+        btnFollow = view.findViewById(R.id.btnUserButtonsFollow);
+        ubFollowers = view.findViewById(R.id.ubFollowers);
+        ubFollowTo = view.findViewById(R.id.ubFollowTo);
+        ubStatistics = view.findViewById(R.id.ubStatistics);
+
+        setButtonsDescriptions();
+
+        btnFollow.setOnClickListener(this);
+        ubFollowers.setOnClickListener(this);
+        ubFollowTo.setOnClickListener(this);
+
+        /*llFollowers = view.findViewById(R.id.llUserFollowers);
         llFollowTo = view.findViewById(R.id.llUserFollowTo);
         llFollowers.setOnClickListener(this);
-        llFollowTo.setOnClickListener(this);
+        llFollowTo.setOnClickListener(this);*/
 
         return view;
     }
 
+    private void setButtonsDescriptions() {
+        ubFollowers.setDescription(followersDescription);
+        ubFollowTo.setDescription(followToDescription);
+        ubStatistics.setDescription(statisticsDescription);
+    }
+
+    public void setButtonsValues(UserInfo user) {
+        userButtonsPresenter.saveUserInfo(user);
+
+        ubFollowers.setValue(user.followersAmount);
+        ubFollowTo.setValue(user.followedAmount);
+
+        isYoursPage = userButtonsPresenter.getUserId() == Id.getId();
+
+        setButtonFollow(isYoursPage, user.isYouFollowed);
+
+    }
+
     @Override
-    public void getPeopleList(int userId, boolean isFollowers, boolean isFollowTo) {
-        Intent intent = new Intent(this.getActivity(), PeopleListActivity.class);
+    public void setButtonFollow(boolean isYoursPage, boolean isFollowed) {
+        btnFollow.setVisibility(View.VISIBLE);
+
+        if (isYoursPage) {
+            btnFollow.setText(edit);
+            btnFollow.setTextColor(getResources().getColor(R.color.colorBlack));
+            btnFollow.setBackground(getResources().getDrawable(R.drawable.button_you_subscribed));
+            return;
+        }
+
+        if (isFollowed) {
+            btnFollow.setText(followed);
+            btnFollow.setTextColor(getResources().getColor(R.color.colorBlack));
+            btnFollow.setBackground(getResources().getDrawable(R.drawable.button_you_subscribed));
+        }
+        else {
+            btnFollow.setText(follow);
+            btnFollow.setTextColor(getResources().getColor(R.color.colorWhite));
+            btnFollow.setBackground(getResources().getDrawable(R.drawable.button_subscribe));
+        }
+    }
+
+    @Override
+    public void getPeopleList(int userId, int listType) {
+        Intent intent = new Intent(this.getActivity(), FollowersActivity.class);
         //intent.putExtra("id", id);
         intent.putExtra("userId", userId);
-        intent.putExtra("isFollowers", isFollowers);
-        intent.putExtra("isFollowTo", isFollowTo);
+        intent.putExtra("listType", listType);
         startActivity(intent);
     }
 
@@ -57,14 +122,23 @@ public class UserButtonsFragment extends Fragment implements IUserButtonsView, V
         int clickedLayout = 0;
 
         switch (view.getId()) {
-            case (R.id.llUserFollowers):
+            case (R.id.ubFollowers):
                 clickedLayout = 1;
                 break;
-            case (R.id.llUserFollowTo):
+            case (R.id.ubFollowTo):
                 clickedLayout = 2;
+                break;
+            case R.id.btnUserButtonsFollow:
+                if (!isYoursPage)
+                    userButtonsPresenter.updateFollow();
                 break;
         }
 
-        userButtonsPresenter.layoutClicked(clickedLayout);
+        if (clickedLayout > 0)
+            userButtonsPresenter.layoutClicked(clickedLayout);
     }
+
+
+
+
 }

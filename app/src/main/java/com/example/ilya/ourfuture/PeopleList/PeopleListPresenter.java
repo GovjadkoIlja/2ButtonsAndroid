@@ -1,7 +1,9 @@
 package com.example.ilya.ourfuture.PeopleList;
 
 import com.example.ilya.ourfuture.Shared.Id;
+import com.example.ilya.ourfuture.UsersList.Person;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -37,8 +39,12 @@ public class PeopleListPresenter implements IPeopleListPresenter {
 
     @Override
     public void peopleGot(List<ShortUser> people) {
-        peopleListView.representPeopleList(people);
+
     }
+
+    /*public void peopleGot(ArrayList<Person> people) {
+        peopleListView.representPeopleList(people);
+    }*/
 
     @Override
     public String getAgeSexText(int age, int sex) {

@@ -1,6 +1,6 @@
 package com.example.ilya.ourfuture.QuestionPage;
 
-import com.example.ilya.ourfuture.Shared.QuestionsList;
+import com.example.ilya.ourfuture.Question.QuestionsList;
 
 /**
  * Created by Ilya on 13.02.2018.
@@ -36,7 +36,7 @@ public class QuestionMainPresenter implements IQuestionMainPresenter {
     @Override
     public void optionClicked(int option) {
         if (questionMainModel.isAnswered())
-            questionMainView.getPeopleList(questionMainModel.getId(), QuestionsList.getNextQuestion().questionId, option, QuestionsList.getNextQuestion().firstOption, QuestionsList.getNextQuestion().secondOption);
+            questionMainView.getPeopleList(questionMainModel.getId(), QuestionsList.getNextQuestion().questionId, option, QuestionsList.getNextQuestion().options.get(0).text, QuestionsList.getNextQuestion().options.get(1).text);
         else
             answer(option);
 
