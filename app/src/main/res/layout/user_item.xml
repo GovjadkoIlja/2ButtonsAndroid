@@ -1,42 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
+    <ImageView
+        android:id="@+id/ivUserItemPhoto"
+        android:layout_width="@dimen/userItemPhotoSize"
+        android:layout_height="@dimen/userItemPhotoSize"
+        android:layout_marginRight="@dimen/peopleListPhotoMarginRight"
+        android:src="@drawable/my_square_photo"/>
+
+    <TextView
+        android:id="@+id/tvUserItemLogin"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:textSize="@dimen/userItemLoginFontSize"
+        android:textColor="@color/colorBlack"
+        android:layout_toRightOf="@id/ivUserItemPhoto"
+        android:layout_centerVertical="true"/>
 
-        <ImageView
-            android:id="@+id/ivUserItemPhoto"
-            android:layout_width="@dimen/userItemPhotoSize"
-            android:layout_height="@dimen/userItemPhotoSize"
-            android:layout_marginRight="@dimen/peopleListPhotoMarginRight"
-            android:src="@drawable/my_square_photo"/>
-
-        <TextView
-            android:id="@+id/tvUserItemLogin"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="@dimen/userItemLoginFontSize"
-            android:textColor="@color/colorBlack"
-            android:layout_toRightOf="@id/ivUserItemPhoto"
-            android:layout_centerVertical="true"/>
-
-        <Button
-            android:layout_width="@dimen/userItemBtnFollowWidth"
-            android:layout_height="@dimen/userItemBtnFollowHeight"
-            android:id="@+id/btnUserItemSubscribe"
-            android:textAllCaps="false"
-            android:text="Подписаться"
-            android:layout_centerVertical="true"
-            android:layout_alignParentRight="true"
-            android:background="@drawable/button_subscribe"
-            android:textColor="@color/colorWhite"
-            android:layout_marginRight="@dimen/userItemBtnFollowMarginRight"/>
+    <Button
+        android:layout_width="@dimen/userItemBtnFollowWidth"
+        android:layout_height="@dimen/userItemBtnFollowHeight"
+        android:id="@+id/btnUserItemSubscribe"
+        android:textAllCaps="false"
+        android:text="Подписаться"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/button_subscribe"
+        android:textColor="@color/colorWhite"
+        android:layout_marginRight="@dimen/userItemBtnFollowMarginRight"/>
 
 
-    </RelativeLayout>
-</LinearLayout>
+</RelativeLayout>

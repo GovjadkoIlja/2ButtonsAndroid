@@ -7,9 +7,11 @@ import android.app.FragmentTransaction;
 import android.os.Bundle;
 
 import com.example.ilya.ourfuture.R;
+import com.example.ilya.ourfuture.Shared.ErrorFragment;
 import com.example.ilya.ourfuture.Shared.FooterFragment;
 import com.example.ilya.ourfuture.Shared.HeaderFragment;
 import com.example.ilya.ourfuture.Shared.MenuFourFragment;
+import com.example.ilya.ourfuture.Tops.TopQuestionsFragment;
 
 import java.util.ArrayList;
 
@@ -40,31 +42,17 @@ public class MarkersActivity extends Activity implements MenuFourFragment.OnSele
         Bundle menuArgs = new Bundle();
         menuArgs.putStringArrayList("menuStrings", menuStrings);
 
-        Fragment markersHeaderFragment = new MenuFourFragment(); //It must be below the questionsFragment due to call of questionsFragment into onCreateView method inside MarkersQuestionTypeFragment
+        Fragment markersHeaderFragment = new MenuFourFragment();
         markersHeaderFragment.setArguments(menuArgs);
         FragmentTransaction markersOwnHeaderFt = getFragmentManager().beginTransaction();
         markersOwnHeaderFt.add(R.id.markersFrameMenuFour, markersHeaderFragment);
         markersOwnHeaderFt.commit();
-
-        /*Fragment searchFragment = new UserListSearchFragment();
-        FragmentTransaction searchTransaction = getFragmentManager().beginTransaction();
-        searchTransaction.add(R.id.markersFrameSearch, searchFragment);
-        searchTransaction.commit();
-
-        Fragment questionTypeFragment = new MarkersQuestionTypeFragment();
-        FragmentTransaction questionTypeTransaction = getFragmentManager().beginTransaction();
-        questionTypeTransaction.add(R.id.markersFrameQuestionsType, questionTypeFragment);
-        questionTypeTransaction.commit();*/
 
         Fragment questionsFragment = new MarkersQuestionsFragment();
         FragmentTransaction questionsTransaction = getFragmentManager().beginTransaction();
         questionsTransaction.add(R.id.markersFrameQuestionList, questionsFragment);
         questionsTransaction.commit();
 
-       /*Fragment markersHeaderFragment = new MarkersOwnHeaderFragment(); //It must be below the questionsFragment due to call of questionsFragment into onCreateView method inside MarkersQuestionTypeFragment
-        FragmentTransaction markersOwnHeaderFt = getFragmentManager().beginTransaction();
-        markersOwnHeaderFt.add(R.id.markersFrameOwnHeader, markersHeaderFragment);
-        markersOwnHeaderFt.commit();*/
 
         Fragment footerFragment = new FooterFragment();
         FragmentTransaction questionFooterFt = getFragmentManager().beginTransaction();
@@ -76,12 +64,29 @@ public class MarkersActivity extends Activity implements MenuFourFragment.OnSele
     public void onListSelected(int type) {
         FragmentManager fragmentManager = getFragmentManager();
 
-        MarkersQuestionsFragment fragmentQuestions = (MarkersQuestionsFragment) fragmentManager
-                .findFragmentById(R.id.markersFrameQuestionList);
+        MarkersQuestionsFragment questionsFragment;
 
-        if (fragmentQuestions != null) {
-            System.out.println("AAAAAAA");
-            fragmentQuestions.questionsTypeChanged(type);
+        boolean isFromErrorFragment = fragmentManager
+                .findFragmentById(R.id.markersFrameQuestionList).getClass() == ErrorFragment.class;
+
+        if (!isFromErrorFragment) {
+            questionsFragment = (MarkersQuestionsFragment) fragmentManager
+                    .findFragmentById(R.id.markersFrameQuestionList);
+
+        } else {
+            ErrorFragment errorFragment = (ErrorFragment) fragmentManager
+                    .findFragmentById(R.id.markersFrameQuestionList);
+
+            getFragmentManager().beginTransaction().remove(errorFragment).commit();
+
+            questionsFragment = new MarkersQuestionsFragment();
+            FragmentTransaction questionsTransaction = getFragmentManager().beginTransaction();
+            questionsTransaction.replace(R.id.markersFrameQuestionList, questionsFragment);
+            questionsTransaction.commit();
+        }
+
+        if (questionsFragment != null) {
+            questionsFragment.questionsTypeChanged(type, isFromErrorFragment);
         }
     }
 

@@ -9,27 +9,34 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/questionBackgroundHeight"
         android:orientation="vertical"
-        android:id="@+id/llQuestionBackground"
-        android:background="@drawable/background_image">
+        android:id="@+id/rlQuestionBackground">
+
+        <ImageView
+            android:id="@+id/ivQuestionBackground"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:tint="@color/colorQuestionTint"
+            android:background="@color/colorQuestionDefaultBackground"/>
 
         <!-- Header -->
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:id="@+id/rlQuestionHeader"
             android:layout_marginTop="@dimen/questionHeaderMarginTop">
 
-            <ImageButton
+            <ImageView
                 android:layout_width="@dimen/questionPhotoSize"
                 android:layout_height="@dimen/questionPhotoSize"
                 android:layout_alignParentLeft="true"
-                android:id="@+id/ibQuestionPhoto"
+                android:id="@+id/ivQuestionPhoto"
                 android:layout_marginLeft="@dimen/questionPhotoMarginLeft"/>
 
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/questionPhotoSize"
                 android:orientation="vertical"
-                android:layout_toRightOf="@id/ibQuestionPhoto">
+                android:layout_toRightOf="@id/ivQuestionPhoto">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -58,14 +65,57 @@
                 android:layout_marginRight="@dimen/questionDotsMarginRight"/>
         </RelativeLayout>
 
+        <ImageButton
+            android:id="@+id/ibQuestionArrowBackgroundBack"
+            android:layout_width="@dimen/createQuestionBackgroundArrowsSize"
+            android:layout_height="@dimen/createQuestionBackgroundArrowsSize"
+            android:src="@drawable/arrow_backgrounds_back"
+            android:scaleType="fitXY"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:visibility="gone"
+            android:background="@null"
+            android:layout_marginLeft="@dimen/createQuestionBackgroundArrowsMargins"/>
+
+        <ImageButton
+            android:id="@+id/ibQuestionArrowBackgroundForward"
+            android:layout_width="@dimen/createQuestionBackgroundArrowsSize"
+            android:layout_height="@dimen/createQuestionBackgroundArrowsSize"
+            android:src="@drawable/arrow_backgrounds_forward"
+            android:scaleType="fitXY"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:visibility="gone"
+            android:background="@null"
+            android:layout_marginRight="@dimen/createQuestionBackgroundArrowsMargins"/>
+
         <TextView
+            android:id="@+id/tvQuestionType"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:maxWidth="@dimen/questionConditionMaxWidth"
-            android:id="@+id/tvQuestionCondition"
+            android:text="Анонимный вопрос"
+            android:layout_above="@+id/llQuestionCondition"
+            android:layout_centerHorizontal="true"
             android:textColor="@color/colorWhite"
-            android:textStyle="bold"
-            android:layout_centerInParent="true"/>
+            android:visibility="invisible"/>
+
+        <LinearLayout
+            android:id="@+id/llQuestionCondition"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="@dimen/questionConditionHorizontalPaddings"
+            android:layout_centerInParent="true">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxWidth="@dimen/questionConditionMaxWidth"
+                android:id="@+id/tvQuestionCondition"
+                android:textColor="@color/colorWhite"
+                android:textStyle="bold"
+                android:gravity="center_horizontal"/>
+
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"

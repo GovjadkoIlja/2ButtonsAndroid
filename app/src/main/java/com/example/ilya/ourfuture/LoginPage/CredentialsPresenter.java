@@ -6,33 +6,19 @@ import com.example.ilya.ourfuture.Shared.Id;
  * Created by Ilya on 06.01.2018.
  */
 
-public class CredentialsPresenter implements ICredentialsPresenter {
+public class CredentialsPresenter extends LoginPresenter implements ICredentialsPresenter {
 
-    ICredentialsView credentialsView;
-    ICredentialsModel credentialsModel;
+    /*ICredentialsView credentialsView;
+    ICredentialsModel credentialsModel;*/
 
-    public CredentialsPresenter(ICredentialsView view) {
-        credentialsView = view;
-        credentialsModel = new CredentialsModel(this);
+    public CredentialsPresenter(LoginFragment view) {
+        loginFragment = view;
+        loginModel = new CredentialsModel(this);
     }
 
     @Override
     public void getId(String login, String password) {
-        credentialsModel.checkLogin(login, password);//.subscribe(n -> makeDecision(((int)Math.round((double)n))));
+        ((CredentialsModel) loginModel).checkLogin(login, password);//.subscribe(n -> makeDecision(((int)Math.round((double)n))));
         //makeDecision(1); //ПРОСТО ЗАГЛУШКА, РАСКОММЕНТИТЬ СТРОКУ ВЫШЕ
-    }
-
-    @Override
-    public void isHasAccess(int n) { //Обработать недоступность сервера
-
-        if (n > 0) {
-            Id.setId(n);
-            credentialsView.openApplication(n);
-        }
-        else
-            credentialsView.denyAccess();
-        /*System.out.println(n);
-
-        return n;*/
     }
 }

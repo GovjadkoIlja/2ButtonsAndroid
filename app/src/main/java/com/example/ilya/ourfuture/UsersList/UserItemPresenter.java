@@ -1,5 +1,7 @@
 package com.example.ilya.ourfuture.UsersList;
 
+import com.example.ilya.ourfuture.Shared.ServerConnection;
+
 import java.util.ArrayList;
 
 /**
@@ -19,7 +21,8 @@ public class UserItemPresenter {
     public void savePerson(Person person) {
         userItemModel.savePerson(person);
         userItem.representPerson(person.login);
-        userItem.setSubscribeButton(person.isYouFollowed);
+        userItem.setPhoto(person.smallAvatarLink);
+        userItem.setSubscribeButton(person.userId, person.isYouFollowed);
     }
 
     public void subscribeButtonClicked() {
@@ -31,10 +34,14 @@ public class UserItemPresenter {
         else
             userItemModel.subscribe();
 
-        userItem.setSubscribeButton(!youFollowed);
+        userItem.setSubscribeButton(userItemModel.getPerson().userId, !youFollowed);
     }
 
     public int getUserId() {
         return userItemModel.getPerson().userId;
+    }
+
+    public String getUserLogin() {
+        return userItemModel.getPerson().login;
     }
 }

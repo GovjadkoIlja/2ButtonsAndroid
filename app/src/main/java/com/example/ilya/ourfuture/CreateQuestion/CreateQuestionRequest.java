@@ -7,21 +7,23 @@ package com.example.ilya.ourfuture.CreateQuestion;
 public class CreateQuestionRequest {
     int userId;
     String condition;
-    boolean isAnonimity;
+    boolean isAnonimous;
     int audienceType;
     int questionType;
     String firstOption;
     String secondOption;
+    String backgroundUrl;
 
-    public CreateQuestionRequest(int userId, String condition, boolean isAnonimity, int audienceType,
-                                 int questionType, String firstOption, String secondOption)  {
+    public CreateQuestionRequest(int userId, String condition, boolean isAnonimous, int audienceType,
+                                 int questionType, String firstOption, String secondOption, String backgroundUrl) {
         this.userId = userId;
         this.condition = condition;
-        this.isAnonimity = isAnonimity;
+        this.isAnonimous = isAnonimous;
         this.audienceType = audienceType;
         this.questionType = questionType;
         this.firstOption = firstOption;
         this.secondOption = secondOption;
+        this.backgroundUrl = backgroundUrl;
     }
 }
 

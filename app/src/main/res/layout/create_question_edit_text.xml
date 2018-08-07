@@ -5,7 +5,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/etCreateQuestionText"
-        android:background="@color/colorWhite"
+        android:background="@null"
         android:paddingVertical="@dimen/createQuestionTextPaddingVertical"
         android:paddingLeft="@dimen/createQuestionTextPaddingLeft" />
 </merge>

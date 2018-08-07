@@ -4,41 +4,75 @@
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/tvCreateQuestionCondition"
-        android:textColor="@color/colorBlue"
-        android:text="@string/createQuestionConditionHeader"
-        android:textSize="@dimen/createQuestionHeadersTextSize"
-        android:layout_marginTop="@dimen/createQuestionHeadersTextMarginTop"
-        android:layout_marginLeft="@dimen/createQuestionHeadersTextMarginLeft"/>
+        android:layout_marginTop="@dimen/createQuestionHeadersTextMarginTop">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvCreateQuestionCondition"
+            android:textColor="@color/colorBlue"
+            android:text="@string/createQuestionConditionHeader"
+            android:textSize="@dimen/createQuestionHeadersTextSize"
+            android:layout_marginLeft="@dimen/createQuestionHeadersTextMarginLeft"
+            android:layout_alignParentLeft="true"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvCreateQuestionConditionSimbols"
+            android:textSize="@dimen/createQuestionHeadersTextSize"
+            android:layout_alignParentRight="true"
+            android:visibility="invisible"
+            android:layout_marginRight="@dimen/createQuestionSymbolsMarginRight"/>
+
+    </RelativeLayout>
 
     <com.example.ilya.ourfuture.CreateQuestion.CreateQuestionEditText
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
+        android:background="@color/colorWhite"
         android:id="@+id/cqCondition"/>
 
-    <TextView
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/tvCreateQuestionOptions"
-        android:textColor="@color/colorBlue"
-        android:text="@string/createQuestionOptionsHeader"
-        android:textSize="@dimen/createQuestionHeadersTextSize"
-        android:layout_marginTop="@dimen/createQuestionHeadersTextMarginTop"
-        android:layout_marginLeft="@dimen/createQuestionHeadersTextMarginLeft"/>
+        android:layout_marginTop="@dimen/createQuestionHeadersTextMarginTop">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvCreateQuestionOptions"
+            android:textColor="@color/colorBlue"
+            android:text="@string/createQuestionOptionsHeader"
+            android:textSize="@dimen/createQuestionHeadersTextSize"
+            android:layout_marginLeft="@dimen/createQuestionHeadersTextMarginLeft"/>
+
+        <TextView
+            android:id="@+id/tvCreateQuestionOptionsSimbols"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/createQuestionHeadersTextSize"
+            android:layout_alignParentRight="true"
+            android:visibility="invisible"
+            android:layout_marginRight="@dimen/createQuestionSymbolsMarginRight"/>
+
+    </RelativeLayout>
 
     <com.example.ilya.ourfuture.CreateQuestion.CreateQuestionEditText
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:id="@+id/cqOption1"
+        android:background="@color/colorWhite"
         android:layout_marginBottom="@dimen/createQuestionMarginBetweenOptions"/>
 
     <com.example.ilya.ourfuture.CreateQuestion.CreateQuestionEditText
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        android:id="@+id/cqOption2"/>
+        android:id="@+id/cqOption2"
+        android:background="@color/colorWhite"/>
 
 </LinearLayout>
 

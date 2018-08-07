@@ -7,6 +7,6 @@
     <ImageView
         android:layout_width="@dimen/userPhotoSize"
         android:layout_height="@dimen/userPhotoSize"
-        android:src="@drawable/my_square_photo"
+        android:id="@+id/ivUserPhoto"
         android:scaleType="fitXY"/>
 </LinearLayout>

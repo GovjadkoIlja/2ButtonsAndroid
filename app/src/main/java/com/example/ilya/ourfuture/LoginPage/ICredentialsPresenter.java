@@ -9,5 +9,6 @@ import io.reactivex.*;
 public interface ICredentialsPresenter {
     void getId(String login, String password);
 
-    void isHasAccess(int n);
+    //void isHasAccess(int n, String login);
+    void errorOccured(int errorType);
 }

@@ -13,9 +13,9 @@ import retrofit2.http.POST;
  */
 
 public interface IFollowRequest {
-    @POST(ServerConnection.version + "/social/followers/follow")
+    @POST(ServerConnection.version + "/social/follow")
     Observable<JsonElement> follow(@Body FollowRequest followRequest);
 
-    @POST(ServerConnection.version + "/social/followers/unfollow")
+    @POST(ServerConnection.version + "/social/unfollow")
     Observable<JsonElement> unfollow(@Body FollowRequest followRequest);
 }

@@ -1,7 +1,6 @@
 package com.example.ilya.ourfuture.Shared;
 
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.app.Fragment;
@@ -11,11 +10,8 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-import com.example.ilya.ourfuture.LoginPage.MainActivity;
 import com.example.ilya.ourfuture.R;
 import com.example.ilya.ourfuture.UserPage.UserActivity;
-
-import org.w3c.dom.Text;
 
 
 /**
@@ -38,7 +34,7 @@ public class HeaderFragment extends Fragment implements View.OnClickListener {
         ibMyPage = view.findViewById(R.id.ibHeaderMyPage);
         //tvHelp = view.findViewById(R.id.tvHeaderHelp);
 
-        ibMyPage.setOnClickListener(this);
+        ImagesDownload.setCircleImage(Id.smallAvatarLink, ibMyPage);
 
         Bundle args = getArguments();
 
@@ -56,6 +52,12 @@ public class HeaderFragment extends Fragment implements View.OnClickListener {
             btnBack.setVisibility(View.VISIBLE);
         } else
             btnBack.setVisibility(View.INVISIBLE);
+
+        if (args.getBoolean("showPhoto", true)) {
+            ibMyPage.setOnClickListener(this);
+            ibMyPage.setVisibility(View.VISIBLE);
+        } else
+            ibMyPage.setVisibility(View.INVISIBLE);
 
         return view;
     }
@@ -89,6 +91,7 @@ public class HeaderFragment extends Fragment implements View.OnClickListener {
             case (R.id.ibHeaderMyPage):
                 Intent intent = new Intent(this.getActivity(), UserActivity.class);
                 intent.putExtra("userId", Id.getId());
+                intent.putExtra("userLogin", Id.getLogin());
                 startActivity(intent);
                 break;
         }

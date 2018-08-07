@@ -8,20 +8,21 @@ import android.app.ListFragment;
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.example.ilya.ourfuture.CreateQuestion.CreateQuestionSettingsFragment;
-import com.example.ilya.ourfuture.Markers.MarkersQuestionsFragment;
 import com.example.ilya.ourfuture.R;
+import com.example.ilya.ourfuture.Shared.ErrorFragment;
 import com.example.ilya.ourfuture.Shared.FooterFragment;
 import com.example.ilya.ourfuture.Shared.HeaderFragment;
 import com.example.ilya.ourfuture.Shared.Id;
 import com.example.ilya.ourfuture.Shared.MenuFourFragment;
+import com.example.ilya.ourfuture.Tops.TopQuestionsFragment;
 
 import java.util.ArrayList;
 
 public class UserActivity extends Activity implements MenuFourFragment.OnSelectedListListener, UserInfoFragment.UserInfoGot {
 
-    final String header = "Моя страница";
+    //final String header = "Моя страница";
     boolean showBack = true;
+    int userId;
 
     final String[] menu = {"Вопросы", "Ответы", "Избранное", "Комментарии"};
     /*Добавить в хедер кнопку уведомлений*/
@@ -34,7 +35,10 @@ public class UserActivity extends Activity implements MenuFourFragment.OnSelecte
         Intent intent = getIntent();
         //int id = intent.getIntExtra("id", 0);
         int userId  = intent.getIntExtra("userId", Id.getId());
+        String header = intent.getStringExtra("userLogin");
         boolean fromRegistration = intent.getBooleanExtra("fromRegistration", false);
+
+        this.userId = userId;
 
         showBack = !fromRegistration;
 
@@ -52,7 +56,6 @@ public class UserActivity extends Activity implements MenuFourFragment.OnSelecte
         FragmentTransaction userPhotoFt = getFragmentManager().beginTransaction();
         userPhotoFt.add(R.id.userFrameUserPhoto, userPhotoFragment);
         userPhotoFt.commit();
-
 
         Bundle userPageArgs = new Bundle();
         userPageArgs.putInt("userId", userId);
@@ -74,7 +77,7 @@ public class UserActivity extends Activity implements MenuFourFragment.OnSelecte
         Bundle menuArgs = new Bundle();
         menuArgs.putStringArrayList("menuStrings", menuStrings);
 
-        Fragment markersHeaderFragment = new MenuFourFragment(); //It must be below the questionsFragment due to call of questionsFragment into onCreateView method inside MarkersQuestionTypeFragment
+        Fragment markersHeaderFragment = new MenuFourFragment();
         markersHeaderFragment.setArguments(menuArgs);
         FragmentTransaction markersOwnHeaderFt = getFragmentManager().beginTransaction();
         markersOwnHeaderFt.add(R.id.userFrameMenuFour, markersHeaderFragment);
@@ -96,12 +99,35 @@ public class UserActivity extends Activity implements MenuFourFragment.OnSelecte
     public void onListSelected(int type) {
         FragmentManager fragmentManager = getFragmentManager();
 
-        UsersQuestionsFragment fragmentQuestions = (UsersQuestionsFragment) fragmentManager
-                .findFragmentById(R.id.userFramePosts);
+        UsersQuestionsFragment fragmentQuestions;
+
+        boolean isFromErrorFragment = fragmentManager
+                .findFragmentById(R.id.userFramePosts).getClass() == ErrorFragment.class;
+
+        if (!isFromErrorFragment) {
+            fragmentQuestions = (UsersQuestionsFragment) fragmentManager
+                    .findFragmentById(R.id.userFramePosts);
+        } else {
+            ErrorFragment errorFragment = (ErrorFragment) fragmentManager
+                    .findFragmentById(R.id.userFramePosts);
+
+            getFragmentManager().beginTransaction().remove(errorFragment).commit();
+
+            Bundle userPageArgs = new Bundle();
+            userPageArgs.putInt("userId", userId);
+
+            fragmentQuestions = new UsersQuestionsFragment();
+            fragmentQuestions.setArguments(userPageArgs);
+            FragmentTransaction questionsTransaction = getFragmentManager().beginTransaction();
+            questionsTransaction.add(R.id.userFramePosts, fragmentQuestions);
+            questionsTransaction.commit();
+        }
+
+        System.out.println(isFromErrorFragment + "QQQQ");
 
         if (fragmentQuestions != null) {
-            System.out.println("AAAAAAA");
-            fragmentQuestions.questionsTypeChanged(type);
+            System.out.println("AAAAAAA " + type);
+            fragmentQuestions.questionsTypeChanged(type, isFromErrorFragment, userId);
         }
     }
 
@@ -116,9 +142,12 @@ public class UserActivity extends Activity implements MenuFourFragment.OnSelecte
 
     @Override
     public void userInfoGot(UserInfo user) {
-        UserButtonsFragment fragment = (UserButtonsFragment) getFragmentManager()
+        UserButtonsFragment userButtonsFragment = (UserButtonsFragment) getFragmentManager()
                 .findFragmentById(R.id.userFrameUserButtons);
+        userButtonsFragment.setButtonsValues(user);
 
-        fragment.setButtonsValues(user);
+        UserPhotoFragment userPhotoFragment = (UserPhotoFragment) getFragmentManager()
+                .findFragmentById(R.id.userFrameUserPhoto);
+        userPhotoFragment.setPhoto(user.largeAvatarUrl);
     }
 }

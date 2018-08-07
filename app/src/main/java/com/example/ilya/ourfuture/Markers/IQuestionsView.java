@@ -9,6 +9,5 @@ import java.util.ArrayList;
  */
 
 public interface IQuestionsView {
-    void openQuestion(int id);
     void representQuestions(ArrayList<Question> questions);
 }

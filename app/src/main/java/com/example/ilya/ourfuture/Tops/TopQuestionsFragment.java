@@ -10,7 +10,6 @@ import android.view.ViewGroup;
 
 import com.example.ilya.ourfuture.Markers.MarkersQuestionsPresenter;
 import com.example.ilya.ourfuture.Question.QuestionsListFragment;
-import com.example.ilya.ourfuture.QuestionPage.QuestionActivity;
 import com.example.ilya.ourfuture.R;
 import com.example.ilya.ourfuture.Shared.Id;
 
@@ -23,13 +22,23 @@ public class TopQuestionsFragment extends QuestionsListFragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        questionsListPresenter = new TopQuestionsPresenter(this);
+        System.out.println("BBBBBBBBBBBB");
 
-        ((TopQuestionsPresenter)questionsListPresenter).receiveQuestions(1);
+        if (questionsListPresenter == null) { // If we goes not from error
+            questionsListPresenter = new TopQuestionsPresenter(this);
+
+            ((TopQuestionsPresenter) questionsListPresenter).setType(1);
+            //questionsListPresenter.receiveQuestions();
+
+
+        }
     }
 
-    public void questionsTypeChanged(int type) { //as well will be executed authomatically from the header
-        ((TopQuestionsPresenter)questionsListPresenter).receiveQuestions(type);
-    }
+    public void questionsTypeChanged(int type, boolean isFromErrorFragment) { //as well will be executed authomatically from the header
+        if (isFromErrorFragment)
+            questionsListPresenter = new TopQuestionsPresenter(this);
 
+        ((TopQuestionsPresenter) questionsListPresenter).setType(type);
+        //questionsListPresenter.receiveQuestions();
+    }
 }

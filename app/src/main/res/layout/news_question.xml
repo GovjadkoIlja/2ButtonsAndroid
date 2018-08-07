@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/llNewsQuestion"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorWhite"
+        android:paddingLeft="@dimen/questionPhotoMarginLeft"
+        android:paddingVertical="@dimen/newsDescriptionPaddingVertical"
+        android:id="@+id/nqDescription"/>
+
+    <com.example.ilya.ourfuture.Question.QuestionView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/nqQuestion"/>
+
+</LinearLayout>

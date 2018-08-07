@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/colorLightBlue">
+    android:background="@color/colorWhite">
 
     <!--<RelativeLayout
         android:layout_width="match_parent"
@@ -29,11 +29,11 @@
 
     </RelativeLayout>-->
 
-    <FrameLayout
+    <!--<FrameLayout
         android:id="@+id/loginFrameHeader"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/marginAfterRegisterHeader"/>
+        android:layout_marginBottom="@dimen/marginAfterRegisterHeader"/>-->
 
     <!--<fragment
         android:id="@+id/fragmentHeader"
@@ -43,7 +43,19 @@
         android:layout_marginBottom="@dimen/marginAfterRegisterHeader">
     </fragment>-->
 
-    <LinearLayout
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/loginBackgroundHeight"
+        android:scaleType="fitXY"
+        android:src="@drawable/login_background"/>
+
+    <FrameLayout
+        android:id="@+id/loginFrameCredentials"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </FrameLayout>
+
+   <!-- <LinearLayout
         android:id="@+id/loginLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -52,17 +64,10 @@
         android:background="@color/colorLightBlue">
 
         <fragment
-            android:name="com.example.ilya.ourfuture.LoginPage.CredentialsFragment"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/marginBeforeNetworks">
-        </fragment>
-        
-        <fragment
             android:name="com.example.ilya.ourfuture.LoginPage.NetworksFragment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
         </fragment>
-    </LinearLayout>
+    </LinearLayout> -->
 
 </LinearLayout>

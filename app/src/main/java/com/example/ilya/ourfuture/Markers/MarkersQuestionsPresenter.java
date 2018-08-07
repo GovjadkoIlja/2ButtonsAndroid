@@ -20,7 +20,8 @@ public class MarkersQuestionsPresenter extends QuestionsListPresenter {
         questionsListModel = new MarkersQuestionsModel(this);
     }
 
-    public void receiveQuestions(int type) {
+    @Override
+    public void receiveQuestions() {
         System.out.println(type);
         switch (type) {
             case 1:
@@ -34,5 +35,4 @@ public class MarkersQuestionsPresenter extends QuestionsListPresenter {
                 break;
         }
     }
-
 }

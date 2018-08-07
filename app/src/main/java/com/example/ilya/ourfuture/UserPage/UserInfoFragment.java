@@ -61,8 +61,6 @@ public class UserInfoFragment extends Fragment implements IUserInfoView {
         //tvLogin.setText(login);
     }
 
-
-
     @Override
     public void setAgeSex(int age, String sex) {
         String ageSex = age + " лет, " + sex;

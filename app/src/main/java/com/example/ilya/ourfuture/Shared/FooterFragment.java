@@ -11,14 +11,14 @@ import android.widget.ImageButton;
 
 import com.example.ilya.ourfuture.CreateQuestion.CreateQuestionConditionsActivity;
 import com.example.ilya.ourfuture.Markers.MarkersActivity;
+import com.example.ilya.ourfuture.News.NewsActivity;
 import com.example.ilya.ourfuture.R;
 import com.example.ilya.ourfuture.Selection.SelectionActivity;
 import com.example.ilya.ourfuture.Tops.TopActivity;
-import com.example.ilya.ourfuture.UserPage.UserActivity;
 
 public class FooterFragment extends Fragment implements View.OnClickListener {
 
-    static int selectedOption = 1;
+    static int selectedOption = 0;
 
     ImageButton ibUser;
     ImageButton ibNews;
@@ -30,8 +30,6 @@ public class FooterFragment extends Fragment implements View.OnClickListener {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_footer, null);
-
-        Bundle args = getArguments();
 
         ibUser = view.findViewById(R.id.ibFooterUser);
         ibNews = view.findViewById(R.id.ibFooterNews);
@@ -59,8 +57,7 @@ public class FooterFragment extends Fragment implements View.OnClickListener {
         switch (view.getId()) {
             case R.id.ibFooterUser:
                 newSelectedOption = 1;
-                intent = new Intent(this.getActivity(), UserActivity.class);
-                intent.putExtra("userId", Id.getId());
+                intent = new Intent(this.getActivity(),NewsActivity.class);
                 break;
 
             case R.id.ibFooterBest:
@@ -90,7 +87,7 @@ public class FooterFragment extends Fragment implements View.OnClickListener {
         startActivity(intent);
     }
 
-    private void setSelectedOption(int newOption) {
+    public void setSelectedOption(int newOption) {
         switch (selectedOption) {
             case 1:
                 ibUser.setImageResource(R.drawable.news_disabled);
@@ -102,7 +99,7 @@ public class FooterFragment extends Fragment implements View.OnClickListener {
                 ibAsk.setImageResource(R.drawable.ask_disabled);
                 break;
             case 4:
-                ibQuestions.setImageResource(R.drawable.questions_list_disabled);
+                ibQuestions.setImageResource(R.drawable.selection_disabled);
                 break;
             case 5:
                 ibBest.setImageResource(R.drawable.tops_disabled);
@@ -120,7 +117,7 @@ public class FooterFragment extends Fragment implements View.OnClickListener {
                 ibAsk.setImageResource(R.drawable.ask_enabled);
                 break;
             case 4:
-                ibQuestions.setImageResource(R.drawable.questions_list_enabled);
+                ibQuestions.setImageResource(R.drawable.selection_enabled);
                 break;
             case 5:
                 ibBest.setImageResource(R.drawable.tops_enabled);

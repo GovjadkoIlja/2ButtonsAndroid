@@ -1,5 +1,6 @@
 package com.example.ilya.ourfuture.CreateQuestion;
 
+import android.app.FragmentManager;
 import android.content.Intent;
 import android.support.v4.app.FragmentActivity;
 import android.app.Fragment;
@@ -11,7 +12,8 @@ import com.example.ilya.ourfuture.Shared.HeaderFragment;
 
 import java.util.ArrayList;
 
-public class CreateQuestionConditionsActivity extends FragmentActivity implements CreateQuestionFurtherFragment.ButtonFurtherClicked {
+public class CreateQuestionConditionsActivity extends FragmentActivity implements CreateQuestionFurtherFragment.ButtonFurtherClicked,
+        CreateQuestionConditionFragment.LongCondition {
 
     final String headerText = "Задать вопрос";
     final String headerHelpText = "1/3";
@@ -56,6 +58,7 @@ public class CreateQuestionConditionsActivity extends FragmentActivity implement
 
         furtherArgs.putString("buttonText", buttonText);
         furtherArgs.putBoolean("showFurther", showFurther);
+        furtherArgs.putBoolean("isEnabled", false);
 
         Fragment createQuestionFurtherFragment = new CreateQuestionFurtherFragment();
         createQuestionFurtherFragment.setArguments(furtherArgs);
@@ -90,5 +93,18 @@ public class CreateQuestionConditionsActivity extends FragmentActivity implement
         intent.putExtra("options", options);
 
         startActivity(intent);
+    }
+
+    @Override
+    public void changeFurtherButtonState(boolean isEnabled) {
+        FragmentManager fragmentManager = getFragmentManager();
+
+        CreateQuestionFurtherFragment fragmentFurther = (CreateQuestionFurtherFragment) fragmentManager
+                .findFragmentById(R.id.createQuestionFrameFurther);
+
+        if (fragmentFurther != null) {
+            System.out.println("AAAAAAA");
+            fragmentFurther.changeButtonState(isEnabled);
+        }
     }
 }

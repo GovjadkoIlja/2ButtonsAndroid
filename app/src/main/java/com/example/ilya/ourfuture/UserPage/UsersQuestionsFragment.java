@@ -6,9 +6,7 @@ import com.example.ilya.ourfuture.Markers.MarkersQuestionsPresenter;
 import com.example.ilya.ourfuture.Shared.Id;
 import com.example.ilya.ourfuture.Question.QuestionsListFragment;
 
-public class UsersQuestionsFragment extends QuestionsListFragment /*QuestionsListFragment implements IPostsView*/ {
-
-    //IPostsPresenter postsPresenter;
+public class UsersQuestionsFragment extends QuestionsListFragment {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -20,12 +18,18 @@ public class UsersQuestionsFragment extends QuestionsListFragment /*QuestionsLis
 
         questionsListPresenter = new UsersQuestionsPresenter(userId, this);
 
-        ((UsersQuestionsPresenter)questionsListPresenter).receiveQuestions(1);
+        ((UsersQuestionsPresenter)questionsListPresenter).setType(1);
+        //questionsListPresenter.receiveQuestions();
     }
 
-    public void questionsTypeChanged(int type) { //as well will be executed authomatically from the header
-        ((UsersQuestionsPresenter)questionsListPresenter).receiveQuestions(type);
-        System.out.println(type);
+    public void questionsTypeChanged(int type, boolean isFromErrorFragment, int userId) { //as well will be executed authomatically from the header
+        if (isFromErrorFragment)
+            questionsListPresenter = new UsersQuestionsPresenter(userId, this);
+
+        System.out.println("BBBBBBBBB " + type);
+
+        ((UsersQuestionsPresenter)questionsListPresenter).setType(type);
+        //questionsListPresenter.receiveQuestions();
     }
 
     /*@Override

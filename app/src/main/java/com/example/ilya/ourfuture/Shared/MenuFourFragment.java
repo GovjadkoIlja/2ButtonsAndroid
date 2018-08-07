@@ -9,7 +9,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
-import com.example.ilya.ourfuture.Markers.MarkersOwnHeaderFragment;
 import com.example.ilya.ourfuture.R;
 
 import java.util.ArrayList;
@@ -20,7 +19,7 @@ import java.util.ArrayList;
 public class MenuFourFragment extends Fragment implements View.OnClickListener {
 
     Button[] headerButtons = new Button[4];
-    float correction = (float) 0.045;
+    float correction = (float) 0.06;
 
     int selected = 1;
 
@@ -105,6 +104,9 @@ public class MenuFourFragment extends Fragment implements View.OnClickListener {
     }
 
     private void setButtonsBackground(int selected, int previousSelected) {
+        if (selected == previousSelected)
+            return;
+
         headerButtons[selected-1].setTextColor(getResources().getColor(R.color.colorBlue));
         headerButtons[previousSelected-1].setTextColor(getResources().getColor(R.color.colorBlack));
     }

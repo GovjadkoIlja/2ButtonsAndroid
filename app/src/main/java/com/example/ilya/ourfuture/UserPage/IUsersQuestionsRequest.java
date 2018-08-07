@@ -13,14 +13,14 @@ import retrofit2.http.POST;
 
 public interface IUsersQuestionsRequest {
    /* @POST("/getUserAskedQuestions")
-    Observable<JsonElement> getUserAskedQuestions(@Body UserInfoRequest userInfoRequest);
+    Observable<JsonElement> getUserAskedQuestions(@Body UserInfoRequest userQuestionsRequest);
 */
     @POST(ServerConnection.version + "/questions/user/asked")
-    Observable<QuestionsListResponse> getUserAskedQuestions(@Body UserInfoRequest userInfoRequest);
+    Observable<QuestionsListResponse> getUserAskedQuestions(@Body UserQuestionsRequest userQuestionsRequest);
 
     @POST(ServerConnection.version + "/questions/user/answered")
-    Observable<QuestionsListResponse> getUserAnsweredQuestions(@Body UserInfoRequest userInfoRequest);
+    Observable<QuestionsListResponse> getUserAnsweredQuestions(@Body UserQuestionsRequest userQuestionsRequest);
 
     @POST(ServerConnection.version + "/questions/user/favorite")
-    Observable<QuestionsListResponse> getUserFavoriteQuestions(@Body UserInfoRequest userInfoRequest);
+    Observable<QuestionsListResponse> getUserFavoriteQuestions(@Body UserQuestionsRequest userQuestionsRequest);
 }

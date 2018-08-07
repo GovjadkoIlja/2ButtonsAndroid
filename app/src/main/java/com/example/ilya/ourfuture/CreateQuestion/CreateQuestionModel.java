@@ -17,13 +17,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class CreateQuestionModel {
 
     public void createQuestion(CreateQuestionRequest createQuestionRequest) {
-        Gson gson = new GsonBuilder().create();
-
-        Retrofit searchRetrofit = new Retrofit.Builder()
-                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-                .addConverterFactory(GsonConverterFactory.create(gson))
-                .baseUrl(ServerConnection.URL)
-                .build();
+        Retrofit searchRetrofit = ServerConnection.prepareRetrofit();
 
         ICreateQuestionRequest createQuestionIntf = searchRetrofit.create(ICreateQuestionRequest.class);
 

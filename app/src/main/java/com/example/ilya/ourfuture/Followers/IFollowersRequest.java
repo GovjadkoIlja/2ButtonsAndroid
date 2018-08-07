@@ -16,6 +16,6 @@ public interface IFollowersRequest {
     @POST(ServerConnection.version + "/social/followers")
     Observable<UsersListResponse> getFollowers(@Body FollowersRequest followersRequest);
 
-    @POST(ServerConnection.version + "/social/followers/to")
+    @POST(ServerConnection.version + "/social/followings")
     Observable<UsersListResponse> getFollowTo(@Body FollowersRequest followersRequest);
 }

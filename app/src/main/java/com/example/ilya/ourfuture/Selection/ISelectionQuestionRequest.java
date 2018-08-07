@@ -14,6 +14,6 @@ import retrofit2.http.POST;
  */
 
 public interface ISelectionQuestionRequest {
-    @POST(ServerConnection.version + "/questions/personal/chosen")
+    @POST(ServerConnection.version + "/questions/personal/selected")
     Observable<QuestionsListResponse> getSelection(@Body MarkersRequest markersRequest);
 }

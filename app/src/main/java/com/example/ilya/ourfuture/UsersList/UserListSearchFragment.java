@@ -3,25 +3,18 @@ package com.example.ilya.ourfuture.UsersList;
 
 import android.os.Bundle;
 import android.app.Fragment;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageButton;
 
-import com.example.ilya.ourfuture.PeopleList.IPeopleSearchPresenter;
-import com.example.ilya.ourfuture.PeopleList.IPeopleSearchView;
-import com.example.ilya.ourfuture.PeopleList.PeopleSearchPresenter;
 import com.example.ilya.ourfuture.R;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class UserListSearchFragment extends Fragment implements IPeopleSearchView {
-
-    IPeopleSearchPresenter peopleSearchPresenter;
 
     EditText etSearch;
     ImageButton btnErase;
@@ -31,8 +24,6 @@ public class UserListSearchFragment extends Fragment implements IPeopleSearchVie
                              Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_people_search, container, false);
-
-        //peopleSearchPresenter = new PeopleSearchPresenter(this);
 
         etSearch = view.findViewById(R.id.etPeopleSearchText);
         btnErase = view.findViewById(R.id.btnPeopleSearchErase);

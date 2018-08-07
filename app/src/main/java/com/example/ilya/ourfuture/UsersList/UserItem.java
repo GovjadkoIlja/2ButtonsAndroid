@@ -10,7 +10,10 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.ilya.ourfuture.R;
+import com.example.ilya.ourfuture.Shared.Id;
+import com.example.ilya.ourfuture.Shared.ImagesDownload;
 import com.example.ilya.ourfuture.UserPage.UserActivity;
+import com.squareup.picasso.Picasso;
 
 /**
  * Created by Ilya on 26.06.2018.
@@ -44,6 +47,7 @@ public class UserItem extends LinearLayout implements View.OnClickListener {
         tvLogin = rootView.findViewById(R.id.tvUserItemLogin);
         btnFollow = rootView.findViewById(R.id.btnUserItemSubscribe);
 
+        rootView.setOnClickListener(this);
         ivPhoto.setOnClickListener(this);
         btnFollow.setOnClickListener(this);
     }
@@ -58,7 +62,12 @@ public class UserItem extends LinearLayout implements View.OnClickListener {
         tvLogin.setText(login);
     }
 
-    public void setSubscribeButton(boolean isYouFollowed) {
+    public void setSubscribeButton(int userId, boolean isYouFollowed) {
+        if (userId == Id.getId()) {
+            btnFollow.setVisibility(INVISIBLE);
+            return;
+        }
+
         if (isYouFollowed) {
             btnFollow.setText(youFollowedText);
             btnFollow.setBackground(getResources().getDrawable(R.drawable.button_you_subscribed));
@@ -70,15 +79,31 @@ public class UserItem extends LinearLayout implements View.OnClickListener {
         }
     }
 
+    public void setPhoto(String url) {
+        ImagesDownload.setCircleImage(url, ivPhoto);
+    }
+
     @Override
     public void onClick(View view) {
 
-        switch (view.getId()) {
+        if (view.getId() == R.id.btnUserItemSubscribe)
+            userItemPresenter.subscribeButtonClicked();
+        else {
+            Intent intent = new Intent(this.getContext(), UserActivity.class);
+
+            intent.putExtra("userId", userItemPresenter.getUserId());
+            intent.putExtra("userLogin", userItemPresenter.getUserLogin());
+
+            usersListFragment.startActivity(intent);
+        }
+
+        /*switch (view.getId()) {
 
             case R.id.ivUserItemPhoto:
                 Intent intent = new Intent(this.getContext(), UserActivity.class);
 
                 intent.putExtra("userId", userItemPresenter.getUserId());
+                intent.putExtra("userLogin", userItemPresenter.getUserLogin());
 
                 usersListFragment.startActivity(intent);
                 break;
@@ -86,6 +111,6 @@ public class UserItem extends LinearLayout implements View.OnClickListener {
 
                 userItemPresenter.subscribeButtonClicked();
                 break;
-        }
+        }*/
     }
 }

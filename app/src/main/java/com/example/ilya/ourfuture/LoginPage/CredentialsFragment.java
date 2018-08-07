@@ -1,26 +1,38 @@
 package com.example.ilya.ourfuture.LoginPage;
 
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
+import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.ilya.ourfuture.R;
 import com.example.ilya.ourfuture.RegistrationPage.RegisterActivity;
 import com.example.ilya.ourfuture.UserPage.UserActivity;
+import com.vk.sdk.VKAccessToken;
+import com.vk.sdk.VKCallback;
+import com.vk.sdk.VKScope;
+import com.vk.sdk.VKSdk;
+import com.vk.sdk.api.VKError;
+import com.vk.sdk.util.VKUtil;
 
-public class CredentialsFragment extends Fragment implements ICredentialsView, View.OnClickListener {
+public class CredentialsFragment extends LoginFragment implements ICredentialsView, View.OnClickListener {
+
+    private final String loginHint = "Email или телефон";
+    private final String passwordHint = "Пароль";
+
+    private final String[] scope = new String[] {VKScope.FRIENDS, VKScope.EMAIL, VKScope.PHOTOS};
 
     Button btnLogin;
-    Button btnRegister;
-    EditText etLogin;
-    EditText etPassword;
+    //Button btnRegister;
+    TextView tvRegister;
+    CredentialsEditText etLogin;
+    CredentialsEditText etPassword;
 
     ICredentialsPresenter credentialsPresenter;
 
@@ -29,17 +41,33 @@ public class CredentialsFragment extends Fragment implements ICredentialsView, V
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_credentials, null);
 
-        etLogin = (EditText)view.findViewById(R.id.etLogin);
-        etPassword = (EditText)view.findViewById(R.id.etPassword);
-        btnLogin = (Button)view.findViewById(R.id.btnLogin);
-        btnRegister = (Button)view.findViewById(R.id.btnRegister);
+        etLogin = view.findViewById(R.id.etLogin);
+        etPassword = view.findViewById(R.id.etPassword);
+        btnLogin = view.findViewById(R.id.btnLogin);
+        tvRegister = view.findViewById(R.id.tvCredentialsRegister);
 
         btnLogin.setOnClickListener(this);
-        btnRegister.setOnClickListener(this);
+        tvRegister.setOnClickListener(this);
 
         if (credentialsPresenter == null) {
             credentialsPresenter = new CredentialsPresenter(this);
         }
+
+        etLogin.setHint(loginHint);
+        etPassword.setHint(passwordHint);
+
+        etLogin.setText("89046401133");
+        etPassword.setText("Hash");
+
+        etPassword.setTextType(true);
+
+        /*String[] fingerprints = VKUtil.getCertificateFingerprint(this.getActivity(), this.toString());
+
+        System.out.println(fingerprints);
+        System.out.println("AAAAAAAAA");*/
+
+        //VKSdk.login(this, scope);
+
         return view;
     }
 
@@ -49,7 +77,7 @@ public class CredentialsFragment extends Fragment implements ICredentialsView, V
             case (R.id.btnLogin):
                 onLoginButtonClick();
                 break;
-            case (R.id.btnRegister):
+            case (R.id.tvCredentialsRegister):
                 Intent intent = new Intent(this.getActivity(), RegisterActivity.class);
                 startActivity(intent);
                 break;
@@ -59,26 +87,7 @@ public class CredentialsFragment extends Fragment implements ICredentialsView, V
 
     @Override
     public void onLoginButtonClick() {
-        credentialsPresenter.getId(etLogin.getText().toString(), etPassword.getText().toString());
-
-    }
-
-    @Override
-    public void openApplication(int id) {
-        Intent intent = new Intent(this.getActivity(), UserActivity.class);
-        //intent.putExtra("id", id);
-        intent.putExtra("userId", id);
-        intent.putExtra("fromRegistration", true);
-        startActivity(intent);
-    }
-
-    @Override
-    public void denyAccess() {
-        Toast.makeText(this.getActivity(), "Wrong login or password", Toast.LENGTH_LONG).show();
-    }
-
-    @Override
-    public void setId(int id) {
+        credentialsPresenter.getId(etLogin.getText(), etPassword.getText());
 
     }
 }

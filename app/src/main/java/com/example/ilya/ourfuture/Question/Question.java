@@ -13,46 +13,51 @@ public class Question implements Serializable {
     public int questionId;
     public String condition;
     public ArrayList<Option> options;
-    public String backgroundImageLink;
+    public String backgroundUrl;
     public int questionType;
     public String questionAddDate;
 
-    public int userID;
-    public String login;
-    public String smallAvatarLink;
+    public Author author;
 
-    public int showsAmount;
-    public int likesAmount;
-    public int dislikesAmount;
+    /*public int userID;
+    public String login;
+    public String smallAvatarLink;*/
+
+    //public int showsCount;
+    public int likesCount;
+    public int dislikesCount;
     public int yourFeedbackType;
     public int yourAnswerType;
     public boolean isInFavorites;
     public boolean isSaved;
-    public int commentsAmount;
+    public int commentsCount;
 
     //Constructor to create a question
-    public Question(String condition, String firstOption, String secondOption, String backgroundImageLink, int questionType) {
+    public Question(String condition, String firstOption, String secondOption, String backgroundUrl, int questionType) {
         this.questionId = 0;
         this.condition = condition;
 
         options = new ArrayList<>();
         options.add(new Option(firstOption, 0));
         options.add(new Option(secondOption, 0));
-        this.backgroundImageLink = backgroundImageLink;
+        this.backgroundUrl = backgroundUrl;
         this.questionType = questionType;
+        //this.questionAddDate = new Date();
         this.questionAddDate = "Только что";
 
-        this.userID = Id.getId();
-        this.login = Id.getLogin();
-        //this.smallAvatarLink =
+        this.author = new Author();
 
-        this.showsAmount = 0;
-        this.likesAmount = 0;
-        this.dislikesAmount = 0;
+        this.author.userID = Id.getId();
+        this.author.login = Id.getLogin();
+        this.author.smallAvatarLink = Id.getSmallAvatarLink();
+
+        //this.showsCount = 0;
+        this.likesCount = 0;
+        this.dislikesCount = 0;
         this.yourFeedbackType = 0;
         this.yourAnswerType = 0;
         this.isInFavorites = false;
         this.isSaved = false;
-        this.commentsAmount = 0;
+        this.commentsCount = 0;
     }
 }

@@ -22,6 +22,18 @@
     <dimen name="marginBetweenNetworks">35dp</dimen>
     <dimen name="networksHeaderSize">20sp</dimen>
     <dimen name="marginAfterNetworksHeader">8dp</dimen>
+    <dimen name="loginBackgroundHeight">370dp</dimen>
+    <dimen name="loginCredentialsHeight">40dp</dimen>
+    <dimen name="loginCredentialsWidth">220dp</dimen>
+    <dimen name="loginCredentialsBorderRadius">20dp</dimen>
+
+    <!-- Error fragment -->
+    <dimen name="errorIconSize">100dp</dimen>
+
+    <!-- Networks Activity -->
+    <dimen name="networksMarginTop">15dp</dimen>
+    <dimen name="networksHeaderFontSize">20sp</dimen>
+    <dimen name="networksIconsMarginsVertical">20dp</dimen>
 
     <!-- Register Activity -->
     <dimen name="marginAfterRegisterHeader">10dp</dimen>
@@ -133,6 +145,9 @@
     <dimen name="createQuestionConditionHeight">90dp</dimen>
     <dimen name="createQuestionOptionHeight">70dp</dimen>
     <dimen name="createQuestionMarginBetweenBoxes">40dp</dimen>
+    <dimen name="createQuestionSymbolsMarginRight">5dp</dimen>
+    <dimen name="createQuestionBackgroundArrowsSize">30dp</dimen>
+    <dimen name="createQuestionBackgroundArrowsMargins">10dp</dimen>
 
     <!-- Closed Question -->
 
@@ -143,6 +158,7 @@
     <dimen name="questionDotsSize">35dp</dimen>
     <dimen name="questionDotsMarginRight">5dp</dimen>
     <dimen name="questionConditionMaxWidth">400dp</dimen>
+    <dimen name="questionConditionHorizontalPaddings">35dp</dimen>
     <dimen name="questionConditionTextSize">25sp</dimen>
     <dimen name="questionBackgroundHeight">150dp</dimen>
     <dimen name="questionOptionButtonHeight">100dp</dimen>
@@ -157,7 +173,7 @@
     <dimen name="questionResultsMarginVotersAmount">7dp</dimen>
 
     <!-- MenuFour -->
-    <dimen name="menuFourLineHeight">3dp</dimen>
+    <dimen name="menuLineHeight">3dp</dimen>
 
     <!-- UserItem -->
     <dimen name="userItemBtnFollowMarginRight">10dp</dimen>
@@ -185,5 +201,11 @@
     <dimen name="createQuestionSettingsItemCheckMarginRight">15dp</dimen>
     <dimen name="createQuestionSettingsMarginBetweenItems">7dp</dimen>
 
+    <!-- Voters Activity -->
+    <dimen name="votersConditionPaddingTop">10dp</dimen>
+    <dimen name="votersConditionPaddingBottom">5dp</dimen>
+    <dimen name="votersMenuItemPaddingsVertical">7dp</dimen>
 
+    <!-- News Activity -->
+    <dimen name="newsDescriptionPaddingVertical">4dp</dimen>
 </resources>

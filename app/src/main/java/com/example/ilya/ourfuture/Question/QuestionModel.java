@@ -50,6 +50,8 @@ public class QuestionModel {
     }
 
     public void addFavorites(Question question, boolean isInFavorites) {
+        System.out.println(isInFavorites + " AAA");
+
         question.isInFavorites = isInFavorites;
 
         Retrofit searchRetrofit = ServerConnection.prepareRetrofit();
@@ -64,13 +66,13 @@ public class QuestionModel {
 
     private void updateFeedbacksAmounts(Question question, int feedback) {
         if (question.yourFeedbackType == 1)
-            question.likesAmount--;
+            question.likesCount--;
         else if (question.yourFeedbackType == -1)
-            question.dislikesAmount--;
+            question.dislikesCount--;
 
         if (feedback == 1)
-            question.likesAmount++;
+            question.likesCount++;
         else if (feedback == -1)
-            question.dislikesAmount++;
+            question.dislikesCount++;
     }
 }

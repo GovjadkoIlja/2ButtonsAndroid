@@ -10,14 +10,14 @@ public class UserInfo {
     int age;
     int sex;
     String description;
-    String largeAvatarLink;
-    String smallAvatarLink;
+    String largeAvatarUrl;
+    String smallAvatarUrl;
     boolean isYouFollowed;
     boolean isHeFollowed;
     int askedQuestionsAmount;
     int answersAmount;
     int favoritesAmount;
     int commentsAmount;
-    int followersAmount;
-    int followedAmount;
+    int followersCount;
+    int followedCount;
 }

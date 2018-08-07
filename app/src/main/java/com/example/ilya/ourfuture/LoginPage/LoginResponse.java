@@ -11,9 +11,25 @@ class LoginResponse {
 }
 
 class LoginData {
+    Token token;
+    LoginUserInfo user;
+}
+
+class Token {
     int userId;
     int roleType;
     String accessToken;
     String refreshToken;
     int expiresIn;
+}
+
+class LoginUserInfo {
+    int userId;
+    String login;
+    String birthDate;
+    int sex;
+    String city;
+    String description;
+    String largeAvatarUrl;
+    String smallAvatarUrl;
 }

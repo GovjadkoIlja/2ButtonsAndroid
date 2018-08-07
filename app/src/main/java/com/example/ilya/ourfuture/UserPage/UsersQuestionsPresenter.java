@@ -16,8 +16,14 @@ public class UsersQuestionsPresenter extends QuestionsListPresenter  {
         questionsListModel = new UsersQuestionsModel(userId, this);
     }
 
-    public void receiveQuestions(int type) {
+
+    @Override
+    public void receiveQuestions() {
         System.out.println(type);
+
+        if (questionsListModel.getIsInProcess() || questionsListModel.getListFull())
+            return;
+
         switch (type) {
             case 1:
                 ((UsersQuestionsModel) questionsListModel).receiveAskedQuestions();
@@ -30,6 +36,4 @@ public class UsersQuestionsPresenter extends QuestionsListPresenter  {
                 break;
         }
     }
-
-
 }

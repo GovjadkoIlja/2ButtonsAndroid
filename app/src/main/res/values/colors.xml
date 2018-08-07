@@ -4,7 +4,7 @@
     <color name="colorPrimary">#3F51B5</color>
     <!--<color name="colorPrimaryDark">#303F9F</color>-->
     <color name="colorPrimaryDark">#E2E2E2</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorAccent">#222222</color>
 
     <!--<color name="colorLoginPageHeader">#FFFFFF</color>
     <color name="colorCredentialsBackground">#FFFFFF</color>
@@ -33,5 +33,14 @@
     <color name="colorBlack">#000000</color>
     <color name="colorQuestionResultsSelected">#C8D3E3F0</color>
     <color name="colorQuestionResultsNotSelected">#C8FFFFFF</color>
+    <color name="colorGrey">#777777</color>
+
+    <color name="colorLongText">#ef4e52</color>
+    <color name="colorLongField">#fff2f2</color>
+    <color name="colorInactiveButton">#b3b3b3</color>
+
+    <color name="colorQuestionTint">#90000000</color>
+    <color name="colorQuestionDefaultBackground">#999999</color>
+
     <!--<color name="colorDeepBlue">#3692CF</color> -->
 </resources>

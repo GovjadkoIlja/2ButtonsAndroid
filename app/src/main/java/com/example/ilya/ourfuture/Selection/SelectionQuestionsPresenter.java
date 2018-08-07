@@ -17,10 +17,12 @@ public class SelectionQuestionsPresenter extends QuestionsListPresenter {
     SelectionQuestionsPresenter(QuestionsListFragment questionsView) {
         questionsListFragment = questionsView;
         questionsListModel = new SelectionQuestionsModel(this);
+        type = 1;
     }
 
-    public void receiveQuestions(int type) {
-        System.out.println(type);
+    public void receiveQuestions() {
+        if (questionsListModel.getListFull())
+            return;
 
         ((SelectionQuestionsModel)questionsListModel).receiveSelectionQuestions();
     }

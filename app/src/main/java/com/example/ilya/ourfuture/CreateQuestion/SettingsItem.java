@@ -44,6 +44,8 @@ public class SettingsItem extends LinearLayout implements View.OnClickListener {
         tvDescription.setText(description);
         this.isEnabled = isEnabled;
 
+        System.out.println(isEnabled + "AAA");
+
         setCheck(isEnabled);
     }
 

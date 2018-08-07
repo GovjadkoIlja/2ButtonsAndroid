@@ -9,6 +9,7 @@ import android.os.Bundle;
 import com.example.ilya.ourfuture.R;
 import com.example.ilya.ourfuture.Shared.HeaderFragment;
 import com.example.ilya.ourfuture.Shared.Id;
+import com.example.ilya.ourfuture.Shared.ServerConnection;
 import com.example.ilya.ourfuture.UserPage.UserActivity;
 
 import java.util.ArrayList;
@@ -77,6 +78,10 @@ public class CreateQuestionSettingsActivity extends Activity implements CreateQu
 
     @Override
     public void further() {
+        CreateQuestionExampleFragment exampleFragment = (CreateQuestionExampleFragment) getFragmentManager()
+                .findFragmentById(R.id.createQuestionSettingsFrameExample);
+        String background = exampleFragment.getBackground();
+
         CreateQuestionSettingsFragment fragment = (CreateQuestionSettingsFragment) getFragmentManager()
                 .findFragmentById(R.id.createQuestionSettingsFrameSettings);
 
@@ -85,15 +90,16 @@ public class CreateQuestionSettingsActivity extends Activity implements CreateQu
         int audienceType;
         int questionType;
 
-        audienceType = fragment.getOnlyFollowers() == true ? 1 : 0;
-        questionType = fragment.getQuestionAnonimity() == true ? 2 : 1;
+        audienceType = fragment.getOnlyFollowers() ? 1 : 0;
+        questionType = fragment.getQuestionAnonimity() ? 2 : 1;
 
         createQuestionModel.createQuestion(new CreateQuestionRequest(Id.getId(), condition, fragment.getPublicationAnonimity(), audienceType,
-                questionType, options.get(0), options.get(1)));
+                questionType, options.get(0), options.get(1), ServerConnection.getMediaServerAddress(background)));
 
         Intent intent = new Intent(this, UserActivity.class);
 
         intent.putExtra("userId", Id.getId());
+        intent.putExtra("userLogin", Id.getLogin());
 
         startActivity(intent);
     }

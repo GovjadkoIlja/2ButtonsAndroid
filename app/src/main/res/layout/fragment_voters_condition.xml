@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingHorizontal="@dimen/questionConditionHorizontalPaddings"
+        android:paddingTop="@dimen/votersConditionPaddingTop"
+        android:paddingBottom="@dimen/votersConditionPaddingBottom">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvVotersCondition"
+            android:gravity="center_horizontal"
+            android:textColor="@color/colorBlack"
+            android:textStyle="bold"/>
+
+    </RelativeLayout>
+
+   <!-- <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/colorLightGrey" /> -->
+</LinearLayout>

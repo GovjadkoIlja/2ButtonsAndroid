@@ -24,6 +24,8 @@ public class CreateQuestionFurtherFragment extends Fragment implements View.OnCl
     ImageView ivFurtherArrow;
     RelativeLayout rlFurther;
 
+    boolean isEnabled = true;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -37,6 +39,7 @@ public class CreateQuestionFurtherFragment extends Fragment implements View.OnCl
 
         String furtherText = args.getString("buttonText");
         boolean showFurther = args.getBoolean("showFurter");
+        boolean isEnabled = args.getBoolean("isEnabled", true);
 
         tvFurther.setText(furtherText);
 
@@ -45,11 +48,16 @@ public class CreateQuestionFurtherFragment extends Fragment implements View.OnCl
 
         rlFurther.setOnClickListener(this);
 
+        changeButtonState(isEnabled);
+
         return view;
     }
 
     @Override
     public void onClick(View view) {
+        if (!isEnabled)
+            return;
+
         ButtonFurtherClicked listener = (ButtonFurtherClicked) getActivity();
 
         listener.further();
@@ -63,6 +71,15 @@ public class CreateQuestionFurtherFragment extends Fragment implements View.OnCl
         intent.putExtra("options", options);
 
         startActivity(intent);*/
+    }
+
+    public void changeButtonState(boolean isEnabled) {
+        this.isEnabled = isEnabled;
+
+        if (isEnabled)
+            rlFurther.setBackgroundColor(getResources().getColor(R.color.colorBlue));
+        else
+            rlFurther.setBackgroundColor(getResources().getColor(R.color.colorInactiveButton));
     }
 
     public interface ButtonFurtherClicked {

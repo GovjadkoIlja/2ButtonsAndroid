@@ -1,8 +1,10 @@
 package com.example.ilya.ourfuture.Followers;
 
+import com.example.ilya.ourfuture.Shared.ErrorHandler;
 import com.example.ilya.ourfuture.Shared.Id;
 import com.example.ilya.ourfuture.Shared.ServerConnection;
 import com.example.ilya.ourfuture.UsersList.UsersListModel;
+import com.example.ilya.ourfuture.UsersList.UsersListPresenter;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
@@ -13,7 +15,7 @@ import retrofit2.Retrofit;
  */
 
 public class FollowersModel extends UsersListModel {
-    //FollowersPresenter followersPresenter;
+    UsersListPresenter followersPresenter;
     int userId;
 
     public FollowersModel(FollowersPresenter followersPresenter, int userId) {
@@ -42,7 +44,7 @@ public class FollowersModel extends UsersListModel {
         postsIntf.getFollowTo(new FollowersRequest(Id.getId(), userId, ""))
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
-                .subscribe(n -> usersListPresenter.usersListGot(n.data));
+                .subscribe(n -> usersListPresenter.usersListGot(n.data), e -> followersPresenter.errorOccured(ErrorHandler.getErrorType(e)));
     }
 
 }

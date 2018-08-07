@@ -5,7 +5,9 @@ import com.example.ilya.ourfuture.Markers.MarkersRequest;
 import com.example.ilya.ourfuture.Question.Question;
 import com.example.ilya.ourfuture.Question.QuestionsListModel;
 import com.example.ilya.ourfuture.Question.QuestionsListPresenter;
+import com.example.ilya.ourfuture.Shared.ErrorHandler;
 import com.example.ilya.ourfuture.Shared.Id;
+import com.example.ilya.ourfuture.Shared.PageParams;
 import com.example.ilya.ourfuture.Shared.ServerConnection;
 
 import java.util.ArrayList;
@@ -25,14 +27,22 @@ public class TopQuestionsModel extends QuestionsListModel {
         questionsListPresenter = _questionsPresenter;
     }
 
-    public void receiveTopQuestions(long deltaUnixTime, boolean isOnlyNew, int sortType) {
+    public void receiveTopQuestions(int type, long deltaUnixTime, boolean isOnlyNew, int sortType) {
+        setIsInProcess(true);
+
+        System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAA");
+        System.out.println(offset + " " + count);
+
         Retrofit searchRetrofit = ServerConnection.prepareRetrofit();
 
         ITopQuestionRequest questionsListIntf = searchRetrofit.create(ITopQuestionRequest.class);
 
-        questionsListIntf.getTop(new TopRequest(Id.getId(), deltaUnixTime, isOnlyNew, sortType))
+        System.out.println(type + " " + questionsListPresenter.getType());
+
+        questionsListIntf.getTop(new TopRequest(Id.getId(), deltaUnixTime, isOnlyNew, sortType, new PageParams(offset, count)))
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
-                .subscribe(questionsListResponse -> questionsListPresenter.questionsGot(questionsListResponse.data));
+                .subscribe(questionsListResponse -> questionsListPresenter.questionsGot(type, questionsListResponse.data),
+                        e -> questionsListPresenter.errorOccured(ErrorHandler.getErrorType(e)));
     }
 }

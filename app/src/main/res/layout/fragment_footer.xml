@@ -42,7 +42,7 @@
         android:id="@+id/ibFooterQuestions"
         android:layout_width="@dimen/footerButtonsSize"
         android:layout_height="@dimen/footerButtonsSize"
-        android:src="@drawable/questions_list_disabled"
+        android:src="@drawable/selection_disabled"
         android:layout_toRightOf="@id/ibFooterAsk"
         android:layout_marginRight="@dimen/footerMarginBetweenIcons"
         android:scaleType="fitXY"

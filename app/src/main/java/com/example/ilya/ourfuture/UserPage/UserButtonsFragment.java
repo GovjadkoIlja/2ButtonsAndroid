@@ -75,8 +75,8 @@ public class UserButtonsFragment extends Fragment implements IUserButtonsView, V
     public void setButtonsValues(UserInfo user) {
         userButtonsPresenter.saveUserInfo(user);
 
-        ubFollowers.setValue(user.followersAmount);
-        ubFollowTo.setValue(user.followedAmount);
+        ubFollowers.setValue(user.followersCount);
+        ubFollowTo.setValue(user.followedCount);
 
         isYoursPage = userButtonsPresenter.getUserId() == Id.getId();
 

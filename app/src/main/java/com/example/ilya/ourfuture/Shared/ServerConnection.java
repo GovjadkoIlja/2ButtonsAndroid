@@ -12,19 +12,14 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 
 public final class ServerConnection {
-    //private static final String IP_ADDRESS = "http://192.168.1.95";
-    //private static final String IP_ADDRESS = "http://192.168.0.105";
-    //private static final String IP_ADDRESS = "http://185.173.93.8";
-    //private static final String IP_ADDRESS = "http://172.22.0.91";
-    //private static final String IP_ADDRESS = "http://192.168.10.163";
-    //private static final String IP_ADDRESS = "http://172.22.0.127";
-    private static final String IP_ADDRESS = "https://api.2buttons.ru";
+    private static final String IP_ADDRESS = "https://api.4buttons.ru";
+    private static final String MEDIA_SERVER = "https://media.4buttons.ru";
 
     //private static final String PORT = "6255";
     //public static final String URL = IP_ADDRESS + ":" + PORT;
     public static final String URL = IP_ADDRESS;
 
-    public static final String version = "/v0.09";
+    public static final String version = "/v0.13";
 
     public static Retrofit prepareRetrofit() {
         Gson gson = new GsonBuilder().create();
@@ -38,4 +33,16 @@ public final class ServerConnection {
         return searchRetrofit;
     }
 
+    public static String getMediaServerAddress(String url) {
+
+        if (url == null)
+            return null;
+        else if (url.startsWith("http"))  {
+            if (!url.startsWith("https"))
+                url = url.replaceFirst("http", "https");
+            return url;
+        }
+        else
+            return MEDIA_SERVER + "/" + url;
+    }
 }

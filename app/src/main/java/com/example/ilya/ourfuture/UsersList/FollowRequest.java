@@ -6,10 +6,10 @@ package com.example.ilya.ourfuture.UsersList;
 
 public class FollowRequest {
     int userId;
-    int followToId;
+    int followingId;
 
-    public FollowRequest(int userId, int followToId) {
+    public FollowRequest(int userId, int followingId) {
         this.userId = userId;
-        this.followToId = followToId;
+        this.followingId = followingId;
     }
 }

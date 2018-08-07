@@ -2,8 +2,10 @@ package com.example.ilya.ourfuture.Markers;
 
 import com.example.ilya.ourfuture.Question.QuestionsListModel;
 import com.example.ilya.ourfuture.Question.QuestionsListPresenter;
+import com.example.ilya.ourfuture.Shared.ErrorHandler;
 import com.example.ilya.ourfuture.Shared.Id;
 import com.example.ilya.ourfuture.Question.Question;
+import com.example.ilya.ourfuture.Shared.PageParams;
 import com.example.ilya.ourfuture.Shared.ServerConnection;
 import com.example.ilya.ourfuture.UserPage.IUsersQuestionsRequest;
 import com.example.ilya.ourfuture.UserPage.UserInfoRequest;
@@ -38,10 +40,11 @@ public class MarkersQuestionsModel extends QuestionsListModel {
 
         IGetPersonalQuestionsRequest questionsListIntf = searchRetrofit.create(IGetPersonalQuestionsRequest.class);
 
-        questionsListIntf.getAsked(new MarkersRequest(Id.getId(), sortType))
+        questionsListIntf.getAsked(new MarkersRequest(Id.getId(), sortType, new PageParams(offset, count)))
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
-                .subscribe(questionsListResponse -> questionsListPresenter.questionsGot(questionsListResponse.data));
+                .subscribe(questionsListResponse -> questionsListPresenter.questionsGot(1, questionsListResponse.data),
+                        e -> questionsListPresenter.errorOccured(ErrorHandler.getErrorType(e)));
     }
 
     public void receiveUserLikedQuestions(int sortType) {
@@ -49,10 +52,11 @@ public class MarkersQuestionsModel extends QuestionsListModel {
 
         IGetPersonalQuestionsRequest questionsListIntf = searchRetrofit.create(IGetPersonalQuestionsRequest.class);
 
-        questionsListIntf.getLiked(new MarkersRequest(Id.getId(), sortType))
+        questionsListIntf.getLiked(new MarkersRequest(Id.getId(), sortType, new PageParams(offset, count)))
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
-                .subscribe(questionsListResponse -> questionsListPresenter.questionsGot(questionsListResponse.data));
+                .subscribe(questionsListResponse -> questionsListPresenter.questionsGot(2, questionsListResponse.data),
+                        e -> questionsListPresenter.errorOccured(ErrorHandler.getErrorType(e)));
     }
 
     public void receiveUserSavedQuestions(int sortType) {
@@ -60,19 +64,10 @@ public class MarkersQuestionsModel extends QuestionsListModel {
 
         IGetPersonalQuestionsRequest questionsListIntf = searchRetrofit.create(IGetPersonalQuestionsRequest.class);
 
-        questionsListIntf.getSaved(new MarkersRequest(Id.getId(), sortType))
+        questionsListIntf.getSaved(new MarkersRequest(Id.getId(), sortType, new PageParams(offset, count)))
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
-                .subscribe(questionsListResponse -> questionsListPresenter.questionsGot(questionsListResponse.data));
-    }
-
-    private void parseResponse(JsonElement s) {
-        Type questionsListType = new TypeToken<ArrayList<Question>>() {}.getType();
-
-        Gson gson = new Gson();
-
-        questions = gson.fromJson(s, questionsListType);
-
-        questionsListPresenter.questionsGot(questions);
+                .subscribe(questionsListResponse -> questionsListPresenter.questionsGot(3, questionsListResponse.data),
+                        e -> questionsListPresenter.errorOccured(ErrorHandler.getErrorType(e)));
     }
 }

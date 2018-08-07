@@ -1,45 +1,70 @@
 package com.example.ilya.ourfuture.Question;
 
+import android.app.Fragment;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.ilya.ourfuture.Shared.ImagesDownload;
 import com.example.ilya.ourfuture.R;
+import com.example.ilya.ourfuture.Shared.ServerConnection;
+import com.example.ilya.ourfuture.Voters.VotersActivity;
+import com.squareup.picasso.Picasso;
+
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.Locale;
 
 /**
  * Created by Ilya on 22.06.2018.
  */
 
 public class QuestionView extends LinearLayout implements View.OnClickListener {
+
+    final int secondsInMinute = 60;
+    final int secondsInHour = secondsInMinute * 60;
+    final int secondsInDay = secondsInHour * 24;
+    final int secondsInYear = secondsInDay * 365;
+
     final float middleSize = (float) 0.05;
 
     Question question;
     QuestionPresenter questionPresenter;
+    Fragment parentFragment;
 
     View rootView;
 
+    ImageView ivBackground;
+
+    ImageView ivPhoto;
     TextView tvLogin;
     TextView tvCondition;
     TextView tvType;
     TextView tvAnswers;
     TextView tvRaiting;
     TextView tvAskDate;
-    ImageView ivAnswered;
     ImageButton ibLike;
     ImageButton ibDislike;
     ImageButton ibFavorite;
 
     TextView tvFirstOption;
     TextView tvSecondOption;
+
+    RelativeLayout rlBackground;
 
     RelativeLayout rlFirstOption;
     RelativeLayout rlSecondOption;
@@ -53,6 +78,9 @@ public class QuestionView extends LinearLayout implements View.OnClickListener {
     TextView tvSecondOptionQuestionLinePercent;
     TextView tvFirstOptionQuestionLineVoters;
     TextView tvSecondOptionQuestionLineVoters;
+
+    ImageButton ibArrowBack;
+    ImageButton ibArrowForward;
 
     public QuestionView(Context context) {
         super(context);
@@ -69,18 +97,23 @@ public class QuestionView extends LinearLayout implements View.OnClickListener {
 
         questionPresenter = new QuestionPresenter();
 
-        tvLogin = rootView.findViewById(R.id.tvQuestionLogin);
+        ivBackground = rootView.findViewById(R.id.ivQuestionBackground);
 
+        ivPhoto = rootView.findViewById(R.id.ivQuestionPhoto);
+        tvLogin = rootView.findViewById(R.id.tvQuestionLogin);
         tvCondition = (TextView)rootView.findViewById(R.id.tvQuestionCondition);
         tvAnswers = (TextView)rootView.findViewById(R.id.tvQuestionShows);
         tvRaiting = (TextView)rootView.findViewById(R.id.tvQuestionRaiting);
         tvAskDate = (TextView)rootView.findViewById(R.id.tvQuestionAskDate);
         tvFirstOption = rootView.findViewById(R.id.tvQuestionFirstOptionText);
         tvSecondOption = rootView.findViewById(R.id.tvQuestionSecondOptionText);
+        tvType = rootView.findViewById(R.id.tvQuestionType);
 
         ibLike = (ImageButton) rootView.findViewById(R.id.ibQuestionLike);
         ibDislike = (ImageButton) rootView.findViewById(R.id.ibQuestionDislike);
         ibFavorite = (ImageButton) rootView.findViewById(R.id.ibQuestionFavorite);
+
+        rlBackground = rootView.findViewById(R.id.rlQuestionBackground);
 
         rlFirstOption = (RelativeLayout)rootView.findViewById(R.id.rlQuestionFirstOption);
         rlSecondOption = (RelativeLayout)rootView.findViewById(R.id.rlQuestionSecondOption);
@@ -94,26 +127,43 @@ public class QuestionView extends LinearLayout implements View.OnClickListener {
         tvFirstOptionQuestionLineVoters = rootView.findViewById(R.id.tvQuestionFirstOptionLineVoters);
         tvSecondOptionQuestionLineVoters = rootView.findViewById(R.id.tvQuestionSecondOptionLineVoters);
 
+        ibArrowBack = rootView.findViewById(R.id.ibQuestionArrowBackgroundBack);
+        ibArrowForward = rootView.findViewById(R.id.ibQuestionArrowBackgroundForward);
+
         rlFirstOption.setOnClickListener(this);
         rlSecondOption.setOnClickListener(this);
         ibLike.setOnClickListener(this);
         ibDislike.setOnClickListener(this);
         ibFavorite.setOnClickListener(this);
+
+        ibArrowBack.setOnClickListener(this);
+        ibArrowForward.setOnClickListener(this);
+
     }
 
     public void setData(Question question) {
         this.question = question;
 
-        tvLogin.setText(question.login);
+        setBackgroundImage(question.backgroundUrl);
+
+        ImagesDownload.setCircleImage(question.author.smallAvatarLink, ivPhoto);
+
+        tvLogin.setText(question.author.login);
 
         tvCondition.setText(question.condition);
 
-        tvAnswers.setText(question.showsAmount + "");
-        tvRaiting.setText(question.likesAmount - question.dislikesAmount + "");
-        tvAskDate.setText(question.questionAddDate.substring(0, 10));
+        tvAnswers.setText(question.options.get(0).voters + question.options.get(1).voters + "");
+        tvRaiting.setText(question.likesCount - question.dislikesCount + "");
+
+        //getDateText(question.questionAddDate);
+        tvAskDate.setText(getDateText(question.questionAddDate));
+        //tvAskDate.setText(question.questionAddDate.substring(0, 10));
 
         tvFirstOption.setText(question.options.get(0).text);
         tvSecondOption.setText(question.options.get(1).text);
+
+        if (question.questionType == 2)
+            tvType.setVisibility(VISIBLE);
 
         setSelectedOption(question.yourAnswerType);
 
@@ -126,11 +176,40 @@ public class QuestionView extends LinearLayout implements View.OnClickListener {
         setFavorite(question.isInFavorites, ibFavorite);*/
     }
 
+    public void setBackgroundImage(String url) {
+
+        url = ServerConnection.getMediaServerAddress(url);
+
+        System.out.println(url);
+
+        Picasso.with(getContext()).load(ServerConnection.getMediaServerAddress(url)).fit().centerCrop()
+                .into(ivBackground);
+
+        /*Picasso.with(getContext()).load(ServerConnection.getMediaServerAddress(url))
+                .resize(1600, 900).centerCrop().into(new Target(){
+
+            @Override
+            public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom from) {
+                rlBackground.setBackground(new BitmapDrawable(getContext().getResources(), bitmap));
+            }
+
+            @Override
+            public void onBitmapFailed(final Drawable errorDrawable) {
+                Log.d("TAG", "FAILED");
+            }
+
+            @Override
+            public void onPrepareLoad(final Drawable placeHolderDrawable) {
+                Log.d("TAG", "Prepare Load");
+            }
+        });*/
+    }
+
     @Override
     public void onClick(View view) {
-        //Question question = getClickedQuestion(view);
 
-        int newAnswer = question.yourAnswerType;
+        int newBackground = 0;
+        int newAnswer = -1;
         int newFeedback = question.yourFeedbackType;
 
         switch (view.getId()) {
@@ -153,19 +232,35 @@ public class QuestionView extends LinearLayout implements View.OnClickListener {
             case (R.id.ibQuestionFavorite):
                 setFavorite(!question.isInFavorites);
                 questionPresenter.addFavorites(question, !question.isInFavorites);
-                //question.isInFavorites = !question.isInFavorites;
-                //questionsListPresenter.addFavorites(question, !question.isInFavorites);
+                break;
+
+            case (R.id.ibQuestionArrowBackgroundBack):
+                newBackground = -1;
+                break;
+
+            case (R.id.ibQuestionArrowBackgroundForward):
+                newBackground = 1;
                 break;
 
         }
 
-        System.out.println(question.questionId);
+        if (newBackground != 0) {
+            ChangingBackgroundClicked backgroundClicked = (ChangingBackgroundClicked) parentFragment;
+            backgroundClicked.changeBackground(newBackground);
+            return;
+        }
 
-        if ((question.yourAnswerType == 0) && (newAnswer != question.yourAnswerType)) {
+        if ((question.yourAnswerType == 0) && (newAnswer != -1)) {
             questionPresenter.addAnswer(question, newAnswer);
 
             setSelectedOption(newAnswer);
             setResults(newAnswer, question.options.get(0).voters, question.options.get(1).voters);
+        } else if ((question.yourAnswerType != 0) && (newAnswer != -1)) {
+            if (question.questionType != 2)
+                openVoters(newAnswer);
+            else
+                Toast.makeText(getContext(), "Это анонимный вопрос", Toast.LENGTH_SHORT).show();
+
         }
 
         if (newFeedback != question.yourFeedbackType) {
@@ -173,29 +268,35 @@ public class QuestionView extends LinearLayout implements View.OnClickListener {
 
             questionPresenter.addFeedback(question, newFeedback); //Here we are updating likes and dislikes as well
 
-            //TextView tvRaiting = ((View) view.getParent()).findViewById(R.id.tvClosedQuestionRaiting);
-
-            tvRaiting.setText((question.likesAmount - question.dislikesAmount) + "");
+            tvRaiting.setText((question.likesCount - question.dislikesCount) + "");
         }
     }
 
-    /*private Question getClickedQuestion(View view) {
-        View parentRow;
+    public void makeBackgroundArrowsVisible() {
+        ibArrowBack.setVisibility(VISIBLE);
+        ibArrowForward.setVisibility(VISIBLE);
+    }
 
-        switch (view.getId()) { //dependency from the layout
-            case R.id.ibClosedQuestionFavorite:
-                parentRow =  (View) view.getParent().getParent().getParent().getParent();
-                break;
-            default:
-                parentRow = (View) view.getParent().getParent().getParent();
+    private void openVoters(int answer) {
+        ArrayList<String> options = getOptionsArray(question.options);
 
+        Intent voters = new Intent(this.getContext(), VotersActivity.class);
+        voters.putExtra("questionId", question.questionId);
+        voters.putExtra("condition", question.condition);
+        voters.putExtra("option", answer);
+        voters.putExtra("options", options);
+        this.getContext().startActivity(voters);
+    }
+    
+    private ArrayList<String> getOptionsArray(ArrayList<Option> options) {
+        ArrayList<String> strings = new ArrayList<>();
+
+        for (Option option: options) {
+            strings.add(option.text);
         }
 
-        ListView listView = (ListView) parentRow.getParent();
-        int position = listView.getPositionForView(parentRow);
-
-        return questions.get(position);
-    }*/
+        return strings;
+    }
 
     private void setSelectedOption(int position) {
         if (position == 1)
@@ -303,6 +404,137 @@ public class QuestionView extends LinearLayout implements View.OnClickListener {
 
         tvFirstOptionQuestionLineVoters.setText(firstOption + "");
         tvSecondOptionQuestionLineVoters.setText(secondOption + "");
+    }
+
+    private String getDateText(String askString) {
+
+        Calendar askDate = getAskDate(askString);
+
+        Calendar currentDate = new GregorianCalendar();
+        currentDate.setTime(new Date());
+
+        int yearsDiff = currentDate.get(Calendar.YEAR) - askDate.get(Calendar.YEAR);
+        int daysDiff = currentDate.get(Calendar.DAY_OF_YEAR) - askDate.get(Calendar.DAY_OF_YEAR); //I'll have problems in the end of year
+
+        int diff = getSecondsDiff(askDate, currentDate);
+
+        String result = "";
+
+        if (daysDiff > 1) {
+            if (yearsDiff == 0)
+                result = getFullDate(askDate);
+            else
+                result = getFullYearDate(askDate);
+        } else if ((daysDiff == 1) && (diff >= 4 * secondsInHour)) {
+            result = getYesterdayDate(askDate);
+        } else if ((daysDiff == 0) && (diff >= 4 * secondsInHour)) {
+            result = getTodayDate(askDate);
+        }else if (diff < 4 * secondsInHour && diff >= secondsInHour) {
+            result = getHoursDate(diff / secondsInHour);
+        } else if (diff < secondsInHour && diff > secondsInMinute) {
+            result = getMinutesDate(diff / secondsInMinute);
+        } else if (diff < secondsInMinute) {
+            result = getSecondsDate(diff);
+        }
+
+        //System.out.println(daysDiff);
+
+        return result;
+    }
+
+    private Calendar getAskDate(String askString) {
+        String cutString;
+
+        if (!askString.equals("Только что")) {
+            cutString = askString.substring(0, 19);
+            cutString = cutString.replace("T", " ");
+        } else
+            cutString = askString;
+
+        DateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        Date date;
+        try {
+            date = format.parse(cutString);
+        } catch (ParseException e) {
+            e.printStackTrace();
+            date = new Date();
+        }
+
+        Calendar askDate = new GregorianCalendar();
+        askDate.setTime(date);
+
+        return askDate;
+    }
+
+    private String getFullYearDate(Calendar askDate) {
+        Locale locale = new Locale("ru", "RU");
+        DateFormat df = new SimpleDateFormat("dd MMM yyyy в HH:mm", locale);
+
+        return df.format(askDate.getTime());
+    }
+
+    private String getFullDate(Calendar askDate) {
+        Locale locale = new Locale("ru", "RU");
+        DateFormat df = new SimpleDateFormat("dd MMM в HH:mm", locale);
+
+        return df.format(askDate.getTime());
+    }
+
+    private String getYesterdayDate(Calendar askDate) {
+        return "Вчера в " + getTime(askDate);
+    }
+
+    private String getTodayDate(Calendar askDate) {
+        return "Сегодня в " + getTime(askDate);
+    }
+
+    private String getHoursDate(int hours) {
+        if (hours == 1)
+            return "час назад";
+        else
+            return hours + " часа назад";
+    }
+
+    private String getMinutesDate(int minutes) {
+        if (minutes == 1)
+            return "минуту назад";
+        else
+            return minutes + " минут назад";
+    }
+
+    private String getSecondsDate(int seconds) {
+        if (seconds <= 3)
+            return "Только что";
+        else
+            return seconds + " cекунд назад";
+    }
+
+    private int getSecondsDiff(Calendar askDate, Calendar currentDate) {
+        int diffYears = currentDate.get(Calendar.YEAR) - askDate.get(Calendar.YEAR);
+        int diffDays = currentDate.get(Calendar.DAY_OF_YEAR) - askDate.get(Calendar.DAY_OF_YEAR);
+        int diffHours = currentDate.get(Calendar.HOUR_OF_DAY) - askDate.get(Calendar.HOUR_OF_DAY);
+        int diffMins = currentDate.get(Calendar.MINUTE) - askDate.get(Calendar.MINUTE);
+        int diffSeconds = currentDate.get(Calendar.SECOND) - askDate.get(Calendar.SECOND);
+
+        /*System.out.println(diffYears * secondsInYear + " " + diffDays * secondsInDay + " " +
+                diffHours * secondsInHour + " " + diffMins * secondsInMinute + " " + diffSeconds);*/
+        int diff = diffYears * secondsInYear + diffDays * secondsInDay + diffHours * secondsInHour + diffMins * secondsInMinute + diffSeconds;
+
+        return diff;
+    }
+
+    private String getTime(Calendar askDate) {
+        SimpleDateFormat f = new SimpleDateFormat("HH:mm");
+        String time = f.format(askDate.getTime());
+        return time;
+    }
+
+    public interface ChangingBackgroundClicked {
+        void changeBackground(int offset);
+    }
+
+    public void setParentFragment(Fragment parentFragment) {
+        this.parentFragment = parentFragment;
     }
 
 }

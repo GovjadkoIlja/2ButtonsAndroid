@@ -15,15 +15,19 @@ import java.util.ArrayList;
 
 public class TopQuestionsPresenter extends QuestionsListPresenter {
 
-    final int daySeconds = 86400;
+    private final int daySeconds = 86400;
 
     TopQuestionsPresenter(QuestionsListFragment questionsView) {
         questionsListFragment = questionsView;
         questionsListModel = new TopQuestionsModel(this);
     }
 
-    public void receiveQuestions(int type) {
+    @Override
+    public void receiveQuestions() {
         System.out.println(type);
+
+        if (questionsListModel.getIsInProcess())
+            return;
 
         int deltaUnixTime = 0;
 
@@ -42,6 +46,6 @@ public class TopQuestionsPresenter extends QuestionsListPresenter {
                 break;
         }
 
-        ((TopQuestionsModel)questionsListModel).receiveTopQuestions(deltaUnixTime, false, 1);
+        ((TopQuestionsModel)questionsListModel).receiveTopQuestions(type, deltaUnixTime, false, 1);
     }
 }

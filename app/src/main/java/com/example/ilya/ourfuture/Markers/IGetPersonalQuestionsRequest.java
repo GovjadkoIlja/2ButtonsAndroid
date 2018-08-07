@@ -24,10 +24,4 @@ public interface IGetPersonalQuestionsRequest {
 
     @POST(ServerConnection.version + "/questions/personal/saved")
     Observable<QuestionsListResponse> getSaved(@Body MarkersRequest markersRequest);
-
-    @GET("/getFavorites")
-    Observable<JsonElement> getFavorites(@Query("id") int id);
-
-    @GET("/getSaved")
-    Observable<JsonElement> getHistory(@Query("id") int id);
 }

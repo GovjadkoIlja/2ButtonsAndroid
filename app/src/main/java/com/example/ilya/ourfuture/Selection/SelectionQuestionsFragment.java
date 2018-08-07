@@ -23,10 +23,6 @@ public class SelectionQuestionsFragment extends QuestionsListFragment {
         System.out.println("AAAAAAA");
         questionsListPresenter = new SelectionQuestionsPresenter(this);
 
-        ((SelectionQuestionsPresenter)questionsListPresenter).receiveQuestions(1);
-    }
-
-    public void questionsTypeChanged(int type) { //as well will be executed authomatically from the header
-        ((TopQuestionsPresenter)questionsListPresenter).receiveQuestions(type);
+        questionsListPresenter.receiveQuestions();
     }
 }

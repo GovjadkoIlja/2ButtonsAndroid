@@ -1,5 +1,6 @@
 <resources>
-    <string name="app_name">Our Future</string>
+    <string name="app_name">2Buttons</string>
+    <integer name="com_vk_sdk_AppId">6616358</integer>
 
     <!-- Login Activity -->
     <string name="loginPageHeader">Вход в OurFuture</string>
@@ -7,7 +8,11 @@
     <string name="passwordHint">Пароль</string>
     <string name="logInButtonText">Войти</string>
     <string name="registerButtonText">Зарегистрироваться</string>
-    <string name="networksIconsHeader">Выполнить вход с помощью:</string>
+    <string name="networksIconsHeader">Войти через:</string>
+    <string name="networksDontHaveNetworksText">У меня нет соцсетей</string>
+
+    <!-- Error -->
+    <string name="errorServerErrorDescription">Произошла ошибка :(\n Мы уже исправляем ее :)</string>
 
     <!-- Register Activity -->
     <string name="registerHeader">Регистрация</string>

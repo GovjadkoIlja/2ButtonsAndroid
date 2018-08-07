@@ -4,7 +4,9 @@ import com.example.ilya.ourfuture.Markers.MarkersRequest;
 import com.example.ilya.ourfuture.Question.Question;
 import com.example.ilya.ourfuture.Question.QuestionsListModel;
 import com.example.ilya.ourfuture.Question.QuestionsListPresenter;
+import com.example.ilya.ourfuture.Shared.ErrorHandler;
 import com.example.ilya.ourfuture.Shared.Id;
+import com.example.ilya.ourfuture.Shared.PageParams;
 import com.example.ilya.ourfuture.Shared.ServerConnection;
 import com.example.ilya.ourfuture.Tops.ITopQuestionRequest;
 import com.example.ilya.ourfuture.Tops.TopRequest;
@@ -31,9 +33,10 @@ public class SelectionQuestionsModel extends QuestionsListModel {
 
         ISelectionQuestionRequest questionsListIntf = searchRetrofit.create(ISelectionQuestionRequest.class);
 
-        questionsListIntf.getSelection(new MarkersRequest(Id.getId(), 1))
+        questionsListIntf.getSelection(new MarkersRequest(Id.getId(), 1, new PageParams(offset, count)))
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
-                .subscribe(questionsListResponse -> questionsListPresenter.questionsGot(questionsListResponse.data));
+                .subscribe(questionsListResponse -> questionsListPresenter.questionsGot(1, questionsListResponse.data),
+                        e -> questionsListPresenter.errorOccured(ErrorHandler.getErrorType(e)));
     }
 }

@@ -6,7 +6,6 @@ package com.example.ilya.ourfuture.LoginPage;
 
 public interface ICredentialsView {
     void onLoginButtonClick();
-    void openApplication(int id);
+    void openApplication(int id, String login);
     void denyAccess();
-    void setId(int id);
 }

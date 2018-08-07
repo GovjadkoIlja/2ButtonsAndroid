@@ -6,6 +6,7 @@ import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
 
+import com.example.ilya.ourfuture.Shared.ErrorFragment;
 import com.example.ilya.ourfuture.R;
 import com.example.ilya.ourfuture.Shared.FooterFragment;
 import com.example.ilya.ourfuture.Shared.HeaderFragment;
@@ -17,7 +18,7 @@ public class TopActivity extends Activity implements MenuFourFragment.OnSelected
 
     final String header = "Лучшее";
     boolean showBack = true;
-    final String[] menu = {"За сегодня", "За неделю", "За месяц", "За всё время"};
+    final String[] menu = {"Cегодня", "Неделя", "Месяц", "Всё время"};
 
     ArrayList<String> menuStrings = new ArrayList<>();
 
@@ -40,21 +41,11 @@ public class TopActivity extends Activity implements MenuFourFragment.OnSelected
         Bundle menuArgs = new Bundle();
         menuArgs.putStringArrayList("menuStrings", menuStrings);
 
-        Fragment topsHeaderFragment = new MenuFourFragment(); //It must be below the questionsFragment due to call of questionsFragment into onCreateView method inside MarkersQuestionTypeFragment
+        Fragment topsHeaderFragment = new MenuFourFragment();
         topsHeaderFragment.setArguments(menuArgs);
         FragmentTransaction markersOwnHeaderFt = getFragmentManager().beginTransaction();
         markersOwnHeaderFt.add(R.id.topsFrameMenuFour, topsHeaderFragment);
         markersOwnHeaderFt.commit();
-
-        /* searchFragment = new UserListSearchFragment();
-        FragmentTransaction searchTransaction = getFragmentManager().beginTransaction();
-        searchTransaction.add(R.id.markersFrameSearch, searchFragment);
-        searchTransaction.commit();
-
-        Fragment questionTypeFragment = new MarkersQuestionTypeFragment();
-        FragmentTransaction questionTypeTransaction = getFragmentManager().beginTransaction();
-        questionTypeTransaction.add(R.id.markersFrameQuestionsType, questionTypeFragment);
-        questionTypeTransaction.commit();*/
 
         Fragment questionsFragment = new TopQuestionsFragment();
         FragmentTransaction questionsTransaction = getFragmentManager().beginTransaction();
@@ -71,12 +62,41 @@ public class TopActivity extends Activity implements MenuFourFragment.OnSelected
     public void onListSelected(int type) {
         FragmentManager fragmentManager = getFragmentManager();
 
-        TopQuestionsFragment fragmentQuestions = (TopQuestionsFragment) fragmentManager
-                .findFragmentById(R.id.topsFrameQuestionList);
+        TopQuestionsFragment questionsFragment;
 
-        if (fragmentQuestions != null) {
-            System.out.println("AAAAAAA");
-            fragmentQuestions.questionsTypeChanged(type);
+        boolean isFromErrorFragment = fragmentManager
+                .findFragmentById(R.id.topsFrameQuestionList).getClass() == ErrorFragment.class;
+
+        if (!isFromErrorFragment) {
+            questionsFragment = (TopQuestionsFragment) fragmentManager
+                    .findFragmentById(R.id.topsFrameQuestionList);
+        } else {
+            ErrorFragment errorFragment = (ErrorFragment) fragmentManager
+                    .findFragmentById(R.id.topsFrameQuestionList);
+
+            getFragmentManager().beginTransaction().remove(errorFragment).commit();
+
+            questionsFragment = new TopQuestionsFragment();
+            FragmentTransaction questionsTransaction = getFragmentManager().beginTransaction();
+            questionsTransaction.replace(R.id.topsFrameQuestionList, questionsFragment);
+            questionsTransaction.commit();
+        }
+
+        /*try { //If before it was an error
+
+        }
+        catch (Exception e) {
+            questionsFragment = new TopQuestionsFragment();
+            FragmentTransaction questionsTransaction = getFragmentManager().beginTransaction();
+            questionsTransaction.add(R.id.topsFrameQuestionList, questionsFragment);
+            questionsTransaction.commit();
+        }*/
+
+        System.out.println(isFromErrorFragment);
+
+        if (questionsFragment != null) {
+
+            questionsFragment.questionsTypeChanged(type, isFromErrorFragment);
         }
     }
 

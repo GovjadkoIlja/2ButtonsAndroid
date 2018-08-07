@@ -21,14 +21,14 @@
         android:id="@+id/createQuestionSettingsFrameSettings"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/createQuestionSettingsFrameExample"/>
+        android:layout_below="@+id/createQuestionSettingsFrameExample"
+        android:layout_above="@id/createQuestionSettingsFrameFurther"/>
 
     <FrameLayout
         android:id="@+id/createQuestionSettingsFrameFurther"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_below="@+id/createQuestionSettingsFrameSettings"/>
+        android:layout_alignParentBottom="true" />
 
 </RelativeLayout>
 

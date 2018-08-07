@@ -1,26 +1,15 @@
 package com.example.ilya.ourfuture.UsersList;
 
 import android.content.Context;
-import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.ImageButton;
-import android.widget.ImageView;
-import android.widget.ListView;
-import android.widget.TextView;
 
-import com.example.ilya.ourfuture.PeopleList.ShortUser;
-import com.example.ilya.ourfuture.Question.Question;
 import com.example.ilya.ourfuture.R;
-import com.example.ilya.ourfuture.Shared.Id;
-import com.example.ilya.ourfuture.UserPage.UserActivity;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by Ilya on 09.06.2018.
@@ -40,7 +29,7 @@ public class UsersListAdapter extends ArrayAdapter<Person> {
     Button btnSubscribe;*/
 
     public UsersListAdapter(@NonNull Context context, int resource, int textViewResourceId, @NonNull ArrayList<Person> people,
-                            UsersListFragment usersListFragment, boolean showAgeSex) {
+                            UsersListFragment usersListFragment) {
         super(context, resource, textViewResourceId, people);
 
         this.people = people;

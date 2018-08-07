@@ -46,15 +46,15 @@ public class CreateQuestionSettingsFragment extends Fragment {
     }
 
     public boolean getPublicationAnonimity(){
-        return siPublicationAnonimity.isEnabled();
+        return siPublicationAnonimity.getStatus();
     }
 
     public boolean getQuestionAnonimity(){
-        return siQuestionAnonimity.isEnabled();
+        return siQuestionAnonimity.getStatus();
     }
 
     public boolean getOnlyFollowers(){
-        return siOnlyFollowers.isEnabled();
+        return siOnlyFollowers.getStatus();
     }
 
 }
