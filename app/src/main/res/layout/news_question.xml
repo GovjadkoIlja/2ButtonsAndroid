@@ -13,7 +13,7 @@
         android:paddingVertical="@dimen/newsDescriptionPaddingVertical"
         android:id="@+id/nqDescription"/>
 
-    <com.example.ilya.ourfuture.Question.QuestionView
+    <com.TwoButtons.ilya.TwoButtons.Question.QuestionView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/nqQuestion"/>

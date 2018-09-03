@@ -7,10 +7,10 @@
         android:layout_height="wrap_content"
         layout="@layout/closedquestion" />-->
 
-    <com.example.ilya.ourfuture.Question.QuestionView
+    <com.TwoButtons.ilya.TwoButtons.Question.QuestionView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/questionListQuestion"
         android:layout_marginBottom="10dp">
-    </com.example.ilya.ourfuture.Question.QuestionView>
+    </com.TwoButtons.ilya.TwoButtons.Question.QuestionView>
 </LinearLayout>

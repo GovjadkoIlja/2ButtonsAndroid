@@ -21,7 +21,7 @@
         android:layout_marginBottom="@dimen/marginAfterRegisterHeader"/>
 
     <fragment
-        android:name="com.example.ilya.ourfuture.RegistrationPage.RegisterPropertiesFragment"
+        android:name="com.TwoButtons.ilya.TwoButtons.RegistrationPage.RegisterPropertiesFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/marginAfterRegisterHeader">

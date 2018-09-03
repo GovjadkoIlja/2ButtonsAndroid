@@ -4,13 +4,13 @@
     android:layout_height="wrap_content"
     android:orientation="horizontal">
 
-    <com.example.ilya.ourfuture.Voters.MenuItem
+    <com.TwoButtons.ilya.TwoButtons.Voters.MenuItem
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/miVotersFirstOption"
         android:layout_weight="1"/>
 
-    <com.example.ilya.ourfuture.Voters.MenuItem
+    <com.TwoButtons.ilya.TwoButtons.Voters.MenuItem
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/miVotersSecondOption"

@@ -6,19 +6,19 @@
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
-    <com.example.ilya.ourfuture.CreateQuestion.SettingsItem
+    <com.TwoButtons.ilya.TwoButtons.CreateQuestion.SettingsItem
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/createQuestionSettingsMarginBetweenItems"
         android:id="@+id/createQuestionSettingsItemPublicationAnonimity"/>
 
-    <com.example.ilya.ourfuture.CreateQuestion.SettingsItem
+    <com.TwoButtons.ilya.TwoButtons.CreateQuestion.SettingsItem
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/createQuestionSettingsMarginBetweenItems"
         android:id="@+id/createQuestionSettingsItemQuestionAnonimity"/>
 
-    <com.example.ilya.ourfuture.CreateQuestion.SettingsItem
+    <com.TwoButtons.ilya.TwoButtons.CreateQuestion.SettingsItem
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/createQuestionSettingsMarginBetweenItems"

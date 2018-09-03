@@ -171,6 +171,8 @@
     <dimen name="questionResultsHeight">23dp</dimen>
     <dimen name="questionResultsMarginBottom">1dp</dimen>
     <dimen name="questionResultsMarginVotersAmount">7dp</dimen>
+    <dimen name="questionResultsPhotoSize">23dp</dimen>
+    <dimen name="questionPhotosMargin">3dp</dimen>
 
     <!-- MenuFour -->
     <dimen name="menuLineHeight">3dp</dimen>

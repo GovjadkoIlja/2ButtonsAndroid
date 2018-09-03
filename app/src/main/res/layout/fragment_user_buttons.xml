@@ -9,17 +9,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center">
-        <com.example.ilya.ourfuture.UserPage.UserButton
+        <com.TwoButtons.ilya.TwoButtons.UserPage.UserButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/ubFollowers"/>
 
-        <com.example.ilya.ourfuture.UserPage.UserButton
+        <com.TwoButtons.ilya.TwoButtons.UserPage.UserButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/ubFollowTo"/>
 
-        <com.example.ilya.ourfuture.UserPage.UserButton
+        <com.TwoButtons.ilya.TwoButtons.UserPage.UserButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/ubStatistics"/>

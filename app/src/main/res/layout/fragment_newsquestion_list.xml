@@ -7,5 +7,5 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layoutManager="LinearLayoutManager"
-    tools:context="com.example.ilya.ourfuture.News.NewsQuestionsFragment"
+    tools:context="com.android.ilya.TwoButtons.com.TwoButtons.ilya.TwoButtons.News.NewsQuestionsFragment"
     tools:listitem="@layout/fragment_newsquestion" />

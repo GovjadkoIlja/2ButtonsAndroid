@@ -1,30 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.ilya.ourfuture">
+    package="com.android.ilya.TwoButtons">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
-        android:name=".LoginPage.Application"
+        android:name="com.TwoButtons.ilya.TwoButtons.LoginPage.Application"
         android:allowBackup="true"
         android:icon="@drawable/logo"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".LoginPage.MainActivity"/>
-        <activity android:name=".RegistrationPage.RegisterActivity" />
-        <activity android:name=".UserPage.UserActivity" />
-        <activity android:name=".Markers.MarkersActivity" />
-        <activity android:name=".CreateQuestion.CreateQuestionConditionsActivity" />
-        <activity android:name=".Tops.TopActivity" />
-        <activity android:name=".Selection.SelectionActivity" />
-        <activity android:name=".Followers.FollowersActivity" />
-        <activity android:name=".CreateQuestion.CreateQuestionSettingsActivity" />
-        <activity android:name=".Voters.VotersActivity" />
-        <activity android:name=".News.NewsActivity" />
-        <activity android:name=".LoginPage.NetworksActivity">
+        <activity android:name="com.TwoButtons.ilya.TwoButtons.LoginPage.MainActivity"/>
+        <activity android:name="com.TwoButtons.ilya.TwoButtons.RegistrationPage.RegisterActivity" />
+        <activity android:name="com.TwoButtons.ilya.TwoButtons.UserPage.UserActivity" />
+        <activity android:name="com.TwoButtons.ilya.TwoButtons.Markers.MarkersActivity" />
+        <activity android:name="com.TwoButtons.ilya.TwoButtons.CreateQuestion.CreateQuestionConditionsActivity" />
+        <activity android:name="com.TwoButtons.ilya.TwoButtons.Tops.TopActivity" />
+        <activity android:name="com.TwoButtons.ilya.TwoButtons.Selection.SelectionActivity" />
+        <activity android:name="com.TwoButtons.ilya.TwoButtons.Followers.FollowersActivity" />
+        <activity android:name="com.TwoButtons.ilya.TwoButtons.CreateQuestion.CreateQuestionSettingsActivity" />
+        <activity android:name="com.TwoButtons.ilya.TwoButtons.Voters.VotersActivity" />
+        <activity android:name="com.TwoButtons.ilya.TwoButtons.News.NewsActivity" />
+        <activity android:name="com.TwoButtons.ilya.TwoButtons.LoginPage.NetworksActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

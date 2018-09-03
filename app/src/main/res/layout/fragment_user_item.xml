@@ -4,7 +4,7 @@
     android:layout_height="wrap_content"
     android:orientation="horizontal">
 
-    <com.example.ilya.ourfuture.UsersList.UserItem
+    <com.TwoButtons.ilya.TwoButtons.UsersList.UserItem
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/uiUserList"/>

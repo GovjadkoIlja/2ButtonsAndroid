@@ -30,7 +30,7 @@
 
     </RelativeLayout>
 
-    <com.example.ilya.ourfuture.CreateQuestion.CreateQuestionEditText
+    <com.TwoButtons.ilya.TwoButtons.CreateQuestion.CreateQuestionEditText
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:background="@color/colorWhite"
@@ -61,14 +61,14 @@
 
     </RelativeLayout>
 
-    <com.example.ilya.ourfuture.CreateQuestion.CreateQuestionEditText
+    <com.TwoButtons.ilya.TwoButtons.CreateQuestion.CreateQuestionEditText
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:id="@+id/cqOption1"
         android:background="@color/colorWhite"
         android:layout_marginBottom="@dimen/createQuestionMarginBetweenOptions"/>
 
-    <com.example.ilya.ourfuture.CreateQuestion.CreateQuestionEditText
+    <com.TwoButtons.ilya.TwoButtons.CreateQuestion.CreateQuestionEditText
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:id="@+id/cqOption2"
